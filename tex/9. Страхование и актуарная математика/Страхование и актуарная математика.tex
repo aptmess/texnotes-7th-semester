@@ -1,0 +1,91 @@
+\RequirePackage{ifluatex}
+\let\ifluatex\relax
+
+\documentclass[aps,%
+12pt,%
+final,%
+oneside,
+onecolumn,%
+musixtex, %
+superscriptaddress,%
+centertags]{article} %% 
+\topmargin=-40pt
+\textheight=650pt
+\usepackage[english,russian]{babel}
+\usepackage[utf8]{inputenc}
+%всякие настройки по желанию%
+\usepackage[colorlinks=true,linkcolor=black,unicode=true]{hyperref}
+\usepackage{euscript}
+\usepackage{supertabular}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsthm,amssymb, amsmath}
+\usepackage{textcomp}
+\usepackage[noend]{algorithmic}
+\usepackage[ruled]{algorithm}
+\usepackage{lipsum}
+\usepackage{indentfirst}
+\usepackage{babel}
+\usepackage{pgfplots}
+\usepackage{setspace}
+\linespread{1.2}
+\pgfplotsset{compat=1.9}
+\selectlanguage{russian}
+\pgfplotsset{model/.style = {blue, samples = 100}}
+\pgfplotsset{experiment/.style = {red}}
+\theoremstyle{plain}
+\binoppenalty=10000
+\newtheorem{theorem}{Теорема}[section] %
+\setlength{\parindent}{2.4em}
+\setlength{\parskip}{0.1em}
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}[subsection]
+\theoremstyle{remark}
+\newtheorem{remark}{Замечание}[section]
+
+\newtheorem{corollary}{Следствие}
+\newtheorem{proposition}{Proposition}
+\newtheorem{example}{Пример}
+\renewcommand*{\proofname}{Proof}
+
+\newtheorem{lemma}{Лемма}[section]
+
+\graphicspath{ {./image/} }
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+
+\begin{document}
+
+\begin{titlepage} 
+\begin{center}
+\textbf{}\\[10.0cm]
+\textbf{\LARGE Страхование и актуарная математика}\\[0.5cm]
+\textbf{\Large Александр Широков ПМ-1701} \\[0.2cm]
+
+
+\begin{center} \large
+{Преподаватель:} \\[0.5cm]
+\textsc {Радионов Андрей Владимирович}\\
+\end{center}
+
+\vfill 
+
+
+
+{\large {Санкт-Петербург}} \par
+{\large {2020 г., 7 семестр}}
+\end{center} 
+\end{titlepage}
+
+% Table of contents
+\begin{thebibliography}{3}
+  \bibitem{A}
+\end{thebibliography}
+\tableofcontents
+\newpage
+
+
+
+
+
+\end{document}
