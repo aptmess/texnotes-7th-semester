@@ -1,0 +1,163 @@
+\RequirePackage{ifluatex}
+\let\ifluatex\relax
+
+\documentclass[aps,%
+12pt,%
+final,%
+oneside,
+onecolumn,%
+musixtex, %
+superscriptaddress,%
+centertags]{article} %% 
+\topmargin=-40pt
+\textheight=650pt
+\usepackage[english,russian]{babel}
+\usepackage[utf8]{inputenc}
+%всякие настройки по желанию%
+\usepackage[colorlinks=true,linkcolor=black,unicode=true]{hyperref}
+\usepackage{euscript}
+\usepackage{supertabular}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsthm,amssymb, amsmath}
+\usepackage{textcomp}
+\usepackage[noend]{algorithmic}
+\usepackage[ruled]{algorithm}
+\usepackage{lipsum}
+\usepackage{indentfirst}
+\usepackage{babel}
+\usepackage{pgfplots}
+\usepackage{setspace}
+\linespread{1.2}
+\pgfplotsset{compat=1.9}
+\selectlanguage{russian}
+\pgfplotsset{model/.style = {blue, samples = 100}}
+\pgfplotsset{experiment/.style = {red}}
+\theoremstyle{plain}
+\binoppenalty=10000
+\newtheorem{theorem}{Теорема}[section] %
+\setlength{\parindent}{2.4em}
+\setlength{\parskip}{0.1em}
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}[subsection]
+\theoremstyle{remark}
+\newtheorem{remark}{Замечание}[section]
+
+\newtheorem{corollary}{Следствие}
+\newtheorem{proposition}{Proposition}
+\newtheorem{example}{Пример}
+\renewcommand*{\proofname}{Proof}
+
+\newtheorem{lemma}{Лемма}[section]
+
+\graphicspath{ {./image/} }
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+
+\begin{document}
+
+\begin{titlepage} 
+\begin{center}
+\textbf{}\\[10.0cm]
+\textbf{\LARGE Методы анализа данных}\\[0.5cm]
+\textbf{\Large Александр Широков ПМ-1701} \\[0.2cm]
+
+
+\begin{center} \large
+{Преподаватель:} \\[0.5cm]
+\textsc {Ивахненко Дарья Александровна}\\
+\end{center}
+
+\vfill 
+
+
+
+{\large {Санкт-Петербург}} \par
+{\large {2020 г., 7 семестр}}
+\end{center} 
+\end{titlepage}
+
+% Table of contents
+\begin{thebibliography}{3}
+  \bibitem{A}
+\end{thebibliography}
+\tableofcontents
+\newpage
+
+\section{01.09.2020}
+
+\subsection{Задача обучения по предедентам}
+
+Пусть $X$ - множество объектов, а $Y$ - множество ответов. $y: X \to Y$ - неизвестная зависимость.
+
+Дано: $\{x_1,\ldots,x_l\} \subset X$ - обучающая выборка, а $y_i = y(x_i), i = 1, \ldots,l$ - известные ответы.
+
+Требуется найти $a: X \to Y$ - алгоритм, решающую функцию, приближающую $y$ на всем множестве $X$.
+
+\subsection{Типы задач}
+
+\textbf{Задачи восстановления регрессии:}
+
+\begin{itemize}
+	\item $Y = \mathbb{R}$ - вся числовая ось:
+	\begin{itemize}
+		\item определение температуры воздуха метеорологического поля
+		\item оценка влияния факторов потребления
+	\end{itemize}
+	\item $Y \in [0;+\infty)$:
+	\begin{itemize}
+		\item задачи медицинской диагностики: прогнозирование ожидаемого время действия препарата
+		\item задачи кредитного скоринга: определение величины кредитного лимита
+		\item определение расхода топлива по техническим характеристикам
+	\end{itemize}
+	\item $Y \in [0,1,\ldots,+\infty)$ - счетная целевая переменная
+\end{itemize}
+
+\textbf{Задача классификации:}
+
+\begin{itemize}
+	\item $Y = \{-1,+1\}$ - классификация на два класса:
+	\begin{itemize}
+		\item задачи кредитного скоринга: решение о выдаче кредита
+		\item предсказание оттока клиентов
+	\end{itemize}
+
+	\item $Y = \{1,\ldots,K\}$ - классификация на $K$ непересекающихся классов:
+	\begin{itemize}
+		\item задачи медицинской диагностики: определение диагноза
+		\item распознавание символов
+		\item определение жанра
+	\end{itemize}
+
+	\item $Y = \{0,1\}^K$ - на $K$ классов, которые могут пересекаться:
+	\begin{itemize}
+		\item определение ключевых слов для оптимизации поиска
+		\item определение присутствующих на фото объектов
+	\end{itemize}
+\end{itemize}
+
+\textbf{Типы признаков}
+
+\begin{itemize}
+	\item $D_j = \{0,1\}$ - бинарный признак $f_j$:
+	\begin{itemize}
+		\item пол
+		\item является ли..?
+	\end{itemize}
+	\item $|D_j| < \infty$ - номинальный признак $f_j$:
+	\begin{itemize}
+		\item город
+		\item цвет
+	\end{itemize}
+	\item $|D_j| < \infty$, $D_j$ - упорядочено - порядковый признак $f_j$:
+	\begin{itemize}
+		\item уровень холестерина (ниже нормы, норма, выше нормы)
+	\end{itemize}
+	\item $D_j = \textbf{R}$ - количественный признак $f_j$:
+	\begin{itemize}
+		\item длина и ширина объекта
+	\end{itemize}
+\end{itemize}
+
+
+\end{document}
