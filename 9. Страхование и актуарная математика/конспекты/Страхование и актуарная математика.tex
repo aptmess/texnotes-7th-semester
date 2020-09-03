@@ -1,0 +1,149 @@
+\RequirePackage{ifluatex}
+\let\ifluatex\relax
+
+\documentclass[aps,%
+12pt,%
+final,%
+oneside,
+onecolumn,%
+musixtex, %
+superscriptaddress,%
+centertags]{article} %% 
+\topmargin=-40pt
+\textheight=650pt
+\usepackage[english,russian]{babel}
+\usepackage[utf8]{inputenc}
+%всякие настройки по желанию%
+\usepackage[colorlinks=true,linkcolor=black,unicode=true]{hyperref}
+\usepackage{euscript}
+\usepackage{supertabular}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsthm,amssymb, amsmath}
+\usepackage{textcomp}
+\usepackage[noend]{algorithmic}
+\usepackage[ruled]{algorithm}
+\usepackage{lipsum}
+\usepackage{indentfirst}
+\usepackage{babel}
+\usepackage{pgfplots}
+\usepackage{setspace}
+\linespread{1.2}
+\pgfplotsset{compat=1.9}
+\selectlanguage{russian}
+\pgfplotsset{model/.style = {blue, samples = 100}}
+\pgfplotsset{experiment/.style = {red}}
+\theoremstyle{plain}
+\binoppenalty=10000
+\newtheorem{theorem}{Теорема}[section] %
+\setlength{\parindent}{2.4em}
+\setlength{\parskip}{0.1em}
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}[subsection]
+\theoremstyle{remark}
+\newtheorem{remark}{Замечание}[section]
+
+\newtheorem{corollary}{Следствие}
+\newtheorem{proposition}{Proposition}
+\newtheorem{example}{Пример}
+\renewcommand*{\proofname}{Proof}
+
+\newtheorem{lemma}{Лемма}[section]
+
+\graphicspath{ {./image/} }
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+
+\begin{document}
+
+\begin{titlepage} 
+\begin{center}
+\textbf{}\\[10.0cm]
+\textbf{\LARGE Страхование и актуарная математика}\\[0.5cm]
+\textbf{\Large Александр Широков ПМ-1701} \\[0.2cm]
+
+
+\begin{center} \large
+{Преподаватель:} \\[0.5cm]
+\textsc {Радионов Андрей Владимирович}\\
+\end{center}
+
+\vfill 
+
+
+
+{\large {Санкт-Петербург}} \par
+{\large {2020 г., 7 семестр}}
+\end{center} 
+\end{titlepage}
+
+% Table of contents
+\begin{thebibliography}{3}
+  \bibitem{A}
+\end{thebibliography}
+\tableofcontents
+\newpage
+
+\section{01.09.2020}
+
+\subsection{О чём предмет}
+
+Страхование вклада - если у банка возникают проблемы, то нам возвращают деньги банк в некоторой границе. Страхование - выход США из великой депрессии. Застраховать в принципе можно все что угодно.
+
+\section{03.09.2020}
+
+В ситуациях неопределенностей человек принимает решение не на основании математического ожидания $E\xi$, а на основании математического ожидания некоторой функции полезности $Eu(\xi)$, где $u$ - некая функция полезности. За $w$ - обозначим капитал, а за $a$ - плата за риск, $\xi$ - потенциальные убытки. Тогда ситуация будет описываться:
+$$Eu(w-\xi) \quad u(w-a)$$
+
+Пусть $W=100$ и случайая величина убытков принимает следующие значения: $0$ с вероятностью $0.9$,$1$ с вероятностью $0.05$,$20$ с вероятностью $0.05$. Функция полезности - $u(x) = \ln(x+1)$. Математическое ожидание убытка $E\xi = 0.55$. Приходит банк и говорит продать за $60$.
+
+$w-\xi$ - начальное состояние, $w-a$ - возможное состояние, сравнение полезностей
+
+Посчитаем:
+$$Eu(w-\xi) = E \ln(100-\xi+1) = \ln (101-0+1) \cdot 0.9 + \ln (100-1+1) \cdot 0.05+ \ln (100-10+1) \cdot 0.05 = 4.60941$$
+$$E \ln(100+1-0.55) = 4.60966$$
+
+Есть $W, u(\xi), \xi, f_{\xi}(x)$:
+$$E\left(u(W-\xi)\right) = \int\limits_{-\infty}^{\infty}u(W-x)f_{\xi}(x)dx$$
+
+Вместо бесконечностей используются границы интегрирования.
+$$\Delta u = \frac{\Delta W}{W} \qquad du = \frac{d W}{W} \qquad u = \ln W$$
+
+\begin{definition}
+	Пусть есть набор случайных величин $\xi$ и будем задавать предпочтение подобным образом $\xi \geq \eta$ - предпочтение нестрого отношение, если существуют какие-то пары, которые находятся в бинарном отношении.
+
+	Мы будем говорить про свойства отношений:
+	\begin{enumerate}
+		\item Пиолнота: $\xi \geq \eta$ или $\eta \geq \xi$
+		\item Транзитивность: $\xi \geq \eta, \eta \geq \varepsilon$ $\Rightarrow$ $\xi \geq \varepsilon$
+		\item Из первого следует рефлексиновть
+	\end{enumerate}
+
+	Будем говорить, что данное бинарное отношение является отношением \textit{эквивалентности} - рефлексивно, транзитивно, симметрично.
+\end{definition}
+\begin{definition}
+	Будем говорить, что $\xi \geq \eta$ и $\xi \not \sim \eta$ - отношение строго порядка
+\end{definition}
+\begin{definition}
+	$V: \Xi \to R$ - функция $V$ сохраняет упорядочивание, если $\xi \geq \eta$, то:
+	$$V(\xi) \geq V(\eta)$$
+\end{definition}
+\begin{definition}
+	Пусть есть набор $\mathbb{A}_j$. $B \in A$ является полным по упорядочиванию, если для любых элементов $a,b \in A$ существует элемент $\exists c \in B$, что либо $a \geq c > b$ либо $a >c \geq b$.
+\end{definition}
+\begin{theorem}
+	На $\Xi \leq V$ существует отношение, сохраняющее отношение, тогда и только тогда, когда в $\Xi$ существует счетно или конечное подмножество плотное по упорядочиванию.
+\end{theorem}
+
+Как построить функцию полезности? Построим отношение порядка на множестве товаров, строим кривые безразличия - классы эквивалентности (все элементы внутри эквивалентны между собой), они не пересекаются.
+
+Построим прямую, единичный вектор (бисскетриса). На что нужно умножить единичный вектор, чтобы попасть в точку пересечения, и высчитываем функцию полезности.
+
+$$V^*(\xi) = V(x_1)p_1+V(x_2)p_2$$
+$$\xi: x_1 \mapsto p_1,  x_2 \mapsto p_2$$
+Мы можем выбрать функцию полезности таким образом
+
+
+
+
+\end{document}

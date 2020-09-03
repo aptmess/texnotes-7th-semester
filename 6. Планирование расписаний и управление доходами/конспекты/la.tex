@@ -1,0 +1,262 @@
+\RequirePackage{ifluatex}
+\let\ifluatex\relax
+
+\documentclass[aps,%
+12pt,%
+final,%
+oneside,
+onecolumn,%
+musixtex, %
+superscriptaddress,%
+centertags]{article} %% 
+\topmargin=-40pt
+\textheight=650pt
+\usepackage[english,russian]{babel}
+\usepackage[utf8]{inputenc}
+%всякие настройки по желанию%
+\usepackage[colorlinks=true,linkcolor=black,unicode=true]{hyperref}
+\usepackage{euscript}
+\usepackage{supertabular}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsthm,amssymb, amsmath}
+\usepackage{textcomp}
+\usepackage[noend]{algorithmic}
+\usepackage[ruled]{algorithm}
+\usepackage{lipsum}
+\usepackage{indentfirst}
+\usepackage{babel}
+\usepackage{pgfplots}
+\usepackage{setspace}
+\linespread{1.2}
+\pgfplotsset{compat=1.9}
+\selectlanguage{russian}
+\pgfplotsset{model/.style = {blue, samples = 100}}
+\pgfplotsset{experiment/.style = {red}}
+\theoremstyle{plain}
+\binoppenalty=10000
+\newtheorem{theorem}{Теорема}[section] %
+\setlength{\parindent}{2.4em}
+\setlength{\parskip}{0.1em}
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}[subsection]
+\theoremstyle{remark}
+\newtheorem{remark}{Замечание}[section]
+
+\newtheorem{corollary}{Следствие}
+\newtheorem{proposition}{Proposition}
+\newtheorem{example}{Пример}
+\renewcommand*{\proofname}{Proof}
+
+\newtheorem{lemma}{Лемма}[section]
+
+\graphicspath{ {./image/} }
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+
+\begin{document}
+
+\begin{titlepage} 
+\begin{center}
+\textbf{}\\[10.0cm]
+\textbf{\LARGE Планирование расписаний и управление доходами}\\[0.5cm]
+\textbf{\Large Александр Широков ПМ-1701} \\[0.2cm]
+
+
+\begin{center} \large
+{Преподаватель:} \\[0.5cm]
+\textsc {Васильев Юрий Михайлович}\\
+\end{center}
+
+\vfill 
+
+
+
+{\large {Санкт-Петербург}} \par
+{\large {2020 г., 7 семестр}}
+\end{center} 
+\end{titlepage}
+
+% Table of contents
+\begin{thebibliography}{3}
+  \bibitem{A}
+\end{thebibliography}
+\tableofcontents
+\newpage
+
+\section{02.09.2020}
+
+\subsection{Задача из авиакомпании Россия}
+
+В задачах планирования авиаперелетов:
+
+\begin{itemize}
+	\item расписание судов
+	\item маршутизация
+	\item построение графика полета летного состава
+\end{itemize}
+
+Мы поговорим о построении графика полета летного состава. Зарплата бортпроводника зависит от навыков и от некоторыз других факторов, но значительная часть денег тратилась на штрафы, которые выплачивались в пользу бортпроводников, потому что есть \textit{приказ}, о котором бортпроводник не может проводить в воздухе больше определенного времени в воздухе. 
+
+Расписание в авиакомпании Россия делалось вручную и компания тратила много денег на выплаты бортпроводникам. OpenSky - программное обеспечение для обслуживания бортпроводников, но оно использовалось.
+
+Множество борпроводников разбито на $4$ подмножеств с примерно одинаковыми характеристиками. Каждое подмножество называется \textbf{книга}.
+
+\textbf{Рейс} - перелет из Петербурга в Москву, а \textbf{связка} - перелет из Петербурга в Мосвку и обратно. 
+
+Множесто связок разбивалось на $4$ подмножества.
+
+После этого соединяется первая книга и первый рейс и получается \textbf{рабочий стол}. Каждый рабочий стол можно описать характеристиками какими-то. С каждым рабочим столом работает один эксперт и все оказываются без перегрузов.
+
+Задача: необходимо так разбить связки на подмножества, чтобы характеристики рабочих столов были примерно одинаковы.
+
+\subsubsection{BiWay (ToWay) Number Partitional Problem}
+
+Дано $n$ натуральных чисел и мультимножество (элементы могут повторяться) $S$, которое описывает этот набор $n$. Нам необходимо разбить подмножество $S=\{s_1,\ldots,s_n\}$ на два подмножества, каждое подмножество характерирузет сумму чисел, чтобы минимизировать максимальную сумму чисел в подмножестве.
+
+\textbf{Greedy alghorytm}
+
+\begin{enumerate}
+	\item Отсортировать $S$ в порядке убывания
+	\item На каждом шаге мы последовательно распределяем в две группы, кладём в группу с текущей наименьшей суммой. Если сумма одинакова, то кладем случайно.
+\end{enumerate}
+
+\textbf{Complete Greedy Alghorytm}
+
+\begin{enumerate}
+	\item Сортируем мультимножество в порядке убывания (распределяем большие числа и добиваем маленькими)
+	\item Данный алгоритм исследует бинарное дерево, где каждому уровень - число из сортированного мультимножества, в каждой вершине - ветвление. В левой ветке - кладем в группу с наименьшей суммой, а в правой ветке - с наибольшей.
+\end{enumerate}
+
+Правила, позволяющие сократить размер нашего дерева:
+
+\begin{itemize}
+	\item Если сумма чисел в подмножествах равна, то мы кладем число только в одно подмножество
+	\item Если оставшиеся распределенные числа не превосходят разницу между подмножествами, то мы кладем эти числа в группу с наименьшей суммой.
+\end{itemize}
+
+Домашнее задание: реализация алгоритма, причем настрока алгоритма в трех вариантах:
+\begin{itemize}
+	\item Исследует полное дерево решений и находит ответ;
+	\item Алгоритм работает заданное число секунд и возвращает наилучший найденный результат за $t$ время (рекурсивная функция(оставшиеся числа, подмножества 1, подмножества 2))
+	\item Первое найденное решение (первый лист, который мы нашли).
+\end{itemize}
+
+\textbf{Алгоритм Кармаркара-Карпа (эвристический)}
+
+\begin{enumerate}
+	\item Сортируем мультимножество в порядке убывания (распределяем большие числа и добиваем маленькими)
+	\item Два наибольших числа заменяется на их разницу и кладём эту разницу в список с сортировкой и опять пересортировываем - кладем числа в два разных подмножества (интерпретация).
+
+	\item Так делаем, пока не получим одно число: разницу межде максимальным и минимальным подмножеством
+	\item Восстанавливаем
+\end{enumerate}
+
+Пример:
+$$\{16,15,12,10,5,1\} \mapsto \{12,10,5,1,1\} \mapsto \{5,2,1,1\} \mapsto \{3,1,1\} \mapsto \{2,1\} \mapsto \{1\}$$
+
+\textbf{Compete алгоритм Кармакара-Карпа}
+
+\begin{enumerate}
+	\item Сортируем мультимножество в порядке убывания (распределяем большие числа и добиваем маленькими)
+	\item Исследуем бинарное дерево в глубину, исследуя левую ветку
+\end{enumerate}
+
+Домашнее задание: реализовать алгоритм для решения.
+
+\subsubsection{MultiWay (ToWay) Number Partitional Problem}
+
+Дано $n$ натуральных чисел и мультимножество (элементы могут повторяться) $S$, которое описывает этот набор $n$. Нам необходимо разбить подмножество $S=\{s_1,\ldots,s_n\}$ на $K$ подмножества, каждое подмножество характерирузет сумму чисел, чтобы минимизировать:
+\begin{enumerate}
+	\item минимизация максимальной суммы
+	\item максимизация минимальной суммой
+	\item минимизация разности между наибольшей и наименьшей суммой в подмножествах
+	\item идеальная сумма - $\frac{S}{K}$ - минимизировать отклонения идеальной суммы
+\end{enumerate}
+
+$$X_{i,j} = \begin{cases}
+	1, \text{if } S_i \text{ in } j \quad S_j \\
+	0
+\end{cases}$$
+
+$$Z-W \to \min$$
+$$\sum\limits_{j=1}^k X_{s,j}=1 \quad \forall s \in S$$
+
+$Z$ - наибольшая сумма через $x$, а $W$ - наименьшую сумму через подмножества
+
+$$Z \geq \sum\limits_{i=1}^n s_i X_{i,j} \quad \forall j \in \{1,\ldots,k\}$$
+$$W \leq \sum\limits_{i=1}^n s_i X_{i,j} \quad \forall j \in \{1,\ldots,k\}$$
+$$X_{i,j} \in \{0,1\}, \quad \forall i \in \{1,\ldots,n\}, \forall j \in \{1,\ldots,k\}$$
+
+\textbf{Жадный алгоритм}
+
+$L_j (S_1,S_2,\ldots,S_k,S_i)$
+
+данная функция возвращает значение целевой функции, если мы положим число $S_i$ в $j$-е подмножество.
+
+На каждом шаге алгоритма мы ищем такое $j \in \{1,\ldots,k\}$ такое, что значение целевой функции $gr = argmin L_j$ и так до тех пор пока мы не распределим все наши числа из отсортированного подмножества.
+$$S_{gr} = S_{gr} \cup \{S_i\}$$
+
+Программирование:
+
+$c$ - список неизвестных, $m$ - коэффициенты при ограничениях, $\{\{const\},\{type\}\}$. Если $0$, то равенство, если $1$, то $\geq$, если $-1$, то $\leq$. 4-ый аргумент - интервалы, в которых могут применять значения неизвестные - $lbound, ubound$. Последний - какому множеству чисел принадлежит тип.
+
+Домашнее задание: минимизация сумма отклонения по модулю от идеального разбиения и реализация.
+
+$$\overline{y} = \frac{\sum S}{K}$$
+$$\sum\limits_{i=1}^k |y_i - \overline{y}|$$
+
+Линеаризация
+
+\begin{itemize}
+	\item Линеаризация модуля в ограничениях
+	$$|X| \leq b (X=\sum\limits_{i=1}^n a_ix_i, b \geq 0)$$
+	$$\begin{cases}
+		x \leq b \\
+		x \geq -b
+	\end{cases}$$
+	\item Допустимые значения
+	$$x = 0 \text{ или } 0 \leq X \leq b, a >0$$
+	$$y = \begin{cases}
+		0, x=0 \\
+		1
+	\end{cases}$$
+	$$\begin{cases}
+		x \geq ay \\
+		x \leq by \\
+		y \in \{0,1\}
+	\end{cases}$$
+
+	\item Условие ИЛИ
+	$$\sum\limits_{i=1} ^n c_ix_i \to \min$$
+	$$\sum\limits_{i=1}^n a_{1,i}x_i \leq b_1 + M_1y$$
+	$$\sum\limits_{i=1}^n a_{2,i}x_i \leq b_2+ M_2(1-y) \quad y \in \{0,1\}$$  
+	\item Модуль со знаком $\geq$ 
+	\item IF
+	$$\text{if} \quad  \sum\limits_{i=1}^n a_{1,i}x_i \leq b_1 \to  \sum\limits_{i=1}^n a_{1,i}x_i \geq b_1 + \varepsilon$$
+	$$\text{then} \quad \sum\limits_{i=1}^n a_{2,i}x_i \leq b_2 $$
+	и мы превратили в третий пункт
+	$$y \in \{0,1\}$$
+	\item Умножение бинарных переменных
+	$$\ldots + x_1\cdot x_2 + \ldots \leq b$$
+	$$x_1,x_2 \in \{0,1\}$$
+	$$y \in \{0,1\}$$
+	$$y \leq x_1$$
+	$$y \leq x_2$$
+	$$y \geq x_1+x_2-1$$
+	\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{c|c|c|c|c} 
+		$x_1$ & 1 & 0 & 0 & 0  \\ 
+		$x_2$ & 1 & 0 & 1 & 0  \\ \hline
+		$y$ & 1 & 0 & 0 & 0 
+		\end{tabular}
+
+	Линеаризация
+	\end{center}
+\end{table}
+\end{itemize}
+
+
+
+\end{document}

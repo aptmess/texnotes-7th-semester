@@ -1,0 +1,115 @@
+\RequirePackage{ifluatex}
+\let\ifluatex\relax
+
+\documentclass[aps,%
+12pt,%
+final,%
+oneside,
+onecolumn,%
+musixtex, %
+superscriptaddress,%
+centertags]{article} %% 
+\topmargin=-40pt
+\textheight=650pt
+\usepackage[english,russian]{babel}
+\usepackage[utf8]{inputenc}
+%всякие настройки по желанию%
+\usepackage[colorlinks=true,linkcolor=black,unicode=true]{hyperref}
+\usepackage{euscript}
+\usepackage{supertabular}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsthm,amssymb, amsmath}
+\usepackage{textcomp}
+\usepackage[noend]{algorithmic}
+\usepackage[ruled]{algorithm}
+\usepackage{lipsum}
+\usepackage{indentfirst}
+\usepackage{babel}
+\usepackage{pgfplots}
+\usepackage{setspace}
+\linespread{1.2}
+\pgfplotsset{compat=1.9}
+\selectlanguage{russian}
+\pgfplotsset{model/.style = {blue, samples = 100}}
+\pgfplotsset{experiment/.style = {red}}
+\theoremstyle{plain}
+\binoppenalty=10000
+\newtheorem{theorem}{Теорема}[section] %
+\setlength{\parindent}{2.4em}
+\setlength{\parskip}{0.1em}
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}[subsection]
+\theoremstyle{remark}
+\newtheorem{remark}{Замечание}[section]
+
+\newtheorem{corollary}{Следствие}
+\newtheorem{proposition}{Proposition}
+\newtheorem{example}{Пример}
+\renewcommand*{\proofname}{Proof}
+
+\newtheorem{lemma}{Лемма}[section]
+
+\graphicspath{ {./image/} }
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+
+\begin{document}
+
+\begin{titlepage} 
+\begin{center}
+\textbf{}\\[10.0cm]
+\textbf{\LARGE Современные информационные технологии}\\[0.5cm]
+\textbf{\Large Александр Широков ПМ-1701} \\[0.2cm]
+
+
+\begin{center} \large
+{Преподаватель:} \\[0.5cm]
+\textsc {Леора}\\
+\end{center}
+
+\vfill 
+
+
+
+{\large {Санкт-Петербург}} \par
+{\large {2020 г., 7 семестр}}
+\end{center} 
+\end{titlepage}
+
+% Table of contents
+\begin{thebibliography}{3}
+  \bibitem{A}
+\end{thebibliography}
+\tableofcontents
+\newpage
+
+\section{03.09.2020}
+
+\subsection{Типы аномальных данных}
+
+Существует два основных направления занимающихся поиском аномалий в данных:
+\begin{itemize}
+	\item Выявление выбросов (Outlier Detection)
+	\item Выявление нетипичных объектов (Novelty Detection)
+\end{itemize}
+
+Постановка задачи выявления аномалий.
+
+В дальнейшем будем полагать, что данные имеют признаковое представление, то есть каждый объект $x$ задан в виде некоторого вектора из $R^n$. В заданном множестве $X$ решить задачу классификации на $0$ или $1$ - аномалия ли или нет.
+
+Все алгоритмы детектирования аномалий сводятся к построению по некоторой функции $anomaly_score(x)$, которая по данному объекту выдает некоторый рейтинг аномальности. После этого разделение на класс аномалий и класс нормальных данных производится бинаризацией по некоторому порогу.
+
+1. Статистические тесты
+
+Как правило, статистические тесты применяют для отдельных признаков и отлавливают экстремальные значения. Для этого испольуют $Z-value$ или $Kurtozis$:
+$$Z-value Z_i = \frac{|x_i-\mu|}{\sigma}$$
+$$Kurtozis = \frac{1}{n}\sum\limits_{i=1}^n Z_i^4$$
+
+Куртозис отвечает за то, насколько вытянуто наше пространство признаков.
+
+
+
+
+
+\end{document}
