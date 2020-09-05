@@ -139,9 +139,54 @@ $$\Delta u = \frac{\Delta W}{W} \qquad du = \frac{d W}{W} \qquad u = \ln W$$
 
 Построим прямую, единичный вектор (бисскетриса). На что нужно умножить единичный вектор, чтобы попасть в точку пересечения, и высчитываем функцию полезности.
 
-$$V^*(\xi) = V(x_1)p_1+V(x_2)p_2$$
+$$V^*(\xi) = Eu(\xi) = \sum\limits u(x_i)p_i = V(x_1)p_1+V(x_2)p_2$$
 $$\xi: x_1 \mapsto p_1,  x_2 \mapsto p_2$$
 Мы можем выбрать функцию полезности таким образом
+
+\section{04.09.2020}
+
+Пусть случайная величина принимает значения $x \mapsto p$ и $y \mapsto 1-p$. Введем обозначение для такой случайной величины:
+$$(x,y)_p$$
+
+Наложим некоторые ограничения:
+\begin{itemize}
+	\item Тогда индивид индеферентен: $(x,y)_1 \sim x$.
+
+	Например: пусть $\xi$ равномерно распределен на отрезке $[0,1]$: $\xi \sim \mathbb{U}[0,1]$.
+	\item $(x,y)_p \sim (y,x)_{1-p}$
+	\item $((x,y)_p,y)_q \sim (x,y)_{pq}$
+
+	Пример: $(1,(2,3)_{\frac{1}{2}})_{\frac{1}{2}}$ для игры $1 \mapsto \frac{1}{2},2 \mapsto \frac{1}{4},3 \mapsto \frac{1}{4}$
+\end{itemize}
+
+Ограничения:
+\begin{itemize}
+	\item $\{p \in [0,1]: (x,y)_p \geq z\}$ - замкнутное множество
+	\item $\{p \in [0,1]: z \geq (x,y)_p \}$ - замкнутное множество $\forall x,y,z \in \Xi$
+	\item $x \sim y: (x,z)_p \sim (y,z)_p$
+	\item $\exists w,b: \forall \xi \in \Xi$ выполняется, что $w \geq x \geq b$
+	\item $(b,w)_p \geq (b,w)_q \Leftrightarrow p > q$
+\end{itemize}
+
+\begin{theorem}
+	Если $\Xi$ и на нём введено отношение предпочтения $\geq$, то найдётся такая функция $V$, что $$V((x,y)_p) = pV(x)+(1-p)V(y)$$
+	$$Eu(\xi) = (x,y)_p$$
+	$$V(\xi) = Eu(\xi)$$
+	$$u(y): R \to R, V: \Xi \to R$$
+\end{theorem}
+
+Доказательство: Хэливэриан.
+
+Рассмотрим некоторый функционал $V((x,y)_p)$ и применим к нему некоторое преобразование:
+$$f\left(V((x,y)_p)\right) = f(V(x)\cdot p+V(y)\cdot (1-p)) = f(V(x))\cdot p + f(V(y))\cdot (1-p)$$
+
+и это линейная функция - линейное преобразование.
+
+Пример: $u(x) = \ln (x+1)$, $\xi, f_{\xi}(y), Eu(\xi) = \int\limits u(x)f_{\xi}(x)dx$
+
+$u_1(x) = a\ln(x+1) + b, a>0$
+$$Eu_1(\xi) =  \int\limits  a\ln(x+1) + bf_{\xi}(x)dx = a\int ln(x+1)f(x)dx+b\int\limits f(x)dx = a\int\limits u(x)f_{\xi}(x)dx + b$$
+следовательно функционал является единственным с точностью до линейного преобразования.
 
 
 
