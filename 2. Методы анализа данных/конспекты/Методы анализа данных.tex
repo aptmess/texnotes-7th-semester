@@ -1,24 +1,33 @@
-\RequirePackage{ifluatex}
-\let\ifluatex\relax
+\documentclass[%
+10pt, %
+final, % 
+oneside, % 
+onecolumn, %  
+centertags]{article} % относится к классу article и размер шрифта 12 пунктовб, {article: статья, report: отчеты и диссертации, book: книга, letter: письмо}
 
-\documentclass[aps,%
-12pt,%
-final,%
-oneside,
-onecolumn,%
-musixtex, %
-superscriptaddress,%
-centertags]{article} %% 
-\topmargin=-40pt
-\textheight=650pt
-\usepackage[english,russian]{babel}
-\usepackage[utf8]{inputenc}
-%всякие настройки по желанию%
-\usepackage[colorlinks=true,linkcolor=black,unicode=true]{hyperref}
+% ------ page construction 
+
+\topmargin= -30pt % насколько сверху будет страница
+\textheight= 650pt
+
+% ------ Пакеты расширения
+
+\usepackage[utf8]{inputenc} % задает кодировку, utf-8 кодировка, включающая в себя знаки почти всех языков мира
+\usepackage[english, russian]{babel} % подключает необходимые языки, основным языком является английский
+\selectlanguage{russian} % настройки будут на английском, но писать будет на русском
+
 \usepackage{euscript}
 \usepackage{supertabular}
-\usepackage[pdftex]{graphicx}
-\usepackage{amsthm,amssymb, amsmath}
+
+\usepackage[colorlinks=true,linkcolor=black,unicode=true,urlcolor = blue]{hyperref} %hyperef
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage[pdftex]{graphicx} % для графики и изображений
+\graphicspath{ {./images/} } % задаю начальный каталог, их может быть несколько, откуда буду добавлять картинки в файл
+
+
+\usepackage{alltt} % текст интерпретируется буквально
+\usepackage{amsthm, amssymb, amsmath, amsfonts} % математический пакет, математические шрифты
 \usepackage{textcomp}
 \usepackage[noend]{algorithmic}
 \usepackage[ruled]{algorithm}
@@ -27,31 +36,38 @@ centertags]{article} %%
 \usepackage{babel}
 \usepackage{pgfplots}
 \usepackage{setspace}
-\linespread{1.2}
-\pgfplotsset{compat=1.9}
-\selectlanguage{russian}
-\pgfplotsset{model/.style = {blue, samples = 100}}
-\pgfplotsset{experiment/.style = {red}}
-\theoremstyle{plain}
-\binoppenalty=10000
-\newtheorem{theorem}{Теорема}[section] %
+
+
+\linespread{1.2} 
 \setlength{\parindent}{2.4em}
 \setlength{\parskip}{0.1em}
+
+\pgfplotsset{compat=1.9}
+\pgfplotsset{model/.style = {blue, samples = 100}} 
+\pgfplotsset{experiment/.style = {red}}
+
+\binoppenalty=10000
+
+% ----- Теоремы и определения
+\theoremstyle{plain}
+
+\newtheorem{theorem}{Теорема}[section] % theorem
+
 \theoremstyle{definition}
-\newtheorem{definition}{Определение}[subsection]
+\newtheorem{definition}{Определение}[subsection] % определение
+
 \theoremstyle{remark}
-\newtheorem{remark}{Замечание}[section]
+\newtheorem{remark}{Замечание}[section] % замечание
 
-\newtheorem{corollary}{Следствие}
-\newtheorem{proposition}{Proposition}
-\newtheorem{example}{Пример}
+\newtheorem{corollary}{Следствие} %следствие
+
+\newtheorem{proposition}{Утверждение} % утверждение
+
+\newtheorem{example}{Пример} % пример
+
+\newtheorem{lemma}{Лемма}[section] %lemma
+
 \renewcommand*{\proofname}{Proof}
-
-\newtheorem{lemma}{Лемма}[section]
-
-\graphicspath{ {./image/} }
-\usepackage{xcolor}
-\usepackage{hyperref}
 
 
 \begin{document}
@@ -158,6 +174,77 @@ centertags]{article} %%
 		\item длина и ширина объекта
 	\end{itemize}
 \end{itemize}
+
+
+\subsection{08.09.2020}
+
+\subsubsection{Задача бинарной классификации}
+
+Выведем функцию связи через биномиальное распределение через задачу классификации:
+
+$y \in \{0,1\}$ 
+$$g^{-1}(p) = \overline{\theta}^T \overline{X}$$
+$$f(y) = e^{\frac{y\alpha-c(\alpha)}{\varphi}+h(y,\varphi)}$$
+
+Плотность биномиального распределения:
+$$f(y) = p^y(1-p)^{1-y} = exp(y\log p + (1-y)\log(1-p)) = exp(y\log\frac{p}{1-p}+\log(1-p)\equiv c(\alpha)$$
+$$\alpha  = \log \frac{p}{1-p} = g(p) = \overline{\theta}^T \overline{X}$$
+$$\frac{p}{1-p} = e^{\overline{\theta}^T \overline{X}}$$
+$$p = \sigma\left(\overline{\theta}^T \overline{X}\right) = \frac{1}{1+e^{-\overline{\theta}^T \overline{X}}}$$
+
+Осталось получить функционал качества для задачи классификации. Функция называется \textsc{логистической сигмоидой}. Данная функция преобразует линейную комбинацию в интервал $[0,1]$. Дальнейшее значение целевой переменной мы будем предсказывать в качестве:
+$$\hat{y} = \sigma\left(\overline{\theta}^T \overline{X}\right)$$
+
+Функционал качества найдём через метод максимального правдоподобия:
+$$p(x,y,p) = \prod\limits_{i=1}^l p_i^{y_i}(1-p_i)^{1-y_i} \xrightarrow[\theta]{}\max $$
+$$\sum\limits_{i=1}^l y_i \log p_i + (1-y_i)\log(1-p_i)  \xrightarrow[\theta]{}\max$$
+
+Функция потерь называется \textsc{LogLoss}:
+$$LogLoss = L(x_i) = y_i \log p_i - (1-y_i)\log p_i  \xrightarrow[\theta]{}\min, p_i = \sigma(x_i)$$
+
+Если мы правильно предсказываем отношение принадлежности класса к $1$, то функция потерь будет равна нулю, если правильно предсказываем $0$ правильно, то тоже $0$, а если $1$ - правильный ответ, а $0$ - нет, то ошибка будет $+\infty$, и ошибку ограничивают значениями $100$, чтобы ошибка не уходила далеко.
+$$p = \sigma\left(\overline{\theta}^T \overline{X}\right) \in [0,1]$$
+$$L = -y\log p - (1-y)\log(1-p)$$
+
+\subsubsection{Задача многоклассовой классификации}
+
+\begin{definition}
+	\textsc{Categorical Distribution}: $y \in \{1,2,\ldots,K\}$
+	$$f(y) = \prod\limits_{i=1}^K p_i^{y_i}$$
+\end{definition}
+
+Выведем функцию связи через \textsc{Categorical Distribution}:
+$$f(y) = \prod\limits_{i=1}^K p_i^{y_i} = \exp (\log \prod\limits_{i=1}^K p_i^{y_i}) = \exp (\sum\limits_{i=1}^K y_i \log p_i)$$
+
+Рассмотрим определенный $y_i$:
+$$f(y) = \exp(y_1\log p_1 + y_2\log p_2 + \ldots + y_K\log p_K)$$
+$$\sum\limits y_i = 1$$
+$$\sum\limits p_i = 1$$
+
+Так как $y_i$ имеет принадлежность определенному классу и может быть равен только одной единице в векторе:
+$$\{0,0,1,0\}$$
+а сумма вероятностей по определению. Тогда:
+$$f(y) = \exp(y_1\log p_1 + \ldots + \left(1-\sum\limits_{i}^{K-1}y_i\right)\log p_k) = $$
+$$ = \exp\left(y_1 \log \frac{p_1}{p_k} + y_2 \log \frac{p_2}{p_k} + \ldots + \log p_k \right)$$
+
+$X$ для всех одинаковый, а $y$ разные. Для определения $y_i$ нам необходимо определить $\alpha_i$:
+$$\alpha_i = \log \frac{p_i}{p_k} = \overline{\theta}^T \overline{X}$$
+$$\frac{p_i}{p_k} = e^{\overline{\theta}^T \overline{X}}$$
+$$\sum\limits_i^K e^{\overline{\theta_i}^T \overline{X}} = \frac{\sum\limits+i p_i}{p_k} = \frac{1}{p_k}$$
+$$p_k= \frac{1}{\sum\limits_i^K e^{\overline{\theta_i}^T \overline{X}}}$$
+$$\frac{p_i}{p_k} = e^{\overline{\theta_i}^T \overline{X}}$$
+$$p_i = \frac{e^{\overline{\theta_i}^T \overline{X}}}{\sum\limits_{i=1}^K e^{\overline{\theta_i}^T \overline{X}}}$$
+
+Данная функция называется функцией \textsc{SoftMax}.
+
+Функционал качества мы можем легко получить:
+$$L(x,y,p) = \prod\limits_{i=1}^l \prod\limits_{j=1}^K p_{ij}^{y_ij} \to \max$$
+где $i$ - $i$-ый объект, а $j$ - принадлежность $j$-му классу.
+
+Тогда функция потери для каждого класса:
+$$-\sum\limits_{j=1}^K y_j \log p_j \to \min$$
+и данная функция называется \textsc{кросс-энтропией}.
+
 
 
 \end{document}
