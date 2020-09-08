@@ -245,6 +245,47 @@ $$L(x,y,p) = \prod\limits_{i=1}^l \prod\limits_{j=1}^K p_{ij}^{y_ij} \to \max$$
 $$-\sum\limits_{j=1}^K y_j \log p_j \to \min$$
 и данная функция называется \textsc{кросс-энтропией}.
 
+Итого:
+\begin{itemize}
+	\item $y \in \{0,1\}$:
+	$$Q = -\left(\sum\limits_{i=1}^l y_i \log \sigma_i + (1-y_i) \log(1-\sigma_i)\right) \xrightarrow[\theta]{\min}$$
+	\item $y \in \{1,2,\ldots,K\}$:
+	$$Q = - \sum\limits_{i=1}^{l} y_{ij}\log G_{ij}$$
+	где $y$ представляется вектором и матрица весов:
+	$$\Theta = \begin{bmatrix}
+		\theta_{11} & \theta_{12} & \ldots & \theta_{1N}\\
+		\ldots & \ldots & \ldots & \ldots \\
+		\theta_{K1} & \ldots & \ldots & \theta_{KN}
+	\end{bmatrix}$$
+\end{itemize}
+
+\subsubsection{Принадлежность многим классам}
+
+$$f(y) = \prod\limits_{i=1}^K p_i^{y_i}$$
+$$f(y) = p^y(1-p)^{1-y}$$
+
+Объединение двух распределений будет выглядеть следующим образом:
+$$\prod\limits_{i=1}^K p_i^{y_i}(1-p_i)^{1-y_i} \qquad p_i = G(\overline{\theta_i}^T \overline{X})$$
+
+Матрица весов размерности $K \times M$
+Необходимо:
+\begin{itemize}
+	\item Вывести функционал качества
+	$$f(y) = \exp \left(\log \prod\limits_{i=1}^K p_i^{y_i}(1-p_i)^{1-y_i}\right) = \exp\left(\sum\limits_{i=1}^K y_i \log p_i + \sum\limits_{i=1}^K (1-y_i) \log (1-p_i)\right)$$
+	$$Q = \prod\limits_{i=1}^l \prod\limits_{j=1}^K \sigma_{ij}^{y_{ij}}(1-\sigma_{ij})^{1-y_{ij}} \to \max$$
+	$$Q = -\sum\limits_{i=1}^l \sum\limits_{j=1}^K \left(y_{ij}\log \sigma_{ij}+(1-y_{ij})\log (1-\sigma_{ij})\right)\xrightarrow[\theta]{\min}$$
+	$$L = - \sum\limits_{j=1}^K \left(y_{j}\log \sigma_{j}+(1-y_{j})\log (1-\sigma_{j})\right)\xrightarrow[\theta]{\min}$$
+	\item Градиент функции потерь
+	$$\frac{\partial L}{\partial \theta_{KM}} = \frac{y_k}{\sigma_{K}} \cdot \sigma_k(1-\sigma_K)x_{KM} - (1-y_k)\frac{1}{1-\sigma_k}\sigma_k (1-\sigma_k) x_{KM} $$
+	$$ = y_k(1-\sigma_k)x_{KM} - (1-y_k)\sigma_k x_{KM} = x_{KM}(y_k-y_k\sigma_k-\sigma_k+\sigma_k y_k) = x_{KM}(y_k-\sigma_k)$$
+	так как
+	$$\sigma_k = \frac{1}{1+e^{-\overline{\theta_k}^T \overline{x}}}$$
+	$$\sigma(z)' = \left(\frac{1}{1+e^{-z}}\right)' = - \frac{e^{-z}(-1)}{(1+e^{-z})^2} = \sigma(z) \cdot (1-\sigma(z))$$
+
+\end{itemize}
+
+
+
 
 
 \end{document}
