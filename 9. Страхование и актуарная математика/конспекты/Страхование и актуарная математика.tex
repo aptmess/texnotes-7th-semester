@@ -1,24 +1,28 @@
-\RequirePackage{ifluatex}
-\let\ifluatex\relax
+\documentclass[%
+12pt, %
+final, % 
+oneside, % 
+onecolumn, %  
+centertags]{article} % относится к классу article и размер шрифта 12 пунктовб, {article: статья, report: отчеты и диссертации, book: книга, letter: письмо}
 
-\documentclass[aps,%
-12pt,%
-final,%
-oneside,
-onecolumn,%
-musixtex, %
-superscriptaddress,%
-centertags]{article} %% 
-\topmargin=-40pt
-\textheight=650pt
-\usepackage[english,russian]{babel}
-\usepackage[utf8]{inputenc}
-%всякие настройки по желанию%
-\usepackage[colorlinks=true,linkcolor=black,unicode=true]{hyperref}
+% ------ page construction 
+
+\topmargin= -30pt % насколько сверху будет страница
+\textheight= 650pt
+
+% ------ Пакеты расширения
+
+\usepackage[utf8]{inputenc} % задает кодировку, utf-8 кодировка, включающая в себя знаки почти всех языков мира
+\usepackage[english, russian]{babel} % подключает необходимые языки, основным языком является английский
+\selectlanguage{russian} % настройки будут на английском, но писать будет на русском
+
 \usepackage{euscript}
 \usepackage{supertabular}
-\usepackage[pdftex]{graphicx}
-\usepackage{amsthm,amssymb, amsmath}
+
+\usepackage[colorlinks=true,linkcolor=black,unicode=true,urlcolor = blue]{hyperref} %hypered
+\usepackage[pdftex]{graphicx} % для графики
+
+\usepackage{amsthm, amssymb, amsmath, amsfonts} % математический пакет, математические шрифты
 \usepackage{textcomp}
 \usepackage[noend]{algorithmic}
 \usepackage[ruled]{algorithm}
@@ -27,31 +31,39 @@ centertags]{article} %%
 \usepackage{babel}
 \usepackage{pgfplots}
 \usepackage{setspace}
-\linespread{1.2}
-\pgfplotsset{compat=1.9}
-\selectlanguage{russian}
-\pgfplotsset{model/.style = {blue, samples = 100}}
-\pgfplotsset{experiment/.style = {red}}
-\theoremstyle{plain}
-\binoppenalty=10000
-\newtheorem{theorem}{Теорема}[section] %
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\linespread{1.2} 
 \setlength{\parindent}{2.4em}
 \setlength{\parskip}{0.1em}
+
+\pgfplotsset{compat=1.9}
+\pgfplotsset{model/.style = {blue, samples = 100}} 
+\pgfplotsset{experiment/.style = {red}}
+
+\theoremstyle{plain}
+\binoppenalty=10000
+
+\newtheorem{theorem}{Теорема}[section] % theorem
+
 \theoremstyle{definition}
 \newtheorem{definition}{Определение}[subsection]
+
 \theoremstyle{remark}
 \newtheorem{remark}{Замечание}[section]
 
 \newtheorem{corollary}{Следствие}
+
 \newtheorem{proposition}{Proposition}
+
 \newtheorem{example}{Пример}
-\renewcommand*{\proofname}{Proof}
 
 \newtheorem{lemma}{Лемма}[section]
 
+\renewcommand*{\proofname}{Proof}
+
 \graphicspath{ {./image/} }
-\usepackage{xcolor}
-\usepackage{hyperref}
 
 
 \begin{document}
@@ -84,13 +96,15 @@ centertags]{article} %%
 \tableofcontents
 \newpage
 
-\section{01.09.2020}
+\section{Конспекты лекций}
 
-\subsection{О чём предмет}
+\subsection{Микроэкономические основы страхования}
+
+\subsubsection{01.09.2020}
 
 Страхование вклада - если у банка возникают проблемы, то нам возвращают деньги банк в некоторой границе. Страхование - выход США из великой депрессии. Застраховать в принципе можно все что угодно.
 
-\section{03.09.2020}
+\subsubsection{03.09.2020}
 
 В ситуациях неопределенностей человек принимает решение не на основании математического ожидания $E\xi$, а на основании математического ожидания некоторой функции полезности $Eu(\xi)$, где $u$ - некая функция полезности. За $w$ - обозначим капитал, а за $a$ - плата за риск, $\xi$ - потенциальные убытки. Тогда ситуация будет описываться:
 $$Eu(w-\xi) \quad u(w-a)$$
@@ -143,7 +157,7 @@ $$V^*(\xi) = Eu(\xi) = \sum\limits u(x_i)p_i = V(x_1)p_1+V(x_2)p_2$$
 $$\xi: x_1 \mapsto p_1,  x_2 \mapsto p_2$$
 Мы можем выбрать функцию полезности таким образом
 
-\section{04.09.2020}
+\subsubsection{04.09.2020}
 
 Пусть случайная величина принимает значения $x \mapsto p$ и $y \mapsto 1-p$. Введем обозначение для такой случайной величины:
 $$(x,y)_p$$
@@ -188,7 +202,83 @@ $u_1(x) = a\ln(x+1) + b, a>0$
 $$Eu_1(\xi) =  \int\limits  a\ln(x+1) + bf_{\xi}(x)dx = a\int ln(x+1)f(x)dx+b\int\limits f(x)dx = a\int\limits u(x)f_{\xi}(x)dx + b$$
 следовательно функционал является единственным с точностью до линейного преобразования.
 
+\subsubsection{08.09.2020}
 
+Напоминание:
+$$V(\xi) = \sum\limits p_j V(x_j)$$
+и при дискретных $\xi$:
+$$V(x_j) = u(x_j)$$
 
+Рассмотрим некоторые свойства, которыми должна обладать функция полезности:
+
+\begin{enumerate}
+	\item Функция начинается в нуле из-за монотонного преобразования
+	\item Функция полезности $u(x)$ не убывает (возрастает):
+	$$u'(x) > 0$$
+	\item Функция $u(x)$ вогнутая. 
+	$$u(\lambda x_1 +(1-\lambda)x_2) \geq \lambda u(x_1) + (1-\lambda)u(x_2)$$
+
+	Заметим, что если функция полезности вогнутая, то находясь в ситуации неопределенности, индивид будет согласен заплатить, чем иметь состояние неопределенности. Человек хочет иметь детерменированный выигрыш, нежели при ситуации неопределенности - это происходит из-за вогнутости функции.
+	\begin{itemize}
+		\item есть функция вогнута, то говорят \textsc{risk aversion}
+		\item если выпукла, то говорят \textsc{risk loving}
+		\item если функция линейна, то \textsc{risk neutral}
+	\end{itemize}
+
+	Почитать \href{https://en.wikipedia.org/wiki/Risk_aversion}{здесь} можно.
+	\item $$Eu(\xi) \leq u(E(\xi))$$
+	
+	Сравнивает полезность ситуации $u(w-a)$ - нет риска, чуть меньше денег, и есть риск и чуть больше денег - $Eu(w-\xi)$ и если больше, то он соглашается - страхование возможно для некоторого $a$ и человек готов заплатить. С помощью неравенства Йенсена:
+	$$Eu(w-\xi)\leq u(E(w-\xi)) = u(w-E\xi)$$
+	$$u(w-a) \geq Eu(w-\xi) \Leftrightarrow u(w-E\xi) = u(w-a)$$
+	и следовательно мы сможем найти $a = E\xi$ из которого будет выполняться свойство.
+
+	\begin{example}
+		Возьмем экспоненциальную функцию полезности: $$u(x) = 1-e^{ux}$$. При желании для любой ограниченной функции можно подобрать лотерею так, в котороый можно подбирать математическое ожидание, чтобы человек всегда играл.
+
+		В данном случае у нас ограниченная функция и ограниченное математическое ожидание.
+	\end{example}
+	\begin{example}
+		Степенная функция полезности: $$u(x)=x^{\alpha}, \alpha < 1$$
+	\end{example}
+	\begin{example}
+		Квадратичная функция полезности:
+		$$u(x) = bx - cx^2: b,c >0, x < \frac{b}{2c}$$
+	\end{example}
+\end{enumerate}
+
+\textsc{Задача 1.}
+Пусть есть инвестор с капиталом $w$ и он может вложить деньги в $2$ неколлериованных $\xi_1 \sim N(\mu_1,\sigma_1^2)$ и $\xi_2 \sim N(\mu_2,\sigma_2^2)$. $u(x) = 1 - e^{ax}$. $\xi_1,\xi_2$ - это доходность, которая выражена в процентах.  В какой пропорции нужно разделить капитал, чтобы максимизировать нашу полезность.
+
+\textsc{Решение}
+
+Введём доли $\alpha$ и $1-\alpha$. Тогда доход будет:
+$$s = \alpha w (1+\xi_1) + (1-\alpha)w(1+\xi_2)$$
+и нам нужно максимизировать математическое ожидание от функции полезности
+$$Eu(s) \to \max  = E (1-e^{\alpha}) = 1 - e^{-wa}Ee^{-wa(\alpha\xi_1+(1-\alpha)\xi_2)}$$
+
+Будем минимизировать величину:
+$$Ee^{-wa(\alpha\xi_1+(1-\alpha)\xi_2)} = Ee^{-wa\alpha\xi_1}\cdot  Ee^{-wa(1-\alpha)\xi_2} \to \min$$
+$$Ee^{-wa\alpha\xi_1} = Ee^{\beta \xi_1} = \int\limits e^{\beta x_1}\frac{1}{\sqrt{2\pi}}e^{-\frac{(x-\mu_1)^2}{2\sigma_1^2}}dx$$
+
+По производящей функции моментов:
+$$e^{\mu\beta + \frac{\beta^2 \sigma_1^2}{2}} = e^{\left(-\mu_1wa\alpha + \frac{w^2 a^2\alpha^2 \sigma_1^2}{2}-\mu_2wa(1-\alpha) + \frac{w^2 a^2(1-\alpha)^2 \sigma_2^2}{2}\right)} \min \alpha$$
+$$-wa\mu_1 + w^2a^2\alpha\sigma_1^2 + wa\mu_2-w^2a^2(1-\alpha)\sigma_2^2 = 0$$
+$$\alpha = \frac{\mu_1-\mu_2+wa\sigma_2^2}{wa\sigma_1^2+wa\sigma_2^2}$$
+
+Пусть $\mu_1=\mu_2: \alpha = \frac{\sigma_2^2}{\sigma_1^2+\sigma_2^2}$. В какой пропорции нужно разделить, чтобы минимизировать дисперсию.
+$$D(w\alpha(1+\xi_1))+D(w(1-\alpha)(1+\xi_2)) = w^2 \alpha^2 D\xi_1 + w^2 (1-\alpha)^2 D\xi_2 = w^2\alpha^2\sigma_1^2 + w^2(1-\alpha)^2\sigma_2^2$$
+$$2\alpha w^2\sigma_1^2 -2w^2(1-\alpha)\sigma_2^2 = 0$$
+$$\alpha = \frac{\sigma_2^2}{\sigma_1^2+\sigma_2^2}$$
+
+Решение, максимизирующее полезность соответствует решению, минимизирующую диспесию портфеля. Совпадения есть в случае $\mu_1 = \mu_2$. Интересно посмотреть через призму полезности.
+
+Активы, различные портфели, ожидание и дисперсия. $\mu,\sigma$ - спектр доходности. Почему он определяется выпуклой фигурой.
+
+Стандартное отклонение - выпуклая функция. Если есть возможность выбрать из различных портфелей, то мы можем сформировать любой портфель. Данное множество - плотно , сплошное (говорим про овал). 
+
+Такое множество называется \textsc{эффективное множество}. Набор не даёт конкректный портфель, потому что мы не понимаем в чём разница между портфелями. \textbf{Критерий выбора} - поиск точки, в которой полезность максимальная - на кривой выбирает тот портфель, который дает максимальная полезность и в этом случае будет достигаться баланс между двумя теориями.
+
+\textsc{HT}: кривые безразличия - те портфели, между которыми клиент индеферентен. В осях $\mu,\sigma$ и если рассмотреть одинаково полезные портфели, то они будут образовывать выпуклую кривую. И тогда решение - это точка касательной множества всех портфелей и совпадать с базовыми теорями кривых безразличия.
 
 \end{document}
