@@ -1,24 +1,28 @@
-\RequirePackage{ifluatex}
-\let\ifluatex\relax
+\documentclass[%
+10pt, %
+final, % 
+oneside, % 
+onecolumn, %  
+centertags]{article} % относится к классу article и размер шрифта 12 пунктовб, {article: статья, report: отчеты и диссертации, book: книга, letter: письмо}
 
-\documentclass[aps,%
-12pt,%
-final,%
-oneside,
-onecolumn,%
-musixtex, %
-superscriptaddress,%
-centertags]{article} %% 
-\topmargin=-40pt
-\textheight=650pt
-\usepackage[english,russian]{babel}
-\usepackage[utf8]{inputenc}
-%всякие настройки по желанию%
-\usepackage[colorlinks=true,linkcolor=black,unicode=true]{hyperref}
+% ------ page construction 
+
+\topmargin= -30pt % насколько сверху будет страница
+\textheight= 650pt
+
+% ------ Пакеты расширения
+
+\usepackage[utf8]{inputenc} % задает кодировку, utf-8 кодировка, включающая в себя знаки почти всех языков мира
+\usepackage[english, russian]{babel} % подключает необходимые языки, основным языком является английский
+\selectlanguage{russian} % настройки будут на английском, но писать будет на русском
+
 \usepackage{euscript}
 \usepackage{supertabular}
-\usepackage[pdftex]{graphicx}
-\usepackage{amsthm,amssymb, amsmath}
+
+\usepackage[colorlinks=true,linkcolor=black,unicode=true,urlcolor = blue]{hyperref} %hypered
+\usepackage[pdftex]{graphicx} % для графики
+
+\usepackage{amsthm, amssymb, amsmath, amsfonts} % математический пакет, математические шрифты
 \usepackage{textcomp}
 \usepackage[noend]{algorithmic}
 \usepackage[ruled]{algorithm}
@@ -27,31 +31,39 @@ centertags]{article} %%
 \usepackage{babel}
 \usepackage{pgfplots}
 \usepackage{setspace}
-\linespread{1.2}
-\pgfplotsset{compat=1.9}
-\selectlanguage{russian}
-\pgfplotsset{model/.style = {blue, samples = 100}}
-\pgfplotsset{experiment/.style = {red}}
-\theoremstyle{plain}
-\binoppenalty=10000
-\newtheorem{theorem}{Теорема}[section] %
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\linespread{1.2} 
 \setlength{\parindent}{2.4em}
 \setlength{\parskip}{0.1em}
+
+\pgfplotsset{compat=1.9}
+\pgfplotsset{model/.style = {blue, samples = 100}} 
+\pgfplotsset{experiment/.style = {red}}
+
+\theoremstyle{plain}
+\binoppenalty=10000
+
+\newtheorem{theorem}{Теорема}[section] % theorem
+
 \theoremstyle{definition}
 \newtheorem{definition}{Определение}[subsection]
+
 \theoremstyle{remark}
 \newtheorem{remark}{Замечание}[section]
 
 \newtheorem{corollary}{Следствие}
+
 \newtheorem{proposition}{Proposition}
+
 \newtheorem{example}{Пример}
-\renewcommand*{\proofname}{Proof}
 
 \newtheorem{lemma}{Лемма}[section]
 
+\renewcommand*{\proofname}{Proof}
+
 \graphicspath{ {./image/} }
-\usepackage{xcolor}
-\usepackage{hyperref}
 
 
 \begin{document}
@@ -256,6 +268,225 @@ $$\sum\limits_{i=1}^k |y_i - \overline{y}|$$
 	\end{center}
 \end{table}
 \end{itemize}
+
+\subsection{Multi Dimensional Multi Way NPP}
+
+Будем заниматься векторами. Минимизация максимальной разности по координатам между подмножествами.
+$$1: (a_1,a_2,a_3)$$
+$$2: (b_1,b_2,b_3)$$
+$$3: (c_1,c_2,c_3)$$
+$$\max (|a_1-b_1|, |a_2-b_2|,|a_3-b_3|) \to \min$$
+
+Пусть $NC$ - размерность вектора, $NV$ - количество векторов, $NK$ - число групп.
+
+Множество:
+$$S = \{s_i \vert s_i = (s_{i,2},s_{i,2},\ldots,s_{i,NC})\}, i \in \{1,\ldots,NV\}$$
+Неизвестные:
+$$x_{s,k} = \begin{cases}
+	1, - s \in NK \\
+	0 
+\end{cases}$$
+
+Введем дополнительную переменную $y_{c,k}$ - сумма векторов из подмножества $k$ по координате $c$:
+$$\max |y_{c,k_1} - y_{c,k_2}| \to \min$$
+$$k_1,k_2 \in \{1,\ldots, NK\}$$
+$$c \in \{1,\ldots,NC\}$$
+
+Нам нужно найти группу $k_1,k_2$ и $c$ дают разницу по модулю между соответствующими $c$.
+
+Так мы делаем для:
+\begin{enumerate}
+	\item $$\sigma \geq  y_{c,k_1} - y_{c,k_2}  \quad \forall k_1,k_2 \in \{1,\ldots,NK\}, k_1 < k_2$$
+			$$\sigma \geq -y_{c,k_1} + y_{c,k_2} \quad \forall k_1,k_2 \in \{1,\ldots,NK\}, k_1 < k_2$$
+			$$\sigma \to \min$$
+	\item $$\sum\limits_{k=1}^{NK} x_{s,k} = 1, \qquad \forall s \in S$$ 
+	\item $$y_{c,k} = \sum\limits_{s\in S} S_c \cdot x_{s,k} \forall c \in \{1,\ldots,NC\}, k \in\{1,\ldots,NK\}$$
+	$$x_{s,k} \in \{0,1\} \forall s \in S, \forall k \in \{1,\ldots,NK\}$$
+
+	Всего незивестынх: $NV*NK +1$
+\end{enumerate}
+
+\subsection{Рассмотрим взвешенную сумму средних квадратов отклонений}
+$$\sum\limits_{k=1}^{NK}\sum\limits_{c=1}^{NC}w_c\left(1-\frac{y_{c,k}}{\hat{y}_c}\right)^2 \to \min$$
+$\hat{y_c}$ - суммируем покоординатно $c$ и делим на $NK$ - идеальное значение по характеристике $c$ в подмножестве.
+
+Чем больше $w_c$, тем больше значит тебя критерий равномерности - тем больше равны координатым векторов.
+
+Такая запись нелинейна по $y$, то на дом будет модуль.
+
+1-е ограничение нужно заменить на связь сигм с дельтами.
+
+Усложним еще задачу.
+
+\subsection{Критерий равномерности}
+
+\begin{enumerate}
+	\item Общее число ночных связок
+	\item Среднее рабочее время на бортпроводника - берем подмножество связок, попавших на рабочий стол - суммируем время.
+\end{enumerate}
+
+Можем обобщить: что каждый вектор $S_{i,c,k}$ имеет разные координаты для разных подгрупп.
+
+Приращение по характеристике $c$ при добавлении $i$ в $k$ подгруппе.
+\newpage
+\subsection{Minimize Differencse}
+
+\textsc{Входные данные}: 
+\begin{enumerate}
+	\item $S$ - множество векторов
+	\item $NV$ - мощность множества $S$
+	\item $NC$ - размерность вектора $s \in S$, то есть каждый вектор описывается $NC$ числовыми координатами
+	$$C = \{1,\ldots,NC\}$$
+
+	Множество $S$ задаётся следующим образом:
+	$$S = \{s_{i,1},s_{i,2},\ldots,s_{i,NC}\} \quad \forall i \in \{1,\ldots,NV\}$$
+	\item $NK$ - число групп:
+	$$K = \{1,\ldots,NK\}$$
+\end{enumerate}
+\textsc{Дополнение к входным данным}:
+\begin{itemize}
+	\item Введём дополнительную переменную $y_{c,k}$ - суммарное значение координаты $c \in C$ для группы $k \in K$.
+\end{itemize}
+
+\textsc{Задача:} необходимо распределить векторы из $S$ по $NK$ группам, причём каждый вектор должен быть представлен в единственной группе.
+
+\textsc{Целевая функция:} минимизация максимальной разницы по модулю между двумя группами по координате среди всех координат и всех групп:
+$$\underset{\underset{c\in C}{k_1,k_2\in K}}{\max} \left \vert y_{c,k_1} - y_{c,k_2} \right \vert \to \min$$
+
+\textit{Пояснение:} необходимо найти две группы $k_1$ и $k_2$ и такую координату $c$, которые бы минимизировали максимальную разность.
+\newpage
+\textsc{Ограничения}:
+
+\begin{enumerate}
+	\item Каждый вектор должен находиться строго в одной из групп: 
+	$$\sum\limits_{k=1}^{NK}x_{s,k} = 1 : \forall s \in S$$
+	$$x_{s,k} \in \{0,1\}$$
+	\item Сумма по каждой координате в каждой группе:
+	$$y_{c,k} = \sum\limits_{s\in S} s_c \cdot x_{s,k}: \forall c \in C \  \forall k \in K$$
+	\item Введём переменную $\sigma$, являющуюся максимальную разность по координате в группах. Её необходимо минимизировать:
+	$$\sigma \to \min$$
+
+	Введём ограничение, связывающую $\sigma$ и исходную целевую функцию:
+	$$\left\vert y_{c,k_1} - y_{c,k_2} \right\vert \leq \sigma : \forall k_1,k_2 \in K \ \forall c \in C \ k_1 < k_2$$
+
+	Модуль расскрывается через два неравенства:
+	$$y_{c,k_1} - y_{c,k_2} - \sigma \leq 0$$
+	$$-y_{c,k_1} + y_{c,k_2} - \sigma \leq 0$$ 
+\end{enumerate}
+
+Всего в задаче $NV\cdot NK + 1$ переменных.
+
+\newpage
+
+\subsection{Weighted Minimize}
+
+\textsc{Входные данные}: 
+\begin{enumerate}
+	\item $S$ - множество векторов
+	\item $NV$ - мощность множества $S$
+	\item $NC$ - размерность вектора $s \in S$, то есть каждый вектор описывается $NC$ числовыми координатами
+	$$C = \{1,\ldots,NC\}$$
+
+	Множество $S$ задаётся следующим образом:
+	$$S = \{s_{i,1},s_{i,2},\ldots,s_{i,NC}\} \quad \forall i \in \{1,\ldots,NV\}$$
+	\item $NK$ - число групп:
+	$$K = \{1,\ldots,NK\}$$
+\end{enumerate}
+\textsc{Дополнение к входным данным}:
+\begin{itemize}
+	\item Введём дополнительную переменную $y_{c,k}$ - суммарное значение координаты $c \in C$ для группы $k \in K$.
+	\item Введём дополнительные \textsc{идеальные} константные значения следующим образом:
+	$$\hat{y}_c = \frac{\sum\limits_{i=1}^{NV}s_{i,c}}{NK} : \forall c \in C$$
+	\item Введём константы весов, отвечающие за значимость уравнивания по определенной координате - чем больше значение веса, тем важнее уравнивать множество по данной координате:
+	$$W = \{w_1,\ldots,w_{NC}\}$$
+\end{itemize}
+
+\textsc{Целевая функция:} минимизация взвешенной ($W$) суммы модулей относительных отклонений $y_{c,k}$ от $\hat{y}_c$ по каждой из координат для каждой группы с учётом весов $W$:
+$$\sum\limits_{c=1}^{NC} w_c \cdot \sum\limits_{k=1}^{NK} \left\vert 1 - \frac{y_{c,k}}{\hat{y}_c}\right\vert \to \min$$
+
+\newpage
+\textsc{Ограничения}:
+
+\begin{enumerate}
+	\item Каждый вектор должен находиться строго в одной из групп: 
+	$$\sum\limits_{k=1}^{NK}x_{s,k} = 1 : \forall s \in S$$
+	$$x_{s,k} \in \{0,1\}$$
+	\item Сумма по каждой координате в каждой группе:
+	$$y_{c,k} = \sum\limits_{s\in S} s_c \cdot x_{s,k}: \forall c \in C \  \forall k \in K$$
+	\item Введём $NC\cdot NK$ переменных $\sigma[c,k]$, являющуюся верхней границей максимальной величины отклонения. Будем минимизировать сумму всех этих переменных:
+	$$\sum\limits_{c=1}^{NC} w_c \cdot \sum\limits_{k=1}^{NK} \sigma[c,k] \to \min$$
+
+	Введём следующие ограничения для относительных отклонений:
+	$$\left\vert 1 - \frac{y_{c,k}}{\hat{y}_c}\right\vert \leq \sigma[c,k] : \forall c \in C \ \forall k \in K$$
+
+	Модуль расскрывается через два неравенства:
+	$$1 - \frac{y_{c,k}}{\hat{y}_c} - \sigma[c,k] \leq 0$$
+	$$-1 + \frac{y_{c,k}}{\hat{y}_c} - \sigma[c,k] \leq 0$$ 
+\end{enumerate}
+
+Всего в задаче $NV\cdot NK + NC\cdot NK = NK(NV+NC)$ переменных.
+
+
+\newpage
+\subsection{Weighted Choose Minimize}
+
+\textsc{Входные данные}: 
+\begin{enumerate}
+	\item $S$ - множество списков векторов
+	\item $NV$ - мощность множества $S$
+	\item $NC$ - размерность вектора $s \in S$, то есть каждый вектор описывается $NC$ числовыми координатами
+	$$C = \{1,\ldots,NC\}$$
+	\item $NK$ - число групп:
+	$$K = \{1,\ldots,NK\}$$
+
+	Координаты векторов могут отличаться в зависимости от попадания в подмножество, поэтому множество $S$ задаётся следующим образом:
+	$$S = \{s_{i,k,1},s_{i,k,2},\ldots,s_{i,k,NC}\} \quad \forall i \in \{1,\ldots,NV\} \quad \forall k \in K$$
+	
+\end{enumerate}
+\textsc{Дополнение к входным данным}:
+\begin{itemize}
+	\item Введём дополнительную переменную $y_{c,k}$ - суммарное значение координаты $c \in C$ для группы $k \in K$.
+	\item Введём дополнительные \textsc{идеальные} константные значения следующим образом:
+	$$\hat{y}_{c,k} = \frac{\sum\limits_{i=1}^{NV}s_{i,k,c}}{NV} : \forall c \in C \ \forall k \in K$$
+	\item Введём константы весов, отвечающие за значимость уравнивания по определенной координате - чем больше значение веса, тем важнее уравнивать множество по данной координате:
+	$$W = \{w_1,\ldots,w_{NC}\}$$
+\end{itemize}
+
+\textsc{Целевая функция:} минимизация взвешенной ($W$) суммы модулей относительных отклонений $y_{c,k}$ от $\hat{y}_c$ по каждой из координат для каждой группы с учётом весов $W$:
+$$\sum\limits_{c=1}^{NC} w_c \cdot \sum\limits_{k=1}^{NK}  \left\vert 1 - \frac{y_{c,k}}{\hat{y}_{c,k}}\right\vert \to \min$$
+
+\newpage
+\textsc{Ограничения}:
+
+\begin{enumerate}
+	\item Каждый вектор должен находиться строго в одной из групп и вектор из группы возможных векторов в зависимости от номера группы должен быть тоже один.
+	$$\sum\limits_{i=1}^{NK} \sum\limits_{k=1}^{NK}x_{s,i,k} = 1 : \forall s \in S $$
+	$$x_{s,i,k} \in \{0,1\}$$
+
+	Количество переменных: $NV\cdot NK^2$
+	\item Сумма по каждой координате в каждой группе:
+	$$y_{c,k} = \sum\limits_{i=1}^{NK} \sum\limits_{s\in S} s_{i,c} \cdot x_{s,i,k}:  \forall c \in C \  \forall k \in K $$
+	\item Введём $NC\cdot NK$ переменных $\sigma[c,k]$, являющуюся верхней границей максимальной величины отклонения. Будем минимизировать сумму всех этих переменных:
+	$$\sum\limits_{c=1}^{NC} w_c \cdot \sum\limits_{k=1}^{NK} \sigma[c,k] \to \min$$
+
+	Введём следующие ограничения для относительных отклонений:
+	$$\left\vert 1 - \frac{y_{c,k}}{\hat{y}_{c,k}}\right\vert \leq \sigma[c,k] : \forall c \in C \ \forall k \in K$$
+
+	Модуль расскрывается через два неравенства:
+	$$1 - \frac{y_{c,k}}{\hat{y}_{c,k}} - \sigma[c,k] \leq 0$$
+	$$-1 + \frac{y_{c,k}}{\hat{y}_{c,k}} - \sigma[c,k] \leq 0$$ 
+\end{enumerate}
+
+Всего в задаче $NV\cdot NK^2 + NC \cdot NK = NK\cdot(NV \cdot NK + NC)$ переменных.
+
+
+
+
+
+
+
+
+
 
 
 
