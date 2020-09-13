@@ -1,0 +1,4 @@
+http://stratum.ac.ru/education/textbooks/modelir/lection21.html
+http://stratum.ac.ru/education/textbooks/modelir/lection25.html
+https://ru.wikipedia.org/wiki/Преобразование_Бокса_—_Мюллера
+https://ru.wikipedia.org/wiki/Метод_обратного_преобразования
