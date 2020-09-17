@@ -1,0 +1,253 @@
+\documentclass[%
+12pt, %
+final, % 
+oneside, % 
+onecolumn, %  
+centertags]{article} % относится к классу article и размер шрифта 12 пунктовб, {article: статья, report: отчеты и диссертации, book: книга, letter: письмо}
+
+% ------ page construction 
+
+\topmargin= -30pt % насколько сверху будет страница
+\textheight= 650pt
+
+% ------ Пакеты расширения
+
+\usepackage[utf8]{inputenc} % задает кодировку, utf-8 кодировка, включающая в себя знаки почти всех языков мира
+\usepackage[english, russian]{babel} % подключает необходимые языки, основным языком является английский
+\selectlanguage{russian} % настройки будут на английском, но писать будет на русском
+
+\usepackage{euscript}
+\usepackage{supertabular}
+
+\usepackage[colorlinks=true,linkcolor=black,unicode=true,urlcolor = blue]{hyperref} %hypered
+\usepackage[pdftex]{graphicx} % для графики
+
+\usepackage{amsthm, amssymb, amsmath, amsfonts} % математический пакет, математические шрифты
+\usepackage{textcomp}
+\usepackage[noend]{algorithmic}
+\usepackage[ruled]{algorithm}
+\usepackage{lipsum}
+\usepackage{indentfirst}
+\usepackage{babel}
+\usepackage{pgfplots}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\linespread{1.2} 
+\setlength{\parindent}{2.4em}
+\setlength{\parskip}{0.1em}
+
+\pgfplotsset{compat=1.9}
+\pgfplotsset{model/.style = {blue, samples = 100}} 
+\pgfplotsset{experiment/.style = {red}}
+
+\theoremstyle{plain}
+\binoppenalty=10000
+
+\newtheorem{theorem}{Теорема}[section] % theorem
+
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}[subsection]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Замечание}[section]
+
+\newtheorem{corollary}{Следствие}
+
+\newtheorem{solution}{Решение}
+
+\newtheorem{proposition}{Proposition}
+
+\newtheorem{example}{Пример}
+
+\newtheorem{lemma}{Лемма}[section]
+
+\renewcommand*{\proofname}{Proof}
+
+\graphicspath{ {./image/} }
+
+
+\begin{document}
+
+\begin{titlepage} 
+\begin{center}
+\textbf{}\\[10.0cm]
+\textbf{\LARGE Страхование и актуарная математика}\\[0.5cm]
+\textbf{\Large HT1: Свойства функции полезности} \\[0.2cm]
+
+
+\begin{center} \large
+{Преподаватель:} \\[0.5cm]
+\textsc {Радионов Андрей Владимирович}\\
+\end{center}
+
+\vfill 
+
+
+
+{\large {Александр Широков, ПМ-1701}} \par
+{\large {Санкт-Петербург}} \par
+{\large {2020 г., 7 семестр}} 
+
+\end{center} 
+\end{titlepage}
+
+\newpage
+
+\textsc{Задача 0.}
+Пусть есть инвестор с капиталом $w$ и он может вложить деньги в $2$ неколлериованных $\xi_1 \sim N(\mu_1,\sigma_1^2)$ и $\xi_2 \sim N(\mu_2,\sigma_2^2)$. $u(x) = 1 - e^{-\lambda x}$. $\xi_1,\xi_2$ - это доходность, которая выражена в процентах.  В какой пропорции нужно разделить капитал, чтобы максимизировать нашу полезность.
+
+\textsc{Решение}
+
+Введём доли $\alpha$ и $1-\alpha$. Тогда доход инвестора будет вычисляться по формуле:
+$$s = \alpha w (1+\xi_1) + (1-\alpha)w(1+\xi_2)$$
+Будем максимизировать математическое ожидание от функции полезности:
+$$Eu(s) = E (1-e^{-\lambda \cdot s}) = 1 - E \left(e^{-\lambda \left(\alpha w (1+\xi_1) + (1-\alpha)w(1+\xi_2)\right)}\right) \to \underset{\alpha}{\max}$$
+
+Раскроем скобки и упростим выражение:
+$$1 - E \left(e^{-\lambda \left(\alpha w (1+\xi_1) + (1-\alpha)w(1+\xi_2)\right)}\right) = 1 - E \left(e^{-\lambda w \left(\alpha(1+\xi_1) + (1-\alpha)(1+\xi_2)\right)}\right) = $$
+$$ = 1 - E\left(e^{-\lambda w (\alpha\xi_1 + 1 + \xi_2 - \alpha \xi_2)}\right) = 1 - e^{-\lambda w}E\left(e^{-\lambda w (\alpha \xi_1 + \xi_2 (1-\alpha))}\right) \to \max \Rightarrow$$
+$$E\left(e^{-\lambda w (\alpha \xi_1 + \xi_2 (1-\alpha))}\right) \to \min$$
+
+Так как величины неколлерированы, то:
+$$Ee^{-\lambda w \alpha \xi_1} \cdot Ee^{-\lambda w \xi_2 (1-\alpha)} \to \min$$
+
+Сделаем замену $\beta = -w\lambda\alpha$ и попытаемся взять следующий интеграл
+$$Ee^{-w\lambda\alpha\xi_1} = Ee^{\beta \xi_1} = \int\limits_{-\infty}^{\infty} e^{\beta x_1}\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x_1-\mu_1)^2}{2\sigma_1^2}}dx_1$$
+
+Известно, что производящая функция моментов для нормального распредления есть следующая величина:
+$$Ee^{\beta \xi_1} = e^{\mu\beta + \frac{\beta^2 \sigma_1^2}{2}}$$
+
+Тогда преобразуем выражение:
+$$Ee^{-\lambda w \alpha \xi_1} \cdot Ee^{-\lambda w \xi_2 (1-\alpha)} = e^{\left(-\mu_1w\lambda\alpha + \frac{w^2 \lambda^2\alpha^2 \sigma_1^2}{2}-\mu_2w\lambda(1-\alpha) + \frac{w^2 \lambda^2(1-\alpha)^2 \sigma_2^2}{2}\right)} \to \underset{\alpha}{\min}$$
+$$-w\lambda\mu_1 + w^2\lambda^2\alpha\sigma_1^2 + w\lambda\mu_2-w^2\lambda^2(1-\alpha)\sigma_2^2 = 0$$
+$$\alpha = \frac{\mu_1-\mu_2+w\lambda\sigma_2^2}{w\lambda\sigma_1^2+w\lambda\sigma_2^2}$$
+
+Пусть $\mu_1=\mu_2: \alpha = \frac{\sigma_2^2}{\sigma_1^2+\sigma_2^2}$. В какой пропорции нужно разделить, чтобы минимизировать дисперсию.
+$$D(w\alpha(1+\xi_1))+D(w(1-\alpha)(1+\xi_2)) = w^2 \alpha^2 D\xi_1 + w^2 (1-\alpha)^2 D\xi_2 = w^2\alpha^2\sigma_1^2 + w^2(1-\alpha)^2\sigma_2^2$$
+$$2\alpha w^2\sigma_1^2 -2w^2(1-\alpha)\sigma_2^2 = 0$$
+$$\alpha = \frac{\sigma_2^2}{\sigma_1^2+\sigma_2^2}$$
+
+Решение, максимизирующее полезность соответствует решению, минимизирующую диспесию портфеля. Совпадения есть в случае $\mu_1 = \mu_2$. Интересно посмотреть через призму полезности.
+
+\newpage
+\section{HT1 Свойства функции полезности}
+
+1. Определить, какую максимальную сумму агент с капиталом $100$ и функцией полезности $u(x) = 5x - 0.01x^2$ согласится заплатить, чтобы избавиться от потенциального ущерба, принимающего значения $0,10,20,30$ с равными вероятностями.
+
+\begin{solution}
+	Величина ушерба - случайная величина с данным (известным) распределением, обозначим за $\xi$.
+
+	Величина $E\xi = \sum\limits_{i=1}^4 p_i\xi_i = 15$ - ожидаемая величина ущерба в следующий промежуток времени. $u(x)$ - функция полезности от капитала, а $a$ - величина, которую агент может заплатить, если хочет избавиться от риска.
+
+	Необходимо сравнить две величины. Первая - $E(u(w-\xi))$ - ожидаемая полезность при отказе от платы. Вторая - $u(w-a)$ - ожидаемая полезность при выплате суммы $a$ за полный отказ от риска.
+
+	Так как $u(w)'>0$, а $w(w)''<0$, то есть функция возрастает и вогнута, то по неравенству Йенсена:
+	$$E(u(w-\xi)) \leq u(E(w-\xi)) = u(w - E\xi)$$
+
+	Для того, чтобы найти максмальную сумму, которую агент согласится заплатить, необходимо приравнять ожидаемую полезность при отказе и ожидаемую полезность при выплате суммы $a$ и решить полученное равенство относительно $a$:
+	$$E(u(w-\xi)) = u(w - a)$$
+	$$E(u(w-\xi)) = \sum\limits_{i=1}^4 u(w-\xi_i)p_i = \sum\limits_{i=1}^4 p_i (5(w-\xi_i)-0.01\cdot (w-\xi_i)^2) = 351.5$$
+	$$u(w - a) = 5 (100-a) - 0.01(100-a)^2 = 351.5$$
+	$$a = 15.3784$$
+\end{solution}
+
+\newpage
+2. Определить, при каком значении капитала агент из предыдущей задачи будет наиболее интересен страховой организации, а при каком - наименее интересен.
+
+\begin{solution}
+	В прошлой задаче мы определились, что максимальную величину агент готов будет заплатить при выполнении равенства:
+	$$E(u(w-\xi)) = u(w - a)$$
+
+	Агент будет наиболее интересен компании, когда $a \to \max$ (когда выплачивается агентом максимальное количество денег) и менее интересен, когда $a \to \min$.
+
+	Идея: выразить $a$ через $w$ и найти максимум и минимум функции по $w$.
+
+	Получим квадратное уравнение относительно $w$:
+	$$0.01a^2 - a \cdot (0.02w+5) + 0.3w - 78.5 = 0$$
+	$$a = -250 + w \mp \sqrt{70350-530w+w^2}$$
+
+	Осталось выбрать, как ограничивать $u,a$ и $w$. $a$, наверное, не может быть меньше нуля, тогда это означает, что страховая компания должна заплатить. Тогда, в одном из решений, решая относительно $w$, получим, что $a_{min} = a(w_{min}) = a(261.667)$.
+
+	Дальше стоит вопрос как ограничивать $u$ и $w$. Снизу есть ограничение по $w$: 0, так как капитал не может быть отрицтаельным. Что есть верхняя граница $w$? Два варианта: точка, в которой функция полезности начинает убывать, либо точка, в которой функция полезности равна нулю.
+
+	Тогда ответы, соответственно, $w_{max} = 200$ или $w_{max} = 500$
+\end{solution}
+
+\newpage
+3.1 Решить первую задачу в случае, если потенциальный ущерб определяется случайной величиной с плотностью распределения $f_{\xi}(x) = a\sqrt{25-x^2}, x \in [0;5]$, а функция полезности есть:
+$u(x) = \ln x = \log_e x $ или $u(x) = \lg x = \log_{10} x$
+
+\begin{solution}
+	$$E(u(w-\xi)) = u(w - a)$$
+	$$u(w-a) = \ln(100 - a)$$
+	$$E(u(w-\xi)) = E\left(\ln(100-\xi)\right) = \int\limits_{0}^5 \ln(100 - x) a\sqrt{25-x^2}dx$$
+
+	Нужно взять интеграл, если будет время, Wolfram взял и дает ответ $a \approx 0.05$
+\end{solution}
+\newpage
+4. Инвестор хочет распределить свой капитал между ценной бумагой, доходность по которой определяется $\xi_1 \sim N(\mu_1,\sigma_1^2)$ с матемматическим ожиданием $5\%$ и стандартным отклонением $2\%$ и безрисковой ценной бумагой с фиксированной доходностью $\xi_2 = 4\%$. 
+
+Какую часть своего капитала инвестору стоит вложить в первую ценную бумагу, если его функция полезности есть $u(x) = 1 - e^{-\lambda x}$
+\begin{solution}
+	Введём доли $\alpha$ и $1-\alpha$. Тогда доход инвестора вычислим по формуле:
+	$$ s = w\alpha(1+\xi_1) + \xi_2 \cdot w(1-\alpha)$$
+
+	Будем максимизировать математическое ожидание от функции полезности:
+	$$Eu(s) = E (1-e^{-\lambda \cdot s}) = 1 - E \left(e^{-\lambda \left(w\alpha(1+\xi_1) + 1.04 \cdot w(1-\alpha)\right)}\right) \to \underset{\alpha}{\max}$$
+
+	Раскроем скобки и упростим выражение:
+	$$1 - e^{-\lambda w \xi_2} \cdot Ee^{-\lambda w \alpha (\xi_1 - \xi_2)} \to \underset{\alpha}{\max}$$
+	$$Ee^{-\lambda w \alpha (\xi_1 - \xi_2)} = e^{\xi_2 \lambda w \alpha } \cdot Ee^{-\lambda w \alpha\xi_1} \to \underset{\alpha}{\min} $$
+
+	Сделаем замену $\beta = -w\lambda\alpha$ и попытаемся взять следующий интеграл
+	$$Ee^{-w\lambda\alpha\xi_1} = Ee^{\beta \xi_1} = \int\limits_{-\infty}^{\infty} e^{\beta x_1}\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x_1-\mu_1)^2}{2\sigma_1^2}}dx_1$$
+
+	Известно, что производящая функция моментов для нормального распредления есть следующая величина:
+	$$Ee^{\beta \xi_1} = e^{\mu\beta + \frac{\beta^2 \sigma_1^2}{2}} \Rightarrow Ee^{-\lambda w \alpha \xi_1} = e^{-\mu_1w\lambda\alpha + \frac{w^2 \lambda^2\alpha^2 \sigma_1^2}{2}}$$
+	$$e^{\xi_2 \lambda w \alpha } \cdot Ee^{-\lambda w \alpha\xi_1} = e^{\xi_2 \lambda w \alpha } \cdot e^{-\mu_1w\lambda\alpha + \frac{w^2 \lambda^2\alpha^2 \sigma_1^2}{2}} \to \underset{\alpha}{\min}$$
+	$$\xi_2 \lambda w -\mu_1w\lambda + w^2 \alpha \lambda^2 \sigma_1^2 = 0$$
+	$$\alpha = \frac{\mu_1 - \xi_2}{w\lambda\sigma_1^2} $$
+
+
+
+\end{solution}
+\newpage
+5. Решить предыдущую задачу, если инвестор распределяет капитал между двумя ценными бумагами, доходности которых распределены нормально с математическими ожиданиями $\mu_1,\mu_2$, стандартными отклонениями $\sigma_1, \sigma_2$ и коэффициентов корреляции $\rho$.
+
+\begin{solution}
+\end{solution}
+Посмотрим на задачу $0$ и получим следующее выражение:
+$$E\left(e^{-\lambda w (\alpha \xi_1 + \xi_2 (1-\alpha))}\right) \to \min$$
+с тем отличием, что величины не являются независимыми
+
+Обозначим за $\xi = e^{-\lambda w \alpha \xi_1}$ и $\eta = e^{-\lambda w\xi_2(1-\alpha)}$
+$$cov(\xi,\eta) = \sqrt{D\xi \cdot D\eta} \cdot \rho(\xi,\eta)$$
+$$E(\xi\eta) - E\xi\eta = \sqrt{D\xi \cdot D\eta} \cdot \rho(\xi,\eta)$$
+$$E(\xi\eta) = \sqrt{D\xi \cdot D\eta} \cdot \rho(\xi,\eta) + E(\xi\eta)$$
+$$D\xi = E\xi^2 - (E\xi)^2$$
+\label{solution1}
+$$E(\xi\eta) = \sqrt{\left(E\xi^2 - (E\xi)^2\right)\cdot \left(E\eta^2 - (E\eta)^2\right)}\cdot \rho(\xi,\eta) + E(\xi\eta) \to \underset{\alpha}{\min} \eqno (solution)$$
+
+1. Найдем $E\xi$ и $E\eta$
+
+Сделаем замену $\beta = -w\lambda\alpha$ и попытаемся взять следующий интеграл
+$$Ee^{-w\lambda\alpha\xi_1} = Ee^{\beta \xi_1} = \int\limits_{-\infty}^{\infty} e^{\beta x_1}\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x_1-\mu_1)^2}{2\sigma_1^2}}dx_1$$
+
+Известно, что производящая функция моментов для нормального распредления есть следующая величина:
+$$Ee^{\beta \xi_1} = e^{\mu\beta + \frac{\beta^2 \sigma_1^2}{2}}$$
+
+2. Найдем $E(\xi\eta)$
+
+$$E(\xi\eta) = Ee^{-\lambda w \alpha \xi_1} \cdot Ee^{-\lambda w \xi_2 (1-\alpha)} = e^{\left(-\mu_1w\lambda\alpha + \frac{w^2 \lambda^2\alpha^2 \sigma_1^2}{2}-\mu_2w\lambda(1-\alpha) + \frac{w^2 \lambda^2(1-\alpha)^2 \sigma_2^2}{2}\right)} \to \underset{\alpha}{\min}$$
+
+Нам известно всё кроме $E\xi^2$ в (\ref{solution1}) которое тоже можно найти (но я не знаю, как это брать):
+$$E(e^{-w\lambda\alpha\xi_1})^2 = E(e^{\beta \xi_1})^2 = \int\limits_{-\infty}^{\infty} (e^{\beta x_1})^2\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x_1-\mu_1)^2}{2\sigma_1^2}}dx_1 = e^{2\beta(\mu_1+\beta\sigma_1^2)}$$
+
+Подставляя в (\ref{solution1}), взяв производную по $\alpha$, приравняв к нулю, выражаем $\alpha$ через исходные данные: $w,\mu_1,\mu_2, \sigma_1,\sigma_2, \rho, \lambda$.
+
+
+
+
+\end{document}

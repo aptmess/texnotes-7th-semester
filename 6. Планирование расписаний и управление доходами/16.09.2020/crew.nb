@@ -1,0 +1,120 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3947,        110]
+NotebookOptionsPosition[      3626,         96]
+NotebookOutlinePosition[      3967,        111]
+CellTagsIndexPosition[      3924,        108]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"$numberOfCrew", "=", 
+   RowBox[{"<|", "\n", "\t", 
+    RowBox[{
+     RowBox[{"1", " ", "\[Rule]", " ", 
+      RowBox[{"<|", 
+       RowBox[{
+        RowBox[{"\"\<\:0412\:0412\:041b\>\"", " ", "\[Rule]", " ", "125.54"}],
+         ",", 
+        RowBox[{"\"\<\:041c\:0412\:041b\>\"", " ", "\[Rule]", " ", "119.88"}],
+         ",", 
+        RowBox[{
+        "\"\<\:0421\:041d\:0413\>\"", " ", "\[Rule]", " ", "122.03"}]}], 
+       "|>"}]}], ",", "\n", "\t", 
+     RowBox[{"2", " ", "\[Rule]", " ", 
+      RowBox[{"<|", 
+       RowBox[{
+        RowBox[{"\"\<\:0412\:0412\:041b\>\"", " ", "\[Rule]", " ", "122.84"}],
+         ",", 
+        RowBox[{"\"\<\:041c\:0412\:041b\>\"", " ", "\[Rule]", " ", "117.30"}],
+         ",", 
+        RowBox[{
+        "\"\<\:0421\:041d\:0413\>\"", " ", "\[Rule]", " ", "119.41"}]}], 
+       "|>"}]}], ",", "\n", "\t", 
+     RowBox[{"3", " ", "\[Rule]", " ", 
+      RowBox[{"<|", 
+       RowBox[{
+        RowBox[{"\"\<\:0412\:0412\:041b\>\"", " ", "\[Rule]", " ", "129.97"}],
+         ",", 
+        RowBox[{"\"\<\:041c\:0412\:041b\>\"", " ", "\[Rule]", " ", "124.10"}],
+         ",", 
+        RowBox[{
+        "\"\<\:0421\:041d\:0413\>\"", " ", "\[Rule]", " ", "126.33"}]}], 
+       "|>"}]}], ",", "\n", "\t", 
+     RowBox[{"4", " ", "\[Rule]", " ", 
+      RowBox[{"<|", 
+       RowBox[{
+        RowBox[{"\"\<\:0412\:0412\:041b\>\"", " ", "\[Rule]", " ", "127.26"}],
+         ",", 
+        RowBox[{"\"\<\:041c\:0412\:041b\>\"", " ", "\[Rule]", " ", "121.51"}],
+         ",", 
+        RowBox[{
+        "\"\<\:0421\:041d\:0413\>\"", " ", "\[Rule]", " ", "123.69"}]}], 
+       "|>"}]}], ",", "\n", "\t", 
+     RowBox[{"5", " ", "\[Rule]", " ", 
+      RowBox[{"<|", 
+       RowBox[{
+        RowBox[{"\"\<\:0412\:0412\:041b\>\"", " ", "\[Rule]", " ", "123.32"}],
+         ",", 
+        RowBox[{"\"\<\:041c\:0412\:041b\>\"", " ", "\[Rule]", " ", "117.76"}],
+         ",", 
+        RowBox[{
+        "\"\<\:0421\:041d\:0413\>\"", " ", "\[Rule]", " ", "119.87"}]}], 
+       "|>"}]}], ",", "\n", "\t", 
+     RowBox[{"6", " ", "\[Rule]", " ", 
+      RowBox[{"<|", 
+       RowBox[{
+        RowBox[{"\"\<\:0412\:0412\:041b\>\"", " ", "\[Rule]", " ", "130.64"}],
+         ",", 
+        RowBox[{"\"\<\:041c\:0412\:041b\>\"", " ", "\[Rule]", " ", "124.75"}],
+         ",", 
+        RowBox[{
+        "\"\<\:0421\:041d\:0413\>\"", " ", "\[Rule]", " ", "126.99"}]}], 
+       "|>"}]}]}], "|>"}]}], ";"}]], "Code",
+ InitializationCell->False,
+ CellChangeTimes->{{3.6434315723576508`*^9, 3.643431593910347*^9}, {
+   3.643433128248126*^9, 3.643433132129876*^9}, 3.643433643613601*^9, {
+   3.643433685158554*^9, 3.643433687127937*^9}, 3.6434596633099055`*^9, {
+   3.6466450685666604`*^9, 3.646645073399824*^9}, {3.6467808609155045`*^9, 
+   3.646780886048292*^9}, {3.6467908204325075`*^9, 3.646790820681699*^9}, {
+   3.6470576689192486`*^9, 3.6470578153686876`*^9}, {3.6470598493438187`*^9, 
+   3.647059872355094*^9}, {3.777564482208448*^9, 
+   3.7775645172831917`*^9}},ExpressionUUID->"7f9425cd-dfae-44e9-ab12-\
+221128ec4151"]
+},
+WindowSize->{1520, 781},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 3064, 74, 143, "Code",ExpressionUUID->"7f9425cd-dfae-44e9-ab12-221128ec4151",
+ InitializationCell->False]
+}
+]
+*)
+
+(* End of internal cache information *)
+
