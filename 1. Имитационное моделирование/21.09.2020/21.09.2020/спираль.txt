@@ -1,0 +1,3 @@
+x = center_x + r*t*cos(t);
+y = center_y + r*t*sin(t);
+t += dir_spiral*0.1;
