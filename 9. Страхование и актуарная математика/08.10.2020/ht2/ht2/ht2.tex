@@ -1,0 +1,224 @@
+\documentclass[%
+12pt, %
+final, % 
+oneside, % 
+onecolumn, %  
+centertags]{article} % относится к классу article и размер шрифта 12 пунктовб, {article: статья, report: отчеты и диссертации, book: книга, letter: письмо}
+
+% ------ page construction 
+
+\topmargin= -30pt % насколько сверху будет страница
+\textheight= 650pt
+
+% ------ Пакеты расширения
+
+\usepackage[utf8]{inputenc} % задает кодировку, utf-8 кодировка, включающая в себя знаки почти всех языков мира
+\usepackage[english, russian]{babel} % подключает необходимые языки, основным языком является английский
+\selectlanguage{russian} % настройки будут на английском, но писать будет на русском
+
+\usepackage{euscript}
+\usepackage{supertabular}
+
+\usepackage[colorlinks=true,linkcolor=black,unicode=true,urlcolor = blue]{hyperref} %hypered
+\usepackage[pdftex]{graphicx} % для графики
+
+\usepackage{amsthm, amssymb, amsmath, amsfonts} % математический пакет, математические шрифты
+\usepackage{textcomp}
+\usepackage[noend]{algorithmic}
+\usepackage[ruled]{algorithm}
+\usepackage{lipsum}
+\usepackage{indentfirst}
+\usepackage{babel}
+\usepackage{pgfplots}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\linespread{1.2} 
+\setlength{\parindent}{2.4em}
+\setlength{\parskip}{0.1em}
+
+\pgfplotsset{compat=1.9}
+\pgfplotsset{model/.style = {blue, samples = 100}} 
+\pgfplotsset{experiment/.style = {red}}
+
+\theoremstyle{plain}
+\binoppenalty=10000
+
+\newtheorem{theorem}{Теорема}[section] % theorem
+
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}[subsection]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Замечание}[section]
+
+\newtheorem{corollary}{Следствие}
+
+\newtheorem{solution}{Решение}
+
+\newtheorem{proposition}{Proposition}
+
+\newtheorem{example}{Пример}
+
+\newtheorem{lemma}{Лемма}[section]
+
+\renewcommand*{\proofname}{Proof}
+
+\graphicspath{ {./image/} }
+
+\usepackage{enumitem}
+\begin{document}
+
+\begin{titlepage} 
+\begin{center}
+\textbf{}\\[10.0cm]
+\textbf{\LARGE Страхование и актуарная математика}\\[0.5cm]
+\textbf{\Large HT2 \& HT3: Измерение риска} \\[0.2cm]
+
+
+\begin{center} \large
+{Преподаватель:} \\[0.5cm]
+\textsc {Радионов Андрей Владимирович}\\
+\end{center}
+
+\vfill 
+
+
+
+{\large {Александр Широков, ПМ-1701}} \par
+{\large {Санкт-Петербург}} \par
+{\large {2020 г., 7 семестр}} 
+
+\end{center} 
+\end{titlepage}
+
+\newpage
+
+1. \([\operatorname{HT2}]\) Вычислите \(90\%\) и \(95\%\) рисковый капитал для убытка, определяемого дискретной случайной величиной, принимающей значения $0, 1, 2, 5, 10, 50$ с вероятностями $0.1, 0.2, 0.4, 0.2, 0.07, 0.03$.
+
+\textbf{Решение}: Запишем определение Value at Risk ($\operatorname{VaR}$). Пусть $\xi$ - случайный убыток:
+$$\operatorname{VaR}_{\alpha}(\xi) = \operatorname{inf} \{x_{\alpha}: P\{\xi \geqslant x_{\alpha}\} \leqslant 1 - \alpha \}$$
+
+Тогда:
+$$\operatorname{VaR}_{0.95}(\xi) =  \operatorname{inf} \{x_{\alpha}: P\{\xi \geqslant x_{\alpha}\} \leqslant 0.05 \} = 10$$
+$$\operatorname{VaR}_{0.9}(\xi) =  \operatorname{inf} \{x_{\alpha}: P\{\xi \geqslant x_{\alpha}\} \leqslant 0.1 \} = 5 \eqno \blacksquare$$
+
+1. \([\operatorname{HT3}]\) Вычислите \(90\%\) и \(95\%\) условный рисковый капитал для убытка, определяемого дискретной случайной величиной, принимающей значения $0, 1, 2, 5, 10, 50$ с вероятностями $0.1, 0.2, 0.4, 0.2, 0.07, 0.03$.
+
+\textbf{Решение}:
+$$\operatorname{CVaR}_{0.9}(\xi) = \mathbb{E}(\xi \vert \xi \geqslant \operatorname{VaR}_{0.9}) = $$
+$$ = 5 \cdot \frac{0.2}{0.2+0.07 + 0.03} + 10 \cdot \frac{0.07}{0.2 + 0.07 + 0.03} + 50 \cdot \frac{0.03}{0.2 + 0.07 + 0.03} = 10.6667$$
+$$\operatorname{CVaR}_{0.95}(\xi) = \mathbb{E}(\xi \vert \xi \geqslant \operatorname{VaR}_{0.95}) = $$
+$$ = 10 \cdot \frac{0.07}{0.07 + 0.03} + 50 \cdot \frac{0.03}{0.07 + 0.03} = 22 \eqno \blacksquare$$
+
+\newpage
+2. \([\operatorname{HT2}]\) Для случайных величин с функциями распределения:
+\begin{enumerate}
+	\item $\mathbb{F}(x) = \frac{1}{1+e^{-x}}, x \in \mathbb{R}$
+	\item $\mathbb{F}(x) = 1 - \frac{16}{x^4}, x>2$
+\end{enumerate}
+
+Найти положительную полудисперсию, отрицательную полудисперсию, $\operatorname{VaR}_{0.9}$
+
+\textbf{Решение 2.1}: Для начала найдем плотности, как производные от функций произведения:
+$$f_{\xi}(x) = F(x)' = - \frac{e^{-x}\cdot (-1)}{(1+e^{-x})^2} = \frac{e^{-x}}{(1+e^{-x})^2}$$
+
+2.1.1 Тогда положительная полудисперсия определяется следующим выражением:
+$$D\xi_{+} = E(\xi - E\xi)_{+}^2 = \int\limits_{E\xi}^{+\infty}(x-E\xi)^2f_{\xi}(x)dx$$
+
+Найдем $E\xi$:
+$$E\xi = \int\limits_{-\infty}^{\infty}x \cdot f_{\xi}(x) dx =  \int\limits_{-\infty}^{\infty}x \cdot \frac{e^{-x}}{(1+e^{-x})^2} dx = 0$$
+так как график симметричен относительно нуля
+$$D\xi_{+} = \int\limits_{0}^{+\infty}x^2 \frac{e^{-x}}{(1+e^{-x})^2} dx = \frac{\pi^2}{6}$$
+
+2.1.2 Отрицательная полудисперсия:
+$$D\xi_{-} = \int\limits_{-\infty}^{0}x^2 \frac{e^{-x}}{(1+e^{-x})^2} dx = \frac{\pi^2}{6}$$
+
+2.1.3 $\operatorname{VaR}_{0.9}$:
+$$F(x_{\alpha}) = \alpha: x_{\alpha} = \operatorname{VaR}_{\alpha}(\xi)$$
+$$\frac{1}{1+e^{-x}} = \alpha$$
+$$\frac{1}{\alpha} - 1 = e^{-x}$$
+$$-x = \log\left(\frac{1}{\alpha} - 1\right)$$
+$$\operatorname{VaR}_{\alpha}(\xi) = x_{\alpha} = - \log\left(\frac{1}{\alpha} - 1\right) = 2.19722 \eqno \blacksquare$$
+
+\newpage
+
+2. \([\operatorname{HT3}]\) Для случайных величин с функциями распределения:
+\begin{enumerate}
+	\item $\mathbb{F}(x) = \frac{1}{1+e^{-x}}, x \in \mathbb{R}$
+	\item $\mathbb{F}(x) = 1 - \frac{16}{x^4}, x > 2$
+\end{enumerate}
+
+Найти $\operatorname{CVaR}_{0.9}$.
+
+\textbf{Решение:}
+$$1. \operatorname{CVaR}_{\alpha}(\xi) = \mathbb{E}(\xi \vert \xi \geqslant \operatorname{VaR}_{\alpha}) = \frac{1}{1-\alpha}\cdot \int\limits_{\operatorname{VaR}_{\alpha}}^{\infty} xf_{\xi}(x)dx = 3.25083$$
+
+$$2. \operatorname{CVaR}_{\alpha}(\xi) = \frac{1}{1-\alpha}\cdot \int\limits_{\min\{\operatorname{VaR}_{\alpha}, 2\}}^{\infty} xf_{\xi}(x)dx = 4.74208 \eqno \blacksquare$$
+
+\newpage
+
+3. Для портфеля из двух нормальных случайных величин с математическими ожиданиями $\mu_1 = 3, \mu_2 = 5$ и дисперсиями $\sigma_1^2 = 4$ и $\sigma_2^2 = 1$ и коэффициентом корреляции $\rho = 0.3$ найти $99\%$ рисковый капитал.
+
+\textbf{Решение:} Пусть $\xi_1 \sim N(\mu_1,\sigma_1^2)$  и $\xi_2 \sim N(\mu_2,\sigma_1^2)$. Тогда распределение портфеля является следующей нормальной величиной со следующими характеристиками:
+$$\eta \sim N(\mu_1+\mu_2, \sigma_1^2 + \sigma_2^2 + 2\rho\sigma_1\sigma_2)$$
+$$F_{\eta}(x) = \frac{1}{\sqrt{2\pi}\sqrt{\sigma_1^2 + \sigma_2^2 + 2\rho\sigma_1\sigma_2}} \cdot \int\limits_{-\infty}^x e^{-\frac{t - (\mu_1+\mu_2)}{2(\sigma_1^2 + \sigma_2^2 + 2\rho\sigma_1\sigma_2)}}dt$$
+
+Осталось решить уравнение $F(x) = \alpha$, где $\alpha = 0.99$. $\operatorname{VaR}_{\alpha}(\xi) = x_{\alpha} \approx 22.42$. 
+
+Если убыток $\xi \sim N(\mu, \sigma^2)$, то:
+$$\operatorname{VaR}_{\alpha}(\xi) = \mu + q_{\alpha}\sigma$$
+где $q_{\alpha}$ - квантиль стандартного нормального распределения. Можнр и так считать. $\blacksquare$
+\newpage
+
+4. (?) Объяснить, как распределить средства между двумя ценными бумагами из предыдущей задачи, чтобы минимизировать рисковый капитал. Сравните результат минимизации рискового капитала и минимизации дисперсии. Подумайте, можно ли обобщить вывод на другие распределения.
+
+\textbf{Решение}: Пусть $\lambda$ - доля средств, которую мы распределим для первой бумаги, а $(1-\lambda)$ - для второй. Математическое ожидание и дисперсия портфеля тогда будут равны:
+$$\mu^* = \lambda \mu_1 + (1-\lambda)\mu_2$$
+$$\sigma^* = \sqrt{\lambda^2\sigma_1^2 + (1-\lambda)^2\sigma_2^2 + 2\rho\lambda(1-\lambda)\sigma_1\sigma_2}$$
+
+А что дальше я не понимаю - хотелось бы разобрать.
+
+\newpage
+
+5. \([\operatorname{HT2}]\) Проверьте, насколько отличаются $\operatorname{VaR}_{0.99}$ и $\operatorname{VaR}_{0.995}$ для нормальной случайной величины, распределения Стьюдента с 10 степенями свободы, логнормального распределения. Подумайте, что это значит.
+
+\textbf{Рассуждение:} капитал, который может быть потерян с вероятностью $0.01$, может быть значительно больше, чем с вероятностью $0.005$. Это происходит из-за медленной сходимости распределений и наличия тяжелых хвостов, вероятность убытка из которых тоже необходимо оценивать и не принебрегать.
+
+3. \([\operatorname{HT3}]\) Такое же рассуждение, хвосты тяжелые.
+
+
+\newpage
+
+7. \([\operatorname{HT2}]\) Симулируйте выборку объёмом $200$ из нормального распределения случайной величины и оцените $VaR_{90\%}, VaR_{95\%}, VaR_{99\%}$ непараметрически и в предположении, что выборка получена из нормального распределения. Сравните качество методов. Эмперически сравните средне квадратичную ошибку оценки, полученной параметрическим и непараметрическим образом.
+
+\textbf{Решение:}
+
+1. Сначала найдём теоретические квантили
+$$z_{\alpha = (0.9, 0.95, 0.99)} = 1.28155, 1.64485, 2.32635$$
+
+2. Найдём непараметрические оценки квантилей. Квантили вычисляются по следующей формуле
+$$X_{([\alpha n] + 1)}$$ 
+где $X$ - вариационный ряд выборки, $\alpha$ - уровень значимости, $n$ - число наблюдений.
+
+3. В предположении, что выборка получена из нормального распределения поступим следующим образом. В качестве оценок для $\mu$ и $\sigma$ вычислим выборочные средние и выборочное снадартное отклонение. В предположении, что $\xi \sim N(\mu, \sigma^2), \xi = \mu + \sigma \eta$, решим уравнение:
+$$F_{\xi}(q_{\alpha}) = \mathbb{P}\{\xi < q_{\alpha}\} = \alpha$$
+$$\mathbb{P}\left\{\frac{\xi - \mu}{\sigma} < \frac{q_{\alpha} - \mu}{\sigma}\right\} = \alpha$$
+$$\Phi\left(\frac{q_{\alpha} - \mu}{\sigma}\right) = \alpha $$
+где $\Phi_{\xi}(x) = \frac{1}{\sqrt{2\pi}} \int\limits_{-\infty}^x e^{-\frac{t^2}{2}}dt$, откуда в принципе можем найти $q_{\alpha}$. $q_{\alpha} = \mu + \sigma z_{\alpha}$. После этого ищем среднеквадратичную ошибку.
+
+\newpage 
+
+5. \([\operatorname{HT3}]\)
+
+Симулируйте выборку объёмом $200$ из нормального распределения случайной величины и оцените $CVaR_{90\%}, CVaR_{95\%}, CVaR_{99\%}$ непараметрически и в предположении, что выборка получена из нормального распределения. Сравните качество методов. Эмперически сравните средне квадратичную ошибку оценки, полученной параметрическим и непараметрическим образом.
+
+1. Непараметрическая оценка: рассматриваем вариационный ряд, находи $\alpha$-квантиль по формуле из предыдущего пункта, находим все числа, большие данного квантиля и рассматриваем среднее значение.
+
+2. Теоретические квантили ?
+
+3. Параметрические оценки ?
+
+
+\end{document}

@@ -284,10 +284,59 @@ $$\prod\limits_{i=1}^K p_i^{y_i}(1-p_i)^{1-y_i} \qquad p_i = G(\overline{\theta_
 
 \end{itemize}
 
+
 \subsection{Методы обработки текстов}
+\newpage
+b
+\newpage
+\subsection{Word2Vec}
 
+В модели Word2Vec есть фиксированный словарь, каждому слову сопоставляется вектор. Для каждого слова есть центральное слово и есть \textsc{context} - слова вокруг центрального.
 
+Мы используем сходство векторных представлений, чтобы предсказать вероятность слова на основании контекста. Данные вектора будем двигать в пространстве таким образом, чтобы вероятность слова в данном контексте была максимальной.
 
+У нас есть корпус текста. Мы можем нарезать слово на контекст. Для каждого центрального слова из контекста имеем вероятности возникновения слова и мы предсказываем вероятности подобного слова.
 
+У каждого слова есть своя вероятность встретиться со словом.
 
+Нет такого понятия, как предсказание вероятности. 
+
+\subsubsection{Cross-Entropy loss function}
+
+Пусть у нас есть некоторое количество вероятностей для всех слов, при условии, что у нас есть некоторые параметры, которые параметризуют функцию вероятности. Мы попробуем, чтобы получающаяся вероятность была похожа.
+$$J(\theta) = - \frac{1}{T} \log (L(\theta)) = - \frac{1}{T}\sum\limits_{t=1}^T \sum\limits_{\underset{j \neq 0}{-m \leq j \leq m}} \log (w_{t+j} | w_t, \theta)$$
+
+Наборы вероятностей мы предсказываем и мерим разницу между двумя вероятностями. В силу того, что мы работает с реальными корпусами. В реальном контесте встретился определенный набор слов.
+$$J(\theta) = - \frac{1}{T} \log (L(\theta)) = - \frac{1}{T}\sum\limits_{t=1}^T \sum\limits_{\underset{j \neq 0}{-m \leq j \leq m}} \log P(w_{t+j} | w_t, \theta) \to \min$$
+
+Мы хотим данную функцию максимизировать. Но как высчитывать вероятности? Будем использовать два вектора для каждого слова $w$: $v_{w}$, когда $w$ - центральное слово и $u_{w}$, когда $w$ - слово контеста.
+
+Для центрального слова $c$ и контекстного слова $o$:
+$$p(o|c) = \frac{e^{u_o^Tv_c}}{\sum\limits_{w \in V} e^{u_w^T v_c}} $$
+
+Данная функция называется Softmax - она делет контрастирование. У нас есть набор значений - косинусные состояния. Каждое значение будет возможно интерпретировать в качестве вероятности. Softmax выдает нормализованный вектор значений. Этот вектор значений мы можем интерпретировать, как вероятность распределений. Является вероятностью, есть вход распределен нормально.
+
+Softmax является дифференцируемой функцией, поэтому мы можем обучать нейронную сеть. Вычисление Softmax по большому словарю.
+
+\subsubsection{Skip-gram Model}
+
+Skipgram - мы пропускаем что-то, которая с помощью прорпущенного работает. Есть центральное слово $o$, есть набор слов справа и мы будем предсказывать каждое из слов в контексте.
+
+Тренировать модель будет с помощью оптимизации параметров - стохастический градиентный спуск.
+
+У нас есть набор параметров - набор векторов слов для каждого слова. $\theta$ - будем оптимизировать все вектора:
+$$\theta \in R^{2dV}$$
+$$J(\theta) = - \frac{1}{T}\log L(\theta) = - \frac{1}{T}\sum\limits_{t=1}^T \sum\limits_{\underset{j \neq 0}{-m \leq j \leq m}} \log P(w_{t+j} | w_t, \theta) = - \frac{1}{T} \sum\limits_{o \in context(c)} \sum\limits_{c \in corpus}\log p(o|c; u, v)$$
+$$\frac{\partial J(\theta)}{\partial \theta} =  - \frac{1}{T}\sum\limits_{o \in context (c)} \sum\limits_{c \in corpus}\frac{\partial }{\partial \theta} \log p(o|c; u, v)$$
+
+Подставим вместо $p$ - Softmax:
+$$\frac{\partial}{\partial v_c}\log p(o|c; u, v) = \frac{\partial}{\partial v_c} \log \frac{e^{u_o^Tv_c}}{\sum\limits_{w \in V} e^{u_w^T v_c}} = \frac{\partial}{\partial v_c} \log \frac{e^{u_o^Tv_c}}{\sum\limits_{w = 1}^V e^{u_w^T v_c}} = $$
+$$\frac{\partial }{\partial v_c}(u_o^T v_c) - \frac{\partial }{\partial v_c} \log \sum\limits_{w=1}^V e^{u_w^T v_c} = 
+u_0 - \frac{1}{\sum\limits_{w=1}^V e^{u_w^T v_c}} \cdot \frac{\partial}{\partial v_c} \sum\limits_{w=1}^V e^{u_w^T  v_c}=$$
+$$=u_0 - \frac{1}{\sum\limits_{w=1}^V e^{u_w^T v_c}} \cdot \sum\limits_{w=1}^V \frac{\partial}{\partial v_c} e^{u_w^T  v_c} = u_0 - \frac{1}{\sum\limits_{w=1}^V e^{u_w^T v_c}} \sum\limits_{w=1}^V e^{u_w^T  v_c}u_w = $$
+$$u_0 - \sum\limits_{x = 1}^V \frac{e^{u_x^T v_c}}{\sum\limits_{w=1}^V e^{u_w^T v_c}}u_x =  u_0 - \sum\limits_{x=1}^V p(x|c) u_x $$
+
+Получаем, что частная производная по контекстному слову составляет:
+$$\frac{\partial}{\partial v_c}J(\theta) =  - \frac{1}{T}\sum\limits_{o \in context (c)} \sum\limits_{c \in corpus} (u_0 - \sum\limits_{x=1}^V p(x|c) u_x)$$
+$$\frac{\partial}{\partial u_0}J(\theta) =  - \frac{1}{T}\sum\limits_{o \in context (c)} \sum\limits_{c \in corpus} (v_c - \sum\limits_{x=1}^V p(o|x) v_x)$$
 \end{document}
