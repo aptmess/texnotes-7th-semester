@@ -685,4 +685,44 @@ $$\lambda(v) - \lambda(u) \geqslant 1 \quad \forall (u,v) \in A$$
 $$\lambda(v) \geqslant 1 \quad \forall v \in V$$
 $$\lambda(u) \in \mathbb{Z} \quad \forall v \in V$$ 
 
+\newpage
+\subsection{Распределение вершин по слоям с ограничением на ширину слоя}
+
+Пусть дан $G(V, A)$ - DAG (Directed Acyclic Graph). Решается задача распределения по слоям. Введём следующие переменные:
+$$X_{i, k} = \begin{cases}
+	1, \text{если вершина \textbf{i} назначена на слой \textbf{k}}\\
+	0, \text{в обратном случае}
+\end{cases}$$
+
+Обозначим за $W$ - максимальную ширину слоя, за $n_v$ - число вершин в графе. Тогда ограничение:
+$$\sum\limits_{i=1}^{n_v} X_{i, k} \leqslant W \quad \forall k \in \{1, \ldots, h_{\max}\}$$
+где $h_{\max}$ - длина наибольшего пути в графе. Данное ограничение означает, что количество вершин на каждом слое не может превышать $W$.
+
+Для каждой вершины $i \in V$ определим минимальный и максимальный номер слоя, на котором может располагаться вершина $i$:
+$$[\ \underline{h_i},  \ \overline{h_i}\ ] \quad \forall i \in V$$
+
+тогда количество переменных уменьшится:
+$$X_{i, k} = \begin{cases}
+	1, \text{если вершина \textbf{i} назначена на слой \textbf{k}}\\
+	0, \text{в обратном случае}
+\end{cases}, \underline{h_i} \leqslant k \leqslant \overline{h_i} $$
+$$X_{i, k} \in \{0,1\}$$
+$$\forall i \in V \quad \forall k \in \{\underline{h_i}, \overline{h_i}\}$$
+
+Номер слоя вершины $\forall i \in V$ вычисляется следующим образом:
+$$\lambda(i) = \sum\limits_{k = \underline{h_i}}^{\overline{h_i}} k \cdot X_{i, k}$$
+
+Ограничение: каждая вершина назначается ровно на один слой:
+$$\sum\limits_{k = \underline{h_i}}^{\overline{h_i}} X_{i, k} = 1$$
+
+Ограничение, что направление дуг - сверху вниз:
+$$\lambda(v) - \lambda(u) \geqslant 1 \quad \forall (u,v) \in A$$
+$$\sum\limits_{k = \underline{h_i}}^{\overline{h_i}} k \cdot X_{v, k} - \sum\limits_{k = \underline{h_i}}^{\overline{h_i}} k \cdot X_{u, k} \geqslant 1 \quad \forall (u,v) \in A$$
+
+Теперь переходим к главному: целевая функция. Необходимо минимизировать число фиктивных вершин. Для этого воспользуемся логическим рассуждением: чем меньше слоёв нам потребуется для расстановки вершин по слоям, тем меньшее количество фиктивных вершин будет в Layering графе. Поэтому введём переменную $\Phi$ и будем ёё минимизировать при дополнительном ограничении:
+$$\Phi \to \min$$
+$$\lambda(i) = \sum\limits_{k = \underline{h_i}}^{\overline{h_i}} k \cdot X_{i, k} \leqslant \Phi \quad \forall i \in V$$
+
+Если $W$ - переменная, то введём веса и целевая функция примет вид:
+$$w_1 \cdot \Phi + w_2 \cdot H \to \min$$
 \end{document}
