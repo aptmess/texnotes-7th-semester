@@ -1,0 +1,2 @@
+Objective Function: 8746427.07959206
+Amount of routes: 551

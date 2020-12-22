@@ -1,0 +1,2670 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    112575,       2662]
+NotebookOptionsPosition[    102988,       2487]
+NotebookOutlinePosition[    103361,       2503]
+CellTagsIndexPosition[    103318,       2500]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Package", "Title",
+ CellChangeTimes->{{3.8145465646093593`*^9, 
+  3.814546570839505*^9}},ExpressionUUID->"22122312-19ba-4fb5-b711-\
+2fd584271ea1"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.8145363895015187`*^9, 3.8145363901847243`*^9}, {
+  3.814542325645712*^9, 3.814542326570119*^9}},
+ CellLabel->
+  "In[1289]:=",ExpressionUUID->"396f3990-3844-47d9-b1b3-3cd70515a058"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<MethodSugiyama`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.814540385705756*^9, 3.814540386830179*^9}},
+ CellLabel->
+  "In[1290]:=",ExpressionUUID->"ea79bd08-0376-4f7d-b1b4-2823bf8ca3c3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "\"\<MethodSugiyama`*\>\""}]], "Input",
+ CellLabel->
+  "In[1291]:=",ExpressionUUID->"4e80800c-f438-453b-ba6f-e35656cdc096"],
+
+Cell[BoxData[
+ StyleBox[
+  FrameBox[GridBox[{
+     {
+      DynamicModuleBox[{Typeset`open$$ = True}, 
+       PaneSelectorBox[{False->
+        ButtonBox[
+         RowBox[{
+          
+          DynamicBox[FEPrivate`FrontEndResource[
+           "FEBitmaps", "RightPointerOpener"]], " ", 
+          StyleBox["MethodSugiyama`", "InformationGridGroupHeader"]}],
+         Appearance->None,
+         BaseStyle->"InformationGridLink",
+         ButtonFunction:>FEPrivate`Set[Typeset`open$$, True],
+         Evaluator->Automatic,
+         Method->"Preemptive"], True->
+        PaneBox[GridBox[{
+           {
+            ButtonBox[
+             RowBox[{
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "DownPointerOpener"],
+               ImageSizeCache->{9., {2., 7.}}], " ", 
+              StyleBox["MethodSugiyama`", "InformationGridGroupHeader"]}],
+             Appearance->None,
+             BaseStyle->"InformationGridLink",
+             ButtonFunction:>FEPrivate`Set[Typeset`open$$, False],
+             Evaluator->Automatic,
+             Method->"Preemptive"]},
+           {
+            PaneBox[GridBox[{
+               {
+                ButtonBox[
+                 StyleBox["AddDummyVertices", "InformationGridButton"],
+                 Appearance->None,
+                 BaseStyle->"InformationGridLink",
+                 
+                 ButtonData:>{
+                  "Info-d78aff2a-95c6-4648-b65a-d97e4b094bf3", {
+                   "AddDummyVertices", "MethodSugiyama`"}, False},
+                 ButtonNote->"MethodSugiyama`",
+                 Evaluator->Automatic], 
+                ButtonBox[
+                 StyleBox["DFSearch", "InformationGridButton"],
+                 Appearance->None,
+                 BaseStyle->"InformationGridLink",
+                 
+                 ButtonData:>{
+                  "Info-d78aff2a-95c6-4648-b65a-d97e4b094bf3", {
+                   "DFSearch", "MethodSugiyama`"}, False},
+                 ButtonNote->"MethodSugiyama`",
+                 Evaluator->Automatic], 
+                ButtonBox[
+                 StyleBox["GetDAG", "InformationGridButton"],
+                 Appearance->None,
+                 BaseStyle->"InformationGridLink",
+                 
+                 ButtonData:>{
+                  "Info-d78aff2a-95c6-4648-b65a-d97e4b094bf3", {
+                   "GetDAG", "MethodSugiyama`"}, False},
+                 ButtonNote->"MethodSugiyama`",
+                 Evaluator->Automatic], 
+                ButtonBox[
+                 StyleBox["getOrderRandom", "InformationGridButton"],
+                 Appearance->None,
+                 BaseStyle->"InformationGridLink",
+                 
+                 ButtonData:>{
+                  "Info-d78aff2a-95c6-4648-b65a-d97e4b094bf3", {
+                   "getOrderRandom", "MethodSugiyama`"}, False},
+                 ButtonNote->"MethodSugiyama`",
+                 Evaluator->Automatic], 
+                ButtonBox[
+                 StyleBox["MyLayeredGraphPlot", "InformationGridButton"],
+                 Appearance->None,
+                 BaseStyle->"InformationGridLink",
+                 
+                 ButtonData:>{
+                  "Info-d78aff2a-95c6-4648-b65a-d97e4b094bf3", {
+                   "MyLayeredGraphPlot", "MethodSugiyama`"}, False},
+                 ButtonNote->"MethodSugiyama`",
+                 Evaluator->Automatic]},
+               {
+                ButtonBox[
+                 StyleBox["BFSearch", "InformationGridButton"],
+                 Appearance->None,
+                 BaseStyle->"InformationGridLink",
+                 
+                 ButtonData:>{
+                  "Info-d78aff2a-95c6-4648-b65a-d97e4b094bf3", {
+                   "BFSearch", "MethodSugiyama`"}, False},
+                 ButtonNote->"MethodSugiyama`",
+                 Evaluator->Automatic], 
+                ButtonBox[
+                 StyleBox["getAcyclicTriangle", "InformationGridButton"],
+                 Appearance->None,
+                 BaseStyle->"InformationGridLink",
+                 
+                 ButtonData:>{
+                  "Info-d78aff2a-95c6-4648-b65a-d97e4b094bf3", {
+                   "getAcyclicTriangle", "MethodSugiyama`"}, False},
+                 ButtonNote->"MethodSugiyama`",
+                 Evaluator->Automatic], 
+                ButtonBox[
+                 StyleBox["GetGraph", "InformationGridButton"],
+                 Appearance->None,
+                 BaseStyle->"InformationGridLink",
+                 
+                 ButtonData:>{
+                  "Info-d78aff2a-95c6-4648-b65a-d97e4b094bf3", {
+                   "GetGraph", "MethodSugiyama`"}, False},
+                 ButtonNote->"MethodSugiyama`",
+                 Evaluator->Automatic], 
+                ButtonBox[
+                 StyleBox["GetVertexOrder", "InformationGridButton"],
+                 Appearance->None,
+                 BaseStyle->"InformationGridLink",
+                 
+                 ButtonData:>{
+                  "Info-d78aff2a-95c6-4648-b65a-d97e4b094bf3", {
+                   "GetVertexOrder", "MethodSugiyama`"}, False},
+                 ButtonNote->"MethodSugiyama`",
+                 Evaluator->Automatic], 
+                ButtonBox[
+                 StyleBox["SetCoveringFormulation", "InformationGridButton"],
+                 Appearance->None,
+                 BaseStyle->"InformationGridLink",
+                 
+                 ButtonData:>{
+                  "Info-d78aff2a-95c6-4648-b65a-d97e4b094bf3", {
+                   "SetCoveringFormulation", "MethodSugiyama`"}, False},
+                 ButtonNote->"MethodSugiyama`",
+                 Evaluator->Automatic]},
+               {
+                ButtonBox[
+                 StyleBox["DDVertex", "InformationGridButton"],
+                 Appearance->None,
+                 BaseStyle->"InformationGridLink",
+                 
+                 ButtonData:>{
+                  "Info-d78aff2a-95c6-4648-b65a-d97e4b094bf3", {
+                   "DDVertex", "MethodSugiyama`"}, False},
+                 ButtonNote->"MethodSugiyama`",
+                 Evaluator->Automatic], 
+                ButtonBox[
+                 StyleBox["GetCoordinates", "InformationGridButton"],
+                 Appearance->None,
+                 BaseStyle->"InformationGridLink",
+                 
+                 ButtonData:>{
+                  "Info-d78aff2a-95c6-4648-b65a-d97e4b094bf3", {
+                   "GetCoordinates", "MethodSugiyama`"}, False},
+                 ButtonNote->"MethodSugiyama`",
+                 Evaluator->Automatic], 
+                ButtonBox[
+                 StyleBox["GetLayering", "InformationGridButton"],
+                 Appearance->None,
+                 BaseStyle->"InformationGridLink",
+                 
+                 ButtonData:>{
+                  "Info-d78aff2a-95c6-4648-b65a-d97e4b094bf3", {
+                   "GetLayering", "MethodSugiyama`"}, False},
+                 ButtonNote->"MethodSugiyama`",
+                 Evaluator->Automatic], 
+                ButtonBox[
+                 StyleBox["GreedyCycleRemoval", "InformationGridButton"],
+                 Appearance->None,
+                 BaseStyle->"InformationGridLink",
+                 
+                 ButtonData:>{
+                  "Info-d78aff2a-95c6-4648-b65a-d97e4b094bf3", {
+                   "GreedyCycleRemoval", "MethodSugiyama`"}, False},
+                 ButtonNote->"MethodSugiyama`",
+                 Evaluator->Automatic], ""}
+              },
+              DefaultBaseStyle->"Text",
+              
+              GridBoxAlignment->{
+               "Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+              GridBoxItemSize->{"Columns" -> {{
+                   Scaled[0.19]}}}],
+             ImageMargins->{{10, 0}, {0, 2}}]}
+          },
+          GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}}],
+         FrameMargins->{{0, 0}, {8, 0}}]}, Dynamic[Typeset`open$$],
+        ImageSize->Automatic]]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+    GridBoxDividers->{"ColumnsIndexed" -> {{False}}, "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.5599999999999999]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.8]}, 
+        Offset[0.2]}}],
+   BaseStyle->"InformationTitleFrame"], "InformationGridPlain"]], "Output",
+ CellChangeTimes->{
+  3.8145188186322966`*^9, 3.8145188659935737`*^9, 3.8145234541560783`*^9, 
+   3.814523644980276*^9, {3.814523683016015*^9, 3.8145237205002255`*^9}, 
+   3.8145238351497335`*^9, 3.8145242420265255`*^9, 3.814524280162356*^9, 
+   3.8145243276684895`*^9, 3.8145244279890976`*^9, 3.8145253710559793`*^9, {
+   3.8145257974976177`*^9, 3.814525802146109*^9}, 3.8145258839573255`*^9, 
+   3.814525965523119*^9, 3.8145260536254005`*^9, 3.814526198808134*^9, 
+   3.8145264315423837`*^9, 3.8145266063091984`*^9, 3.8145267274151344`*^9, 
+   3.8145267632413907`*^9, 3.814526858461043*^9, 3.81452689128079*^9, 
+   3.8145355766745996`*^9, 3.8145360405433207`*^9, 3.8145363935677657`*^9, 
+   3.814536917127336*^9, 3.814536956579368*^9, 3.8145370240447025`*^9, 
+   3.8145372457812386`*^9, {3.814538515150153*^9, 3.8145385423155956`*^9}, 
+   3.81453891059558*^9, 3.8145391068064437`*^9, 3.8145391580511055`*^9, 
+   3.814539367734413*^9, 3.814539506420994*^9, 3.814539712199158*^9, 
+   3.8145397587009535`*^9, 3.8145397921600723`*^9, {3.8145402942259235`*^9, 
+   3.814540327405057*^9}, 3.8145403881847925`*^9, 3.814540681520235*^9, 
+   3.8145408045890436`*^9, 3.8145410573969097`*^9, 3.814541328294472*^9, 
+   3.8145415476351357`*^9, 3.8145416305350757`*^9, 3.8145423281821213`*^9, 
+   3.814542833796919*^9, 3.8145430007905273`*^9, 3.8145434088114195`*^9, 
+   3.814544262579426*^9, 3.814544870842805*^9, 3.8145449170265656`*^9, 
+   3.814545057234203*^9, 3.814545877582672*^9, 3.8145460246054115`*^9, 
+   3.8145461266664534`*^9, {3.8145462041245193`*^9, 3.8145462198539753`*^9}, {
+   3.814546326581422*^9, 3.814546338876627*^9}, 3.814546809243702*^9, 
+   3.8145478965283866`*^9, 3.814548675136674*^9, 3.8145487169342785`*^9, {
+   3.814548759689379*^9, 3.8145487835280137`*^9}, 3.8145488148986263`*^9, 
+   3.814548957078719*^9, 3.814549011786311*^9, {3.814549823018345*^9, 
+   3.814549836874366*^9}, 3.814550475732478*^9, 3.8145505373239594`*^9, 
+   3.8145513295871277`*^9, 3.814551433822097*^9, 3.8145515869583583`*^9, 
+   3.81455195183543*^9, 3.814552248665807*^9},
+ CellLabel->
+  "Out[1291]=",ExpressionUUID->"c073831a-7916-49c1-aa2f-53bff29a32cc"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Help", "Title",
+ CellChangeTimes->{{3.814546579555159*^9, 
+  3.814546602400341*^9}},ExpressionUUID->"520984f8-74b3-4040-b2a1-\
+1b6dffcbd9d4"],
+
+Cell[CellGroupData[{
+
+Cell["0. GetGraph", "Chapter",
+ CellChangeTimes->{{3.8145509140901146`*^9, 
+  3.8145509184804325`*^9}},ExpressionUUID->"78b8c4ce-a83c-43a9-8062-\
+035a3834bcbc"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"g", "=", 
+   RowBox[{"GetGraph", "[", "10", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.8145511701480455`*^9, 3.81455117413212*^9}},
+ CellLabel->
+  "In[918]:=",ExpressionUUID->"3fa0542b-f5ce-4a27-91cb-b40a9d8dce21"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["1. GetDaG - \:0443\:0434\:0430\:043b\:0435\:043d\:0438\:0435 \:0446\
+\:0438\:043a\:043b\:043e\:0432", "Chapter",
+ CellChangeTimes->{
+  3.814550875474863*^9},ExpressionUUID->"6af3da3b-7f2e-41f9-bb2e-\
+5bceffc0e26c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GetDAG", "[", 
+  RowBox[{"g", ",", 
+   RowBox[{"ApproachOption", "\[Rule]", "\"\<Unkwnon\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8145510499855237`*^9, 3.8145510511885643`*^9}, {
+   3.8145511266044664`*^9, 3.8145511429835052`*^9}, 3.814551177319399*^9},
+ CellLabel->
+  "In[919]:=",ExpressionUUID->"94a2fd54-e7dd-4249-a542-5e27d4a1ba85"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "GetDAG","option",
+   "\"Option \\!\\(\\*RowBox[{\\\"\\\\\\\"Unkwnon\\\\\\\"\\\"}]\\) is not in \
+list of options. Choose another one from the list: \\n\\!\\(\\*RowBox[{\\\"\\\
+\\\\\"Random Order\\\\\\\\nBFS Order\\\\\\\\nDFS \
+Order\\\\\\\\nVertexOutDegree Order\\\\\\\\nCycle Removal\\\\\\\\nIP \
+SCF\\\\\\\\nIP TI\\\\\\\"\\\"}]\\)\"",2,919,19,31939235564326273687,"Local",
+   "MethodSugiyama`GetDAG"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.814551051579129*^9, 3.8145511436397076`*^9, 
+  3.8145511776318965`*^9, 3.814551332825797*^9, 3.814551435025136*^9, 
+  3.8145515891887436`*^9},
+ CellLabel->
+  "During evaluation of \
+In[919]:=",ExpressionUUID->"7c2ecce1-7ab9-48fc-bc66-d279e1e8a656"],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{3.8145510515947313`*^9, 3.8145511436553316`*^9, 
+  3.814551177647503*^9, 3.814551332835895*^9, 3.814551435040763*^9, 
+  3.8145515892043877`*^9},
+ CellLabel->
+  "Out[919]=",ExpressionUUID->"242f5d9a-3905-4344-a42c-33a3eab81628"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GetDAG", "[", 
+  RowBox[{"g", ",", 
+   RowBox[{"ApproachOption", "\[Rule]", "\"\<Random Order\>\""}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.8145509546432056`*^9, 3.814551002657591*^9}, {
+  3.814551179397402*^9, 3.8145511801161346`*^9}},
+ CellLabel->
+  "In[920]:=",ExpressionUUID->"0189b5b2-682f-4f1e-9cee-5d5c2b961e08"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"acyclic graph\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "6"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"5", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "9"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"feedback set\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[DirectedEdge]", "5"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"4", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"9", "\[DirectedEdge]", "10"}]}], "}"}]}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.814550971055419*^9, 3.8145510031419005`*^9, 
+  3.8145511454520807`*^9, 3.8145511803035946`*^9, 3.814551333902871*^9, 
+  3.8145514360719585`*^9, 3.814551590001187*^9},
+ CellLabel->
+  "Out[920]=",ExpressionUUID->"fc7a5817-eedb-4ae1-b09d-729346ccf7f7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GetDAG", "[", 
+  RowBox[{"g", ",", 
+   RowBox[{"ApproachOption", "\[Rule]", "\"\<BFS Order\>\""}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{
+  3.8145510140161357`*^9, {3.8145511820534487`*^9, 3.814551182725272*^9}},
+ CellLabel->
+  "In[921]:=",ExpressionUUID->"570cdf44-fd9a-4459-8cb5-1aa464904202"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"acyclic graph\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "5"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "6"}], ",", 
+      RowBox[{"4", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"9", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "3"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"feedback set\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"3", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"5", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "9"}]}], "}"}]}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.8145510146567235`*^9, 3.8145511459208007`*^9, 
+  3.8145511829596324`*^9, 3.814551335309024*^9, 3.8145514370771875`*^9, 
+  3.8145515912042265`*^9},
+ CellLabel->
+  "Out[921]=",ExpressionUUID->"602acb7e-7d5c-45f6-9ca7-a214cf84dd3d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GetDAG", "[", 
+  RowBox[{"g", ",", 
+   RowBox[{"ApproachOption", "\[Rule]", "\"\<DFS Order\>\""}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.814551021380987*^9, 3.8145510290055118`*^9}, {
+  3.8145511849438725`*^9, 3.814551185631324*^9}},
+ CellLabel->
+  "In[922]:=",ExpressionUUID->"21f03c94-d5b3-4a78-9105-c5f5155cb461"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"acyclic graph\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "5"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"4", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"9", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "8"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"feedback set\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"2", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "6"}], ",", 
+      RowBox[{"5", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "9"}]}], "}"}]}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.814551029271084*^9, 3.814551146405142*^9, 
+  3.814551185896928*^9, 3.8145513360985804`*^9, 3.8145514382234793`*^9, 
+  3.8145515917823315`*^9},
+ CellLabel->
+  "Out[922]=",ExpressionUUID->"819db2a4-b991-415f-83c6-b890fd312206"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GetDAG", "[", 
+  RowBox[{"g", ",", 
+   RowBox[{"ApproachOption", "\[Rule]", "\"\<VertexOutDegree Order\>\""}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{
+  3.8145510615784655`*^9, {3.814551187719545*^9, 3.814551188406994*^9}},
+ CellLabel->
+  "In[923]:=",ExpressionUUID->"e1fcfcb7-3f92-4153-abdf-2984eb02b9b0"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"acyclic graph\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "5"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"5", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "9"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"feedback set\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "6"}], ",", 
+      RowBox[{"4", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"9", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "3"}]}], "}"}]}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.814551062000307*^9, 3.8145511469051065`*^9, 
+  3.8145511885944815`*^9, 3.8145513367860355`*^9, 3.8145514387580786`*^9, 
+  3.814551592735391*^9},
+ CellLabel->
+  "Out[923]=",ExpressionUUID->"a9cde77c-8d5c-428b-8a14-1f1e2e19c358"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"step1", "=", 
+  RowBox[{"GetDAG", "[", 
+   RowBox[{"g", ",", 
+    RowBox[{"ApproachOption", "\[Rule]", "\"\<Cycle Removal\>\""}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{
+  3.814551069278221*^9, {3.8145511908287225`*^9, 3.814551191391162*^9}, {
+   3.8145517771131144`*^9, 3.814551778159914*^9}},
+ CellLabel->
+  "In[938]:=",ExpressionUUID->"4c4d0733-9633-4239-9c3f-ad962d2968ae"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"acyclic graph\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "5"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"4", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"5", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "9"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"feedback set\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"3", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "6"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"9", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "2"}]}], "}"}]}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.8145511518106833`*^9, 3.814551191594273*^9, 
+  3.814551337317244*^9, 3.814551439579935*^9, 3.814551593616623*^9, 
+  3.814551779753501*^9},
+ CellLabel->
+  "Out[938]=",ExpressionUUID->"1a961d88-fca3-46a4-9153-2d2a17bfbd63"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GetDAG", "[", 
+  RowBox[{"g", ",", 
+   RowBox[{"ApproachOption", "\[Rule]", "\"\<IP SCF\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.8145510760433216`*^9, {3.814551193422269*^9, 3.814551194109722*^9}},
+ CellLabel->
+  "In[925]:=",ExpressionUUID->"e7c27667-c3f3-4d76-b182-a8dc7217fd07"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"acyclic graph\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "5"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"4", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"5", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "9"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"feedback set\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"2", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "6"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"9", "\[DirectedEdge]", "10"}]}], "}"}]}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.814551076512037*^9, 3.8145511560567117`*^9, 
+  3.8145511942659807`*^9, 3.8145513379578447`*^9, 3.8145514402048926`*^9, 
+  3.814551594907705*^9},
+ CellLabel->
+  "Out[925]=",ExpressionUUID->"3aec3d52-dc26-4115-ab2e-4f4904bd9bdd"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GetDAG", "[", 
+  RowBox[{"g", ",", 
+   RowBox[{"ApproachOption", "\[Rule]", "\"\<IP TI\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8145510838553295`*^9, 3.814551087045776*^9}, {
+  3.8145511960314636`*^9, 3.8145511967501664`*^9}},
+ CellLabel->
+  "In[926]:=",ExpressionUUID->"a070f653-6e47-4398-8272-7a1d8c23faa0"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"acyclic graph\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "5"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "6"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"4", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"5", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "9"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"feedback set\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"3", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"9", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "3"}]}], "}"}]}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.814551087404777*^9, 3.8145511568208337`*^9, 
+  3.8145511969689016`*^9, 3.8145513385046816`*^9, 3.8145514409004517`*^9, 
+  3.8145515955483055`*^9},
+ CellLabel->
+  "Out[926]=",ExpressionUUID->"71613f19-9641-4a2b-b36d-d323c6b5f3dd"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["2. GetLayering", "Chapter",
+ CellChangeTimes->{{3.8145511010986357`*^9, 3.814551111527443*^9}, {
+  3.8145512349415674`*^9, 
+  3.814551237997362*^9}},ExpressionUUID->"27afe02c-45bd-4901-8371-\
+5b5885c856aa"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GetLayering", "[", 
+  RowBox[{"step1", ",", 
+   RowBox[{"ApproachOption", "\[Rule]", "\"\<Unknown\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.814551239930363*^9, 3.8145512758409233`*^9}, {
+  3.814551784440673*^9, 3.8145517845969653`*^9}},
+ CellLabel->
+  "In[940]:=",ExpressionUUID->"ad46a7a0-a448-4f8a-9a4f-538ca5bf04fc"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "GetLayering","option",
+   "\"Option \\!\\(\\*RowBox[{\\\"\\\\\\\"Unknown\\\\\\\"\\\"}]\\) is not in \
+list of options. Choose another one from the list: \\n\\!\\(\\*RowBox[{\\\"\\\
+\\\\\"Longest Path\\\\\\\\nExact\\\\\\\\nMin Width\\\\\\\"\\\"}]\\)\"",2,940,
+   24,31939235564326273687,"Local","MethodSugiyama`GetLayering"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{{3.814551269498646*^9, 3.8145512853402276`*^9}, 
+   3.814551340188772*^9, 3.814551442165967*^9, 3.8145515972981815`*^9, {
+   3.81455178506565*^9, 3.8145517942748213`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[940]:=",ExpressionUUID->"1ea2bee5-4ca3-4f88-bb37-78a3ba53e32f"],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{{3.8145512549759293`*^9, 3.814551285355831*^9}, 
+   3.814551340188772*^9, 3.8145514421816177`*^9, 3.8145515972981815`*^9, {
+   3.814551785081273*^9, 3.8145517942904453`*^9}},
+ CellLabel->
+  "Out[940]=",ExpressionUUID->"ccee1cfb-2e58-42ce-a24f-b7de7d79bcb1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"step2", "=", 
+  RowBox[{"GetLayering", "[", 
+   RowBox[{"step1", ",", 
+    RowBox[{"ApproachOption", "\[Rule]", "\"\<Longest Path\>\""}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.814551218096037*^9, 3.8145512263890624`*^9}, {
+   3.814551345675308*^9, 3.814551357213505*^9}, {3.81455179143132*^9, 
+   3.814551792415628*^9}, 3.814551837129977*^9},
+ CellLabel->
+  "In[953]:=",ExpressionUUID->"7b83387a-fbaf-4ab5-b334-00fd8cfa85cd"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"acyclic graph\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "5"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"4", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"5", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "9"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"feedback set\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"3", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "6"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"9", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "2"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"layers\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", "6", "}"}], ",", 
+      RowBox[{"{", "1", "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"2", ",", "5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"4", ",", "10"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"3", ",", "8"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"7", ",", "9"}], "}"}]}], "}"}]}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{
+  3.8145512276622963`*^9, {3.814551343136098*^9, 3.8145513579321694`*^9}, 
+   3.8145514435408926`*^9, 3.8145515984028387`*^9, 3.8145517948238015`*^9, 
+   3.814551837848658*^9},
+ CellLabel->
+  "Out[953]=",ExpressionUUID->"95a8b1ab-b73b-4868-92a2-b072a8ce51fc"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GetLayering", "[", 
+  RowBox[{"step1", ",", 
+   RowBox[{"ApproachOption", "\[Rule]", "\"\<Exact\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{3.8145513642285876`*^9, 3.814551840598468*^9},
+ CellLabel->
+  "In[954]:=",ExpressionUUID->"b4d511f1-d24a-4684-98b6-89c8a3ef411a"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"acyclic graph\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "5"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"4", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"5", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "9"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"feedback set\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"3", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "6"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"9", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "2"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"layers\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", "6", "}"}], ",", 
+      RowBox[{"{", "1", "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"2", ",", "5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"4", ",", "10"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"3", ",", "8"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"7", ",", "9"}], "}"}]}], "}"}]}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.8145513648222947`*^9, 3.814551444400208*^9, 
+  3.814551599387163*^9, 3.8145517961854024`*^9, 3.8145518410515795`*^9},
+ CellLabel->
+  "Out[954]=",ExpressionUUID->"1ac3a0d4-91af-4b0c-94bb-fa1cb1271cab"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GetLayering", "[", 
+  RowBox[{"step1", ",", 
+   RowBox[{"ApproachOption", "\[Rule]", "\"\<Min Width\>\""}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.814551379630685*^9, 3.814551382396118*^9}, {
+  3.8145518436920547`*^9, 3.8145518448013525`*^9}},
+ CellLabel->
+  "In[955]:=",ExpressionUUID->"cba1afe9-7bf8-4375-941e-884ad5faf69c"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"acyclic graph\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "5"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"4", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"5", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "9"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"feedback set\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"3", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "6"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"9", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "2"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"layers\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", "6", "}"}], ",", 
+      RowBox[{"{", "1", "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"2", ",", "5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"10", ",", "4"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"3", ",", "8"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"7", ",", "9"}], "}"}]}], "}"}]}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.8145513827398105`*^9, 3.814551445103266*^9, 
+  3.814551600683928*^9, 3.814551796716614*^9, 3.8145518451294208`*^9},
+ CellLabel->
+  "Out[955]=",ExpressionUUID->"99adb111-3d4c-4300-b160-6dc35c29a606"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GetLayering", "[", 
+  RowBox[{"step1", ",", 
+   RowBox[{"ApproachOption", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Min Width\>\"", ",", "20", ",", "10"}], "}"}]}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.814551453129524*^9, 3.8145514709205647`*^9}, {
+   3.814551505427933*^9, 3.814551516333425*^9}, 3.8145518474163413`*^9},
+ CellLabel->
+  "In[956]:=",ExpressionUUID->"9fe5c47f-f436-4040-bd7f-e4bdfbebda05"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"acyclic graph\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "5"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"4", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"5", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "9"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"feedback set\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"3", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "6"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"9", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "2"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"layers\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", "6", "}"}], ",", 
+      RowBox[{"{", "1", "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"2", ",", "5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"10", ",", "4"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"3", ",", "8"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"7", ",", "9"}], "}"}]}], "}"}]}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{{3.8145514575042205`*^9, 3.814551471295484*^9}, 
+   3.8145515168021083`*^9, 3.8145516020119815`*^9, 3.8145517972903833`*^9, 
+   3.814551847791337*^9},
+ CellLabel->
+  "Out[956]=",ExpressionUUID->"ac64b981-192d-4480-a587-0289380a6a0f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GetLayering", "[", 
+  RowBox[{"step1", ",", 
+   RowBox[{"ApproachOption", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Min Width\>\"", ",", "20", ",", "10"}], "}"}]}], ",", 
+   RowBox[{"ImprovmentOption", "\[Rule]", "\"\<Unk\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.814551520380021*^9, 3.81455154887601*^9}, 
+   3.8145518531659417`*^9},
+ CellLabel->
+  "In[957]:=",ExpressionUUID->"be50d2ac-1746-4991-ab91-274287491172"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "GetLayering","option",
+   "\"Option \\!\\(\\*RowBox[{\\\"\\\\\\\"Unk\\\\\\\"\\\"}]\\) is not in list \
+of options. Choose another one from the list: \
+\\n\\!\\(\\*RowBox[{\\\"\\\\\\\"True\\\\\\\\nFalse\\\\\\\"\\\"}]\\)\"",2,957,
+   27,31939235564326273687,"Local","MethodSugiyama`GetLayering"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{{3.814551544179974*^9, 3.8145515492196827`*^9}, 
+   3.814551603494527*^9, 3.8145517977860665`*^9, 3.8145518537752743`*^9},
+ CellLabel->
+  "During evaluation of \
+In[957]:=",ExpressionUUID->"16715ca9-ad67-4802-afc1-e34759f160e5"],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{{3.814551532384581*^9, 3.814551549235326*^9}, 
+   3.814551603510131*^9, 3.814551797801691*^9, 3.8145518537908983`*^9},
+ CellLabel->
+  "Out[957]=",ExpressionUUID->"863b1bac-2d5e-4c07-8851-8cc69cbcf01f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GetLayering", "[", 
+  RowBox[{"step1", ",", 
+   RowBox[{"ApproachOption", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Min Width\>\"", ",", "20", ",", "10"}], "}"}]}], ",", 
+   RowBox[{"ImprovmentOption", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.814551555922393*^9, 3.814551557109662*^9}, 
+   3.8145518577396917`*^9},
+ CellLabel->
+  "In[958]:=",ExpressionUUID->"c5df6e57-988f-45bc-bde6-fcd7682b058a"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"acyclic graph\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "5"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"4", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"5", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "9"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"feedback set\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"3", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "6"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"9", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "2"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"layers\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", "6", "}"}], ",", 
+      RowBox[{"{", "1", "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"2", ",", "5", ",", "4"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"10", ",", "3", ",", "8"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"7", ",", "9"}], "}"}]}], "}"}]}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.8145515573782454`*^9, 3.814551605391593*^9, 
+  3.814551798911003*^9, 3.8145518583490157`*^9},
+ CellLabel->
+  "Out[958]=",ExpressionUUID->"224467ce-881b-448f-85c7-d05649477c64"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GetLayering", "[", 
+  RowBox[{"step1", ",", 
+   RowBox[{"ApproachOption", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Min Width\>\"", ",", "20", ",", "10"}], "}"}]}], ",", 
+   RowBox[{"ImprovmentOption", "\[Rule]", "False"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8145515614689164`*^9, 3.814551562848761*^9}, {
+  3.8145518610988765`*^9, 3.8145518614113536`*^9}},
+ CellLabel->
+  "In[959]:=",ExpressionUUID->"c04c660d-78a9-4beb-93b9-d6e52c1d0521"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"acyclic graph\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "5"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"4", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"5", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "9"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"feedback set\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"3", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "6"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"9", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "2"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"layers\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", "6", "}"}], ",", 
+      RowBox[{"{", "1", "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"2", ",", "5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"10", ",", "4"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"3", ",", "8"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"7", ",", "9"}], "}"}]}], "}"}]}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.8145515633487253`*^9, 3.8145516063607984`*^9, 
+  3.8145518000359087`*^9, 3.8145518617706513`*^9},
+ CellLabel->
+  "Out[959]=",ExpressionUUID->"925a308e-e21c-46d0-8500-d39832984cc7"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["3. AddDummyVertices", "Chapter",
+ CellChangeTimes->{{3.814551648357357*^9, 
+  3.8145516771861877`*^9}},ExpressionUUID->"e2ad727c-92c4-4a1b-986b-\
+40994ef6eefa"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"AddDummyVertices", "[", 
+  RowBox[{"step2", ",", 
+   RowBox[{"ApproachOption", "\[Rule]", "\"\<Unk\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8145516895915737`*^9, 3.8145517006766768`*^9}, {
+  3.8145518033482313`*^9, 3.8145518045200243`*^9}},
+ CellLabel->
+  "In[1151]:=",ExpressionUUID->"814c883a-f168-442a-bc43-44c4383ddba9"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "AddDummyVertices","option",
+   "\"Option \\!\\(\\*RowBox[{\\\"\\\\\\\"Unk\\\\\\\"\\\"}]\\) is not in list \
+of options. Choose another one from the list: \
+\\n\\!\\(\\*RowBox[{\\\"\\\\\\\"Base\\\\\\\\nCut\\\\\\\"\\\"}]\\)\"",2,1151,
+   29,31939235564326273687,"Local","MethodSugiyama`AddDummyVertices"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.814551701129715*^9, 3.814551805035562*^9, 
+  3.81455195624477*^9},
+ CellLabel->
+  "During evaluation of \
+In[1151]:=",ExpressionUUID->"30f9939f-e437-4776-af34-d6afbae2d573"],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{3.814551701129715*^9, 3.814551805035562*^9, 
+  3.814551956260372*^9},
+ CellLabel->
+  "Out[1151]=",ExpressionUUID->"c97e8301-999d-4ec0-b5be-bec59f2c1998"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"AddDummyVertices", "[", 
+  RowBox[{"step2", ",", 
+   RowBox[{"ApproachOption", "\[Rule]", "\"\<Base\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.814551705702189*^9, 3.814551707373892*^9}, {
+  3.814551819912461*^9, 3.814551820068698*^9}},
+ CellLabel->
+  "In[1152]:=",ExpressionUUID->"b1f725c5-ebc7-4e34-9f31-77a04b20760b"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"acyclic graph\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "5"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"4", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"5", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "9"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"feedback set\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"3", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "6"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"9", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "2"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"graph with dummies\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "5"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"4", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"5", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "11"}], ",", 
+      RowBox[{"11", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "12"}], ",", 
+      RowBox[{"12", "\[DirectedEdge]", "13"}], ",", 
+      RowBox[{"13", "\[DirectedEdge]", "14"}], ",", 
+      RowBox[{"14", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "15"}], ",", 
+      RowBox[{"15", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "16"}], ",", 
+      RowBox[{"16", "\[DirectedEdge]", "17"}], ",", 
+      RowBox[{"17", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "18"}], ",", 
+      RowBox[{"18", "\[DirectedEdge]", "19"}], ",", 
+      RowBox[{"19", "\[DirectedEdge]", "20"}], ",", 
+      RowBox[{"20", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "21"}], ",", 
+      RowBox[{"21", "\[DirectedEdge]", "22"}], ",", 
+      RowBox[{"22", "\[DirectedEdge]", "23"}], ",", 
+      RowBox[{"23", "\[DirectedEdge]", "24"}], ",", 
+      RowBox[{"24", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "25"}], ",", 
+      RowBox[{"25", "\[DirectedEdge]", "26"}], ",", 
+      RowBox[{"26", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "27"}], ",", 
+      RowBox[{"27", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "28"}], ",", 
+      RowBox[{"28", "\[DirectedEdge]", "29"}], ",", 
+      RowBox[{"29", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "30"}], ",", 
+      RowBox[{"30", "\[DirectedEdge]", "31"}], ",", 
+      RowBox[{"31", "\[DirectedEdge]", "8"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"layers with dummies\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", "6", "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "18", ",", "21", ",", "25"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "2", ",", "5", ",", "11", ",", "12", ",", "19", ",", "22", ",", "26", 
+        ",", "28", ",", "30"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "4", ",", "10", ",", "13", ",", "15", ",", "16", ",", "20", ",", "23", 
+        ",", "29", ",", "31"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"3", ",", "8", ",", "14", ",", "17", ",", "24", ",", "27"}], 
+       "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"7", ",", "9"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"first dummy\"\>", "\[Rule]", "11"}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{
+  3.8145517075770235`*^9, {3.8145518080474777`*^9, 3.8145518219122863`*^9}, 
+   3.8145519576790695`*^9},
+ CellLabel->
+  "Out[1152]=",ExpressionUUID->"469a4ccd-9df0-44a7-8caf-dc117fe00223"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"step3", "=", 
+  RowBox[{"AddDummyVertices", "[", 
+   RowBox[{"step2", ",", 
+    RowBox[{"ApproachOption", "\[Rule]", "\"\<Cut\>\""}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.814551712014248*^9, 3.814551713529768*^9}, {
+  3.814551825771427*^9, 3.814551828552431*^9}, {3.814551877455325*^9, 
+  3.8145518795757756`*^9}},
+ CellLabel->
+  "In[1153]:=",ExpressionUUID->"47abf77d-1bd8-4869-92f3-3634ec11285a"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"acyclic graph\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "5"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"4", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"5", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "9"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"feedback set\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"3", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "6"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"9", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "2"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"layers\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", "6", "}"}], ",", 
+      RowBox[{"{", "1", "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"2", ",", "5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"4", ",", "10"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"3", ",", "8"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"7", ",", "9"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"first dummy\"\>", "\[Rule]", "11"}], ",", 
+   RowBox[{"\<\"layers with dummies\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", "6", "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "12", ",", "18", ",", "21"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "2", ",", "5", ",", "11", ",", "13", ",", "16", ",", "19", ",", "22"}],
+        "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"4", ",", "10", ",", "14", ",", "17", ",", "20"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"3", ",", "8", ",", "15"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"7", ",", "9"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"graph with dummies\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "5"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"4", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"5", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "11"}], ",", 
+      RowBox[{"11", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "13"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "14"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "12"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "15"}], ",", 
+      RowBox[{"12", "\[DirectedEdge]", "13"}], ",", 
+      RowBox[{"13", "\[DirectedEdge]", "14"}], ",", 
+      RowBox[{"14", "\[DirectedEdge]", "15"}], ",", 
+      RowBox[{"15", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "17"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "16"}], ",", 
+      RowBox[{"16", "\[DirectedEdge]", "17"}], ",", 
+      RowBox[{"17", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "18"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "19"}], ",", 
+      RowBox[{"18", "\[DirectedEdge]", "19"}], ",", 
+      RowBox[{"19", "\[DirectedEdge]", "20"}], ",", 
+      RowBox[{"20", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "21"}], ",", 
+      RowBox[{"21", "\[DirectedEdge]", "22"}], ",", 
+      RowBox[{"22", "\[DirectedEdge]", "10"}]}], "}"}]}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{
+  3.814551713857837*^9, {3.8145518093953047`*^9, 3.8145518288024116`*^9}, 
+   3.8145518799819417`*^9, 3.814551958619161*^9},
+ CellLabel->
+  "Out[1153]=",ExpressionUUID->"5a86a87a-ee56-4ebf-b5db-77b623466ef4"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["4. GetVertexOrder", "Chapter",
+ CellChangeTimes->{{3.814551743484944*^9, 
+  3.8145517478101106`*^9}},ExpressionUUID->"63f534e7-7b03-44df-b09b-\
+2b0f5d96898f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GetVertexOrder", "[", 
+  RowBox[{"step3", ",", 
+   RowBox[{"ApproachOption", "\[Rule]", "\"\<Unk\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.814551888856347*^9, 3.814551908349009*^9}},
+ CellLabel->
+  "In[1154]:=",ExpressionUUID->"edc2720b-0e5a-478d-b3f2-89a8559a5a0f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "GetVertexOrder","option",
+   "\"Option \\!\\(\\*RowBox[{\\\"\\\\\\\"Unk\\\\\\\"\\\"}]\\) is not in list \
+of options. Choose another one from the list: \
+\\n\\!\\(\\*RowBox[{\\\"\\\\\\\"Barycenter\\\\\\\\nMatheuristic\\\\\\\\n{\
+Barycenter,maxNumberOfIterations_Integer?Positive}\\\\\\\"\\\"}]\\)\"",2,1154,
+   30,31939235564326273687,"Local","MethodSugiyama`GetVertexOrder"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.8145519087864237`*^9, 3.814551959925756*^9},
+ CellLabel->
+  "During evaluation of \
+In[1154]:=",ExpressionUUID->"9ac7f080-a405-42e4-941c-a3903ddda176"],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{3.8145519088020515`*^9, 3.8145519599413986`*^9},
+ CellLabel->
+  "Out[1154]=",ExpressionUUID->"fed2b3c9-6e43-4c08-8e93-88ab571f0932"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GetVertexOrder", "[", 
+  RowBox[{"step3", ",", 
+   RowBox[{"ApproachOption", "\[Rule]", "\"\<Barycenter\>\""}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.814551969185034*^9, 3.8145519732039795`*^9}},
+ CellLabel->
+  "In[1155]:=",ExpressionUUID->"9238bbad-0a22-4471-a8ec-57518e574bd6"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"acyclic graph\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "5"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"4", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"5", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "9"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"feedback set\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"3", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "6"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"9", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "2"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"graph with dummies\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "5"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"4", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"5", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "11"}], ",", 
+      RowBox[{"11", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "13"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "14"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "12"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "15"}], ",", 
+      RowBox[{"12", "\[DirectedEdge]", "13"}], ",", 
+      RowBox[{"13", "\[DirectedEdge]", "14"}], ",", 
+      RowBox[{"14", "\[DirectedEdge]", "15"}], ",", 
+      RowBox[{"15", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "17"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "16"}], ",", 
+      RowBox[{"16", "\[DirectedEdge]", "17"}], ",", 
+      RowBox[{"17", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "18"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "19"}], ",", 
+      RowBox[{"18", "\[DirectedEdge]", "19"}], ",", 
+      RowBox[{"19", "\[DirectedEdge]", "20"}], ",", 
+      RowBox[{"20", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "21"}], ",", 
+      RowBox[{"21", "\[DirectedEdge]", "22"}], ",", 
+      RowBox[{"22", "\[DirectedEdge]", "10"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"layers with dummies\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", "6", "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "21", ",", "18", ",", "12"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "5", ",", "11", ",", "16", ",", "2", ",", "22", ",", "19", ",", "13"}],
+        "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"4", ",", "17", ",", "10", ",", "20", ",", "14"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"8", ",", "3", ",", "15"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"7", ",", "9"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"first dummy\"\>", "\[Rule]", "11"}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.8145519739070826`*^9},
+ CellLabel->
+  "Out[1155]=",ExpressionUUID->"2a54e58b-46db-4ac1-b479-aba014efe1f7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GetVertexOrder", "[", 
+  RowBox[{"step3", ",", 
+   RowBox[{"ApproachOption", "\[Rule]", "\"\<Matheuristic\>\""}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{3.8145519854121203`*^9},
+ CellLabel->
+  "In[1156]:=",ExpressionUUID->"e94900aa-e6d2-43f2-9632-805c395831e2"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"acyclic graph\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "5"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"4", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"5", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "9"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"feedback set\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"3", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "6"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"9", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "2"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"graph with dummies\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "5"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"4", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"5", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "11"}], ",", 
+      RowBox[{"11", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "13"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "14"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "12"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "15"}], ",", 
+      RowBox[{"12", "\[DirectedEdge]", "13"}], ",", 
+      RowBox[{"13", "\[DirectedEdge]", "14"}], ",", 
+      RowBox[{"14", "\[DirectedEdge]", "15"}], ",", 
+      RowBox[{"15", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "17"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "16"}], ",", 
+      RowBox[{"16", "\[DirectedEdge]", "17"}], ",", 
+      RowBox[{"17", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "18"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "19"}], ",", 
+      RowBox[{"18", "\[DirectedEdge]", "19"}], ",", 
+      RowBox[{"19", "\[DirectedEdge]", "20"}], ",", 
+      RowBox[{"20", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "21"}], ",", 
+      RowBox[{"21", "\[DirectedEdge]", "22"}], ",", 
+      RowBox[{"22", "\[DirectedEdge]", "10"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"layers with dummies\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", "6", "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "12", ",", "18", ",", "21"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "16", ",", "11", ",", "5", ",", "2", ",", "13", ",", "19", ",", "22"}],
+        "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"17", ",", "4", ",", "14", ",", "20", ",", "10"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"8", ",", "15", ",", "3"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"7", ",", "9"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"first dummy\"\>", "\[Rule]", "11"}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.814551986109104*^9},
+ CellLabel->
+  "Out[1156]=",ExpressionUUID->"18b3aede-28ab-42f9-955c-cc3eba1d59d6"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"step4", "=", 
+  RowBox[{"GetVertexOrder", "[", 
+   RowBox[{"step3", ",", 
+    RowBox[{"ApproachOption", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Barycenter\>\"", ",", "10"}], "}"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.814551995002257*^9, 3.814552027292881*^9}},
+ CellLabel->
+  "In[1163]:=",ExpressionUUID->"4efa78ac-36b2-434f-b831-e579db81f603"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"acyclic graph\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "5"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"4", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"5", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "9"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"feedback set\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"3", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "6"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"9", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "2"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"graph with dummies\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "5"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"4", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"5", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "11"}], ",", 
+      RowBox[{"11", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "13"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "14"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "12"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "15"}], ",", 
+      RowBox[{"12", "\[DirectedEdge]", "13"}], ",", 
+      RowBox[{"13", "\[DirectedEdge]", "14"}], ",", 
+      RowBox[{"14", "\[DirectedEdge]", "15"}], ",", 
+      RowBox[{"15", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "17"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "16"}], ",", 
+      RowBox[{"16", "\[DirectedEdge]", "17"}], ",", 
+      RowBox[{"17", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "18"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "19"}], ",", 
+      RowBox[{"18", "\[DirectedEdge]", "19"}], ",", 
+      RowBox[{"19", "\[DirectedEdge]", "20"}], ",", 
+      RowBox[{"20", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "21"}], ",", 
+      RowBox[{"21", "\[DirectedEdge]", "22"}], ",", 
+      RowBox[{"22", "\[DirectedEdge]", "10"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"layers with dummies\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", "6", "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "21", ",", "18", ",", "12"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "5", ",", "11", ",", "16", ",", "2", ",", "22", ",", "19", ",", "13"}],
+        "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"4", ",", "17", ",", "10", ",", "20", ",", "14"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"8", ",", "3", ",", "15"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"7", ",", "9"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"first dummy\"\>", "\[Rule]", "11"}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{{3.814552004248413*^9, 3.8145520277927947`*^9}},
+ CellLabel->
+  "Out[1163]=",ExpressionUUID->"e45a38e9-31df-4191-b11b-312349269dea"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["5. GetCoordinates", "Chapter",
+ CellChangeTimes->{{3.814552032089422*^9, 
+  3.8145520365291834`*^9}},ExpressionUUID->"694a4466-3aa2-4138-9ed3-\
+34eeba3b3c88"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GetCoordinates", "[", 
+  RowBox[{"step4", ",", 
+   RowBox[{"YDistanceOption", "\[Rule]", "1"}], ",", 
+   RowBox[{"XDistanceOption", "\[Rule]", 
+    RowBox[{"-", "1.3"}]}], ",", 
+   RowBox[{"WeightsOption", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "1", ",", "1"}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.814552211095681*^9, 3.814552213361148*^9}},
+ CellLabel->
+  "In[1293]:=",ExpressionUUID->"cd4d0866-bb5c-48e7-a242-37e71905296a"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "GetCoordinates","option",
+   "\"\\nValue \\!\\(\\*RowBox[{\\\"-\\\", \\\"1.3`\\\"}]\\) is not positive \
+real.\"",2,1293,42,31939235564326273687,"Local",
+   "MethodSugiyama`GetCoordinates"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.8145522136736307`*^9, 3.8145522533648825`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1293]:=",ExpressionUUID->"df20fbe4-329e-4050-b8d6-f52cfba4c20f"],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{
+  3.814552171719736*^9, {3.8145522114550333`*^9, 3.8145522137028494`*^9}, 
+   3.814552253380526*^9},
+ CellLabel->
+  "Out[1293]=",ExpressionUUID->"c07ea11a-5d53-4055-9837-6aa966299175"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GetCoordinates", "[", 
+  RowBox[{"step4", ",", 
+   RowBox[{"YDistanceOption", "\[Rule]", 
+    RowBox[{"-", "1.4"}]}], ",", 
+   RowBox[{"XDistanceOption", "\[Rule]", 
+    RowBox[{"-", "1.3"}]}], ",", 
+   RowBox[{"WeightsOption", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "1", ",", "1"}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8145522206721954`*^9, 3.8145522253905625`*^9}},
+ CellLabel->
+  "In[1294]:=",ExpressionUUID->"6351a84a-5599-4e3f-b6ea-0076db2da0ba"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "GetCoordinates","option",
+   "\"\\nValue \\!\\(\\*RowBox[{\\\"-\\\", \\\"1.4`\\\"}]\\) is not positive \
+real.\"",2,1294,43,31939235564326273687,"Local",
+   "MethodSugiyama`GetCoordinates"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{{3.8145522216251993`*^9, 3.8145522550053926`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[1294]:=",ExpressionUUID->"9e5c8f46-17fe-4126-8a62-27df3ca3cda9"],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{{3.81455222164087*^9, 3.8145522550210457`*^9}},
+ CellLabel->
+  "Out[1294]=",ExpressionUUID->"3a5aab75-ef2a-4c69-9d7c-8372c16ff83e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GetCoordinates", "[", 
+  RowBox[{"step4", ",", 
+   RowBox[{"YDistanceOption", "\[Rule]", "1.3"}], ",", 
+   RowBox[{"XDistanceOption", "\[Rule]", "1.8"}], ",", 
+   RowBox[{"WeightsOption", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"1.3", ",", "1", ",", "1"}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.814552260051914*^9, 3.8145522671452255`*^9}},
+ CellLabel->
+  "In[1295]:=",ExpressionUUID->"60a1bf90-35d6-438a-8c50-71b0f107e433"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "GetCoordinates","option2",
+   "\"\\n \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"1.3`\\\", \\\",\\\", \
+\\\"1\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}]\\) is not valid input weights. \
+Please write in this form: {w1, w2, w3}\"",2,1295,44,31939235564326273687,
+   "Local","MethodSugiyama`GetCoordinates"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.814552267426403*^9},
+ CellLabel->
+  "During evaluation of \
+In[1295]:=",ExpressionUUID->"f3795df0-648b-4c42-9458-25167bc6658d"],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{3.8145522674420295`*^9},
+ CellLabel->
+  "Out[1295]=",ExpressionUUID->"0ea68f17-5698-45f0-8400-a8d20d4ee223"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"step5", "=", 
+  RowBox[{"GetCoordinates", "[", 
+   RowBox[{"step4", ",", 
+    RowBox[{"YDistanceOption", "\[Rule]", "1"}], ",", 
+    RowBox[{"XDistanceOption", "\[Rule]", "1"}], ",", 
+    RowBox[{"WeightsOption", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", "1"}], "}"}]}]}], "]"}]}]], "Input",
+ CellLabel->
+  "In[1296]:=",ExpressionUUID->"386e87ed-4285-4a87-bd2a-13d2fe6a4ff4"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"acyclic graph\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "5"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"4", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"5", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "9"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"feedback set\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"3", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "6"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"9", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "2"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"graph with dummies\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[DirectedEdge]", "2"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "5"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "10"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"3", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"4", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"5", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "1"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "7"}], ",", 
+      RowBox[{"8", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "11"}], ",", 
+      RowBox[{"11", "\[DirectedEdge]", "4"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "13"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "14"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "12"}], ",", 
+      RowBox[{"10", "\[DirectedEdge]", "15"}], ",", 
+      RowBox[{"12", "\[DirectedEdge]", "13"}], ",", 
+      RowBox[{"13", "\[DirectedEdge]", "14"}], ",", 
+      RowBox[{"14", "\[DirectedEdge]", "15"}], ",", 
+      RowBox[{"15", "\[DirectedEdge]", "9"}], ",", 
+      RowBox[{"2", "\[DirectedEdge]", "17"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "16"}], ",", 
+      RowBox[{"16", "\[DirectedEdge]", "17"}], ",", 
+      RowBox[{"17", "\[DirectedEdge]", "8"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "18"}], ",", 
+      RowBox[{"1", "\[DirectedEdge]", "19"}], ",", 
+      RowBox[{"18", "\[DirectedEdge]", "19"}], ",", 
+      RowBox[{"19", "\[DirectedEdge]", "20"}], ",", 
+      RowBox[{"20", "\[DirectedEdge]", "3"}], ",", 
+      RowBox[{"6", "\[DirectedEdge]", "21"}], ",", 
+      RowBox[{"21", "\[DirectedEdge]", "22"}], ",", 
+      RowBox[{"22", "\[DirectedEdge]", "10"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"layers with dummies\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", "6", "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "21", ",", "18", ",", "12"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "5", ",", "11", ",", "16", ",", "2", ",", "22", ",", "19", ",", "13"}],
+        "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"4", ",", "17", ",", "10", ",", "20", ",", "14"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"8", ",", "3", ",", "15"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"7", ",", "9"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"\<\"coords\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"6", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "4"}], ",", 
+         RowBox[{"-", "1"}]}], "}"}]}], ",", 
+      RowBox[{"1", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "3"}], ",", 
+         RowBox[{"-", "2"}]}], "}"}]}], ",", 
+      RowBox[{"21", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "4"}], ",", 
+         RowBox[{"-", "2"}]}], "}"}]}], ",", 
+      RowBox[{"18", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "5"}], ",", 
+         RowBox[{"-", "2"}]}], "}"}]}], ",", 
+      RowBox[{"12", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "6"}], ",", 
+         RowBox[{"-", "2"}]}], "}"}]}], ",", 
+      RowBox[{"5", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", 
+         RowBox[{"-", "3"}]}], "}"}]}], ",", 
+      RowBox[{"11", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "1"}], ",", 
+         RowBox[{"-", "3"}]}], "}"}]}], ",", 
+      RowBox[{"16", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "2"}], ",", 
+         RowBox[{"-", "3"}]}], "}"}]}], ",", 
+      RowBox[{"2", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "3"}], ",", 
+         RowBox[{"-", "3"}]}], "}"}]}], ",", 
+      RowBox[{"22", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "4"}], ",", 
+         RowBox[{"-", "3"}]}], "}"}]}], ",", 
+      RowBox[{"19", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "5"}], ",", 
+         RowBox[{"-", "3"}]}], "}"}]}], ",", 
+      RowBox[{"13", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "6"}], ",", 
+         RowBox[{"-", "3"}]}], "}"}]}], ",", 
+      RowBox[{"4", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "2"}], ",", 
+         RowBox[{"-", "4"}]}], "}"}]}], ",", 
+      RowBox[{"17", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "3"}], ",", 
+         RowBox[{"-", "4"}]}], "}"}]}], ",", 
+      RowBox[{"10", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "4"}], ",", 
+         RowBox[{"-", "4"}]}], "}"}]}], ",", 
+      RowBox[{"20", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "5"}], ",", 
+         RowBox[{"-", "4"}]}], "}"}]}], ",", 
+      RowBox[{"14", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "6"}], ",", 
+         RowBox[{"-", "4"}]}], "}"}]}], ",", 
+      RowBox[{"8", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "3"}], ",", 
+         RowBox[{"-", "5"}]}], "}"}]}], ",", 
+      RowBox[{"3", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "4"}], ",", 
+         RowBox[{"-", "5"}]}], "}"}]}], ",", 
+      RowBox[{"15", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "5"}], ",", 
+         RowBox[{"-", "5"}]}], "}"}]}], ",", 
+      RowBox[{"7", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "3"}], ",", 
+         RowBox[{"-", "6"}]}], "}"}]}], ",", 
+      RowBox[{"9", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "4"}], ",", 
+         RowBox[{"-", "6"}]}], "}"}]}]}], "}"}]}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.814552278328435*^9},
+ CellLabel->
+  "Out[1296]=",ExpressionUUID->"bdc58146-4a10-4066-a091-fbbd98f6d115"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["6. \:0418\:0442\:043e\:0433\:043e\:0432\:0430\:044f \:0444\:0443\:043d\
+\:043a\:0446\:0438\:044f", "Chapter",
+ CellChangeTimes->{{3.8145522851873837`*^9, 
+  3.8145522928742943`*^9}},ExpressionUUID->"a915d30e-21f9-4fc0-a60b-\
+b65519639e62"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"input", "=", 
+   RowBox[{"<|", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"\"\<GetDag\>\"", "\[Rule]", 
+      RowBox[{"<|", 
+       RowBox[{"\"\<ApproachOption\>\"", "\[Rule]", "\"\<Cycle Removal\>\""}],
+        "|>"}]}], ",", " ", "\[IndentingNewLine]", 
+     RowBox[{"\"\<GetLayering\>\"", "\[Rule]", " ", 
+      RowBox[{"<|", 
+       RowBox[{
+        RowBox[{"\"\<ApproachOption\>\"", "\[Rule]", "\"\<Longest Path\>\""}],
+         ",", "\[IndentingNewLine]", "                                    ", 
+        RowBox[{"\"\<ImprovmentOption\>\"", "\[Rule]", "False"}]}], "|>"}]}], 
+     ",", "\[IndentingNewLine]", 
+     RowBox[{"\"\<AddDummyVertices\>\"", "\[Rule]", 
+      RowBox[{"<|", 
+       RowBox[{"\"\<ApproachOption\>\"", "\[Rule]", "\"\<Cut\>\""}], "|>"}]}],
+      ",", "\[IndentingNewLine]", 
+     RowBox[{"\"\<GetVertexOrder\>\"", "\[Rule]", 
+      RowBox[{"<|", 
+       RowBox[{"\"\<ApproachOption\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<Barycenter\>\"", ",", "5"}], "}"}]}], "|>"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<GetCoordinates\>\"", "\[Rule]", " ", 
+      RowBox[{"<|", 
+       RowBox[{
+        RowBox[{"\"\<YDistanceOption\>\"", "\[Rule]", "1"}], ",", 
+        "\[IndentingNewLine]", "                                           ", 
+        RowBox[{"\"\<XDistanceOption\>\"", "\[Rule]", "1.5"}], ",", 
+        "\[IndentingNewLine]", "                                            ", 
+        RowBox[{"\"\<WeightsOption\>\"", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "1", ",", "1"}], "}"}]}]}], "|>"}]}]}], 
+    "\[IndentingNewLine]", "|>"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"res", "=", 
+  RowBox[{"MyLayeredGraphPlot", "[", 
+   RowBox[{"g", ",", "input", ",", 
+    RowBox[{"ApproachOption", "\[Rule]", "\"\<WM\>\""}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.8145465260600452`*^9, 3.8145465466381845`*^9}, {
+  3.8145468161685247`*^9, 3.814546842386359*^9}, {3.814548962499171*^9, 
+  3.8145489626036987`*^9}, {3.8145498106877966`*^9, 3.8145498137032137`*^9}, {
+  3.814549851194624*^9, 3.8145498980740423`*^9}, {3.814550291676026*^9, 
+  3.814550303259119*^9}, {3.81455048331504*^9, 3.81455048631483*^9}, {
+  3.814550545682773*^9, 3.8145505902765603`*^9}, {3.814550626720127*^9, 
+  3.814550633516035*^9}, {3.8145507866479454`*^9, 3.8145508102100487`*^9}, {
+  3.8145514784105597`*^9, 3.8145514900194454`*^9}, {3.814552178604098*^9, 
+  3.8145522035017977`*^9}, {3.8145523050296974`*^9, 3.8145523200329027`*^9}},
+ CellLabel->
+  "In[1305]:=",ExpressionUUID->"9afa795f-34cc-4a0c-89b9-1c4feb851f1b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Done GetDag\"\>"], "Print",
+ CellChangeTimes->{{3.8145507979439907`*^9, 3.814550814287855*^9}, {
+  3.8145514805978546`*^9, 3.8145514905975223`*^9}, {3.814552174469544*^9, 
+  3.8145522038767204`*^9}, {3.8145523062952356`*^9, 3.8145523203453264`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[1305]:=",ExpressionUUID->"c332951f-d77f-4259-9dc1-fd15da0dfba5"],
+
+Cell[BoxData["\<\"Done GetLayering\"\>"], "Print",
+ CellChangeTimes->{{3.8145507979439907`*^9, 3.814550814287855*^9}, {
+  3.8145514805978546`*^9, 3.8145514905975223`*^9}, {3.814552174469544*^9, 
+  3.8145522038767204`*^9}, {3.8145523062952356`*^9, 3.8145523203453264`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[1305]:=",ExpressionUUID->"f6af2754-c502-4021-b431-be366611192b"],
+
+Cell[BoxData["\<\"Done GetAddDummyVertics\"\>"], "Print",
+ CellChangeTimes->{{3.8145507979439907`*^9, 3.814550814287855*^9}, {
+  3.8145514805978546`*^9, 3.8145514905975223`*^9}, {3.814552174469544*^9, 
+  3.8145522038767204`*^9}, {3.8145523062952356`*^9, 3.81455232036095*^9}},
+ CellLabel->
+  "During evaluation of \
+In[1305]:=",ExpressionUUID->"1b12c797-e6f7-462b-b866-7a84c589735f"],
+
+Cell[BoxData["\<\"Done GetVertexOrder\"\>"], "Print",
+ CellChangeTimes->{{3.8145507979439907`*^9, 3.814550814287855*^9}, {
+  3.8145514805978546`*^9, 3.8145514905975223`*^9}, {3.814552174469544*^9, 
+  3.8145522038767204`*^9}, {3.8145523062952356`*^9, 3.81455232036095*^9}},
+ CellLabel->
+  "During evaluation of \
+In[1305]:=",ExpressionUUID->"daafaf52-9d69-4742-b0d0-a06fcaa3439a"],
+
+Cell[BoxData["\<\"Done GetCoords\"\>"], "Print",
+ CellChangeTimes->{{3.8145507979439907`*^9, 3.814550814287855*^9}, {
+  3.8145514805978546`*^9, 3.8145514905975223`*^9}, {3.814552174469544*^9, 
+  3.8145522038767204`*^9}, {3.8145523062952356`*^9, 3.81455232036095*^9}},
+ CellLabel->
+  "During evaluation of \
+In[1305]:=",ExpressionUUID->"d963fc44-d0e8-40a9-976a-6892cfa8e2bf"]
+}, Open  ]],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 2, 5, 4, 10, 3, 7, 9, 8, 6, 11, 13, 14, 12, 15, 17, 16, 18, 19,
+       20, 21, 22}, {{{1, 2}, {1, 3}, {2, 4}, {2, 5}, {6, 7}, {6, 8}, {4, 
+       9}, {3, 4}, {10, 1}, {9, 7}, {9, 8}, {5, 6}, {5, 9}, {1, 11}, {11, 
+       4}, {1, 12}, {2, 13}, {10, 14}, {5, 15}, {14, 12}, {12, 13}, {13, 
+       15}, {15, 8}, {2, 16}, {1, 17}, {17, 16}, {16, 9}, {10, 18}, {1, 19}, {
+       18, 19}, {19, 20}, {20, 6}, {10, 21}, {21, 22}, {22, 5}}, Null}, {
+      ImageSize -> Medium, 
+       VertexCoordinates -> {{-4.5, -2}, {-4.5, -3}, {
+         0., -3}, {-1.5, -4}, {-6., -4}, {-6., -5}, {-4.5, -6}, {-6., -6}, \
+{-4.5, -5}, {-6., -1}, {-1.5, -3}, {-9., -3}, {-9., -4}, {-9., -2}, {-7.5, \
+-5}, {-4.5, -4}, {-3., -3}, {-7.5, -2}, {-7.5, -3}, {-7.5, -4}, {-6., -2}, \
+{-6., -3}}, VertexLabels -> {"Name"}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[0.017192853646598137`], 
+        ArrowBox[{{-4.5, -2.}, {-4.5, -3.}}, 0.061894273127753294`], 
+        ArrowBox[{{-4.5, -2.}, {0., -3.}}, 0.061894273127753294`], 
+        ArrowBox[{{-4.5, -2.}, {-1.5, -3.}}, 0.061894273127753294`], 
+        ArrowBox[{{-4.5, -2.}, {-9., -3.}}, 0.061894273127753294`], 
+        ArrowBox[{{-4.5, -2.}, {-3., -3.}}, 0.061894273127753294`], 
+        ArrowBox[{{-4.5, -2.}, {-7.5, -3.}}, 0.061894273127753294`], 
+        ArrowBox[{{-4.5, -3.}, {-1.5, -4.}}, 0.061894273127753294`], 
+        ArrowBox[{{-4.5, -3.}, {-6., -4.}}, 0.061894273127753294`], 
+        ArrowBox[{{-4.5, -3.}, {-9., -4.}}, 0.061894273127753294`], 
+        ArrowBox[{{-4.5, -3.}, {-4.5, -4.}}, 0.061894273127753294`], 
+        ArrowBox[{{0., -3.}, {-1.5, -4.}}, 0.061894273127753294`], 
+        ArrowBox[{{-1.5, -4.}, {-4.5, -5.}}, 0.061894273127753294`], 
+        ArrowBox[{{-6., -4.}, {-6., -5.}}, 0.061894273127753294`], 
+        ArrowBox[{{-6., -4.}, {-4.5, -5.}}, 0.061894273127753294`], 
+        ArrowBox[{{-6., -4.}, {-7.5, -5.}}, 0.061894273127753294`], 
+        ArrowBox[{{-6., -5.}, {-4.5, -6.}}, 0.061894273127753294`], 
+        ArrowBox[{{-6., -5.}, {-6., -6.}}, 0.061894273127753294`], 
+        ArrowBox[{{-4.5, -5.}, {-4.5, -6.}}, 0.061894273127753294`], 
+        ArrowBox[{{-4.5, -5.}, {-6., -6.}}, 0.061894273127753294`], 
+        ArrowBox[{{-6., -1.}, {-4.5, -2.}}, 0.061894273127753294`], 
+        ArrowBox[{{-6., -1.}, {-9., -2.}}, 0.061894273127753294`], 
+        ArrowBox[{{-6., -1.}, {-7.5, -2.}}, 0.061894273127753294`], 
+        ArrowBox[{{-6., -1.}, {-6., -2.}}, 0.061894273127753294`], 
+        ArrowBox[{{-1.5, -3.}, {-1.5, -4.}}, 0.061894273127753294`], 
+        ArrowBox[{{-9., -3.}, {-9., -4.}}, 0.061894273127753294`], 
+        ArrowBox[{{-9., -4.}, {-7.5, -5.}}, 0.061894273127753294`], 
+        ArrowBox[{{-9., -2.}, {-9., -3.}}, 0.061894273127753294`], 
+        ArrowBox[{{-7.5, -5.}, {-6., -6.}}, 0.061894273127753294`], 
+        ArrowBox[{{-4.5, -4.}, {-4.5, -5.}}, 0.061894273127753294`], 
+        ArrowBox[{{-3., -3.}, {-4.5, -4.}}, 0.061894273127753294`], 
+        ArrowBox[{{-7.5, -2.}, {-7.5, -3.}}, 0.061894273127753294`], 
+        ArrowBox[{{-7.5, -3.}, {-7.5, -4.}}, 0.061894273127753294`], 
+        ArrowBox[{{-7.5, -4.}, {-6., -5.}}, 0.061894273127753294`], 
+        ArrowBox[{{-6., -2.}, {-6., -3.}}, 0.061894273127753294`], 
+        ArrowBox[{{-6., -3.}, {-6., -4.}}, 0.061894273127753294`]}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {DiskBox[{-4.5, -2.}, 0.061894273127753294], 
+         InsetBox["1", 
+          Offset[{2, 2}, {-4.438105726872247, -1.9381057268722468}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{-4.5, -3.}, 0.061894273127753294], 
+         InsetBox["2", 
+          Offset[{2, 2}, {-4.438105726872247, -2.9381057268722466}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {DiskBox[{0., -3.}, 0.061894273127753294], 
+         InsetBox["5", 
+          Offset[{2, 2}, {0.061894273127753294, -2.9381057268722466}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{-1.5, -4.}, 0.061894273127753294], 
+         InsetBox["4", 
+          Offset[{2, 2}, {-1.4381057268722468, -3.9381057268722466}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {DiskBox[{-6., -4.}, 0.061894273127753294],
+          InsetBox["10", 
+          Offset[{2, 2}, {-5.938105726872247, -3.9381057268722466}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {DiskBox[{-6., -5.}, 0.061894273127753294],
+          InsetBox["3", 
+          Offset[{2, 2}, {-5.938105726872247, -4.938105726872247}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{-4.5, -6.}, 0.061894273127753294], 
+         InsetBox["7", 
+          Offset[{2, 2}, {-4.438105726872247, -5.938105726872247}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {DiskBox[{-6., -6.}, 0.061894273127753294],
+          InsetBox["9", 
+          Offset[{2, 2}, {-5.938105726872247, -5.938105726872247}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{-4.5, -5.}, 0.061894273127753294], 
+         InsetBox["8", 
+          Offset[{2, 2}, {-4.438105726872247, -4.938105726872247}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {DiskBox[{-6., -1.}, 0.061894273127753294],
+          InsetBox["6", 
+          Offset[{2, 2}, {-5.938105726872247, -0.9381057268722467}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{-1.5, -3.}, 0.061894273127753294], 
+         InsetBox["11", 
+          Offset[{2, 2}, {-1.4381057268722468, -2.9381057268722466}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {DiskBox[{-9., -3.}, 0.061894273127753294],
+          InsetBox["13", 
+          Offset[{2, 2}, {-8.938105726872246, -2.9381057268722466}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {DiskBox[{-9., -4.}, 0.061894273127753294],
+          InsetBox["14", 
+          Offset[{2, 2}, {-8.938105726872246, -3.9381057268722466}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {DiskBox[{-9., -2.}, 0.061894273127753294],
+          InsetBox["12", 
+          Offset[{2, 2}, {-8.938105726872246, -1.9381057268722468}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{-7.5, -5.}, 0.061894273127753294], 
+         InsetBox["15", 
+          Offset[{2, 2}, {-7.438105726872247, -4.938105726872247}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{-4.5, -4.}, 0.061894273127753294], 
+         InsetBox["17", 
+          Offset[{2, 2}, {-4.438105726872247, -3.9381057268722466}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {DiskBox[{-3., -3.}, 0.061894273127753294],
+          InsetBox["16", 
+          Offset[{2, 2}, {-2.9381057268722466, -2.9381057268722466}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{-7.5, -2.}, 0.061894273127753294], 
+         InsetBox["18", 
+          Offset[{2, 2}, {-7.438105726872247, -1.9381057268722468}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{-7.5, -3.}, 0.061894273127753294], 
+         InsetBox["19", 
+          Offset[{2, 2}, {-7.438105726872247, -2.9381057268722466}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{-7.5, -4.}, 0.061894273127753294], 
+         InsetBox["20", 
+          Offset[{2, 2}, {-7.438105726872247, -3.9381057268722466}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {DiskBox[{-6., -2.}, 0.061894273127753294],
+          InsetBox["21", 
+          Offset[{2, 2}, {-5.938105726872247, -1.9381057268722468}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {DiskBox[{-6., -3.}, 0.061894273127753294],
+          InsetBox["22", 
+          Offset[{2, 2}, {-5.938105726872247, -2.9381057268722466}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FormatType->TraditionalForm,
+  FrameTicks->None,
+  ImageSize->{512.2222222222222, Automatic}]], "Output",
+ CellChangeTimes->{{3.814546520409815*^9, 3.814546547055961*^9}, {
+   3.814546810366801*^9, 3.814546843148919*^9}, {3.814547898662572*^9, 
+   3.8145479023878007`*^9}, {3.8145486757536736`*^9, 3.81454868017845*^9}, 
+   3.8145487187031446`*^9, {3.814548761472003*^9, 3.8145487850357437`*^9}, 
+   3.814548816740407*^9, {3.8145489586416254`*^9, 3.8145489628640547`*^9}, 
+   3.8145490133684144`*^9, {3.8145498247398353`*^9, 3.8145498985270796`*^9}, {
+   3.814550300515093*^9, 3.8145503035436473`*^9}, {3.8145504802577944`*^9, 
+   3.8145504866428804`*^9}, {3.814550538698862*^9, 3.8145506638888674`*^9}, {
+   3.81455078727287*^9, 3.814550814397976*^9}, {3.81455148070597*^9, 
+   3.814551490675665*^9}, {3.8145521745575*^9, 3.8145522040025816`*^9}, {
+   3.814552306373356*^9, 3.814552320422741*^9}},
+ CellLabel->
+  "Out[1306]=",ExpressionUUID->"87d78b5c-a40b-4588-ac99-80d5be0e1f75"]
+}, Open  ]],
+
+Cell[BoxData["Graph"], "Input",
+ CellChangeTimes->{{3.8145524108238764`*^9, 
+  3.8145524119644756`*^9}},ExpressionUUID->"6fe54974-d561-454c-b20f-\
+4a49701881e1"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{958, 998},
+WindowMargins->{{Automatic, -967}, {Automatic, 0}},
+Magnification:>0.9 Inherited,
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 152, 3, 87, "Title",ExpressionUUID->"22122312-19ba-4fb5-b711-2fd584271ea1"],
+Cell[735, 27, 326, 7, 26, "Input",ExpressionUUID->"396f3990-3844-47d9-b1b3-3cd70515a058"],
+Cell[1064, 36, 230, 4, 26, "Input",ExpressionUUID->"ea79bd08-0376-4f7d-b1b4-2823bf8ca3c3"],
+Cell[CellGroupData[{
+Cell[1319, 44, 151, 3, 26, "Input",ExpressionUUID->"4e80800c-f438-453b-ba6f-e35656cdc096"],
+Cell[1473, 49, 10597, 229, 120, "Output",ExpressionUUID->"c073831a-7916-49c1-aa2f-53bff29a32cc"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12119, 284, 147, 3, 87, "Title",ExpressionUUID->"520984f8-74b3-4040-b2a1-1b6dffcbd9d4"],
+Cell[CellGroupData[{
+Cell[12291, 291, 160, 3, 62, "Chapter",ExpressionUUID->"78b8c4ce-a83c-43a9-8062-035a3834bcbc"],
+Cell[12454, 296, 254, 6, 26, "Input",ExpressionUUID->"3fa0542b-f5ce-4a27-91cb-b40a9d8dce21"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12745, 307, 220, 4, 62, "Chapter",ExpressionUUID->"6af3da3b-7f2e-41f9-bb2e-5bceffc0e26c"],
+Cell[CellGroupData[{
+Cell[12990, 315, 368, 7, 26, "Input",ExpressionUUID->"94a2fd54-e7dd-4249-a542-5e27d4a1ba85"],
+Cell[13361, 324, 747, 15, 126, "Message",ExpressionUUID->"7c2ecce1-7ab9-48fc-bc66-d279e1e8a656"],
+Cell[14111, 341, 282, 5, 30, "Output",ExpressionUUID->"242f5d9a-3905-4344-a42c-33a3eab81628"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14430, 351, 349, 8, 26, "Input",ExpressionUUID->"0189b5b2-682f-4f1e-9cee-5d5c2b961e08"],
+Cell[14782, 361, 1876, 40, 49, "Output",ExpressionUUID->"fc7a5817-eedb-4ae1-b09d-729346ccf7f7"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16695, 406, 322, 8, 26, "Input",ExpressionUUID->"570cdf44-fd9a-4459-8cb5-1aa464904202"],
+Cell[17020, 416, 1856, 40, 49, "Output",ExpressionUUID->"602acb7e-7d5c-45f6-9ca7-a214cf84dd3d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18913, 461, 346, 8, 26, "Input",ExpressionUUID->"21f03c94-d5b3-4a78-9105-c5f5155cb461"],
+Cell[19262, 471, 1852, 40, 67, "Output",ExpressionUUID->"819db2a4-b991-415f-83c6-b890fd312206"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21151, 516, 332, 8, 26, "Input",ExpressionUUID->"e1fcfcb7-3f92-4153-abdf-2984eb02b9b0"],
+Cell[21486, 526, 1854, 40, 49, "Output",ExpressionUUID->"a9cde77c-8d5c-428b-8a14-1f1e2e19c358"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23377, 571, 406, 10, 26, "Input",ExpressionUUID->"4c4d0733-9633-4239-9c3f-ad962d2968ae"],
+Cell[23786, 583, 1848, 40, 49, "Output",ExpressionUUID->"1a961d88-fca3-46a4-9153-2d2a17bfbd63"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25671, 628, 314, 7, 26, "Input",ExpressionUUID->"e7c27667-c3f3-4d76-b182-a8dc7217fd07"],
+Cell[25988, 637, 1854, 40, 49, "Output",ExpressionUUID->"3aec3d52-dc26-4115-ab2e-4f4904bd9bdd"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27879, 682, 341, 7, 26, "Input",ExpressionUUID->"a070f653-6e47-4398-8272-7a1d8c23faa0"],
+Cell[28223, 691, 1856, 40, 67, "Output",ExpressionUUID->"71613f19-9641-4a2b-b36d-d323c6b5f3dd"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[30128, 737, 212, 4, 62, "Chapter",ExpressionUUID->"27afe02c-45bd-4901-8371-5b5885c856aa"],
+Cell[CellGroupData[{
+Cell[30365, 745, 350, 7, 26, "Input",ExpressionUUID->"ad46a7a0-a448-4f8a-9a4f-538ca5bf04fc"],
+Cell[30718, 754, 695, 13, 66, "Message",ExpressionUUID->"1ea2bee5-4ca3-4f88-bb37-78a3ba53e32f"],
+Cell[31416, 769, 312, 5, 30, "Output",ExpressionUUID->"ccee1cfb-2e58-42ce-a24f-b7de7d79bcb1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[31765, 779, 458, 10, 26, "Input",ExpressionUUID->"7b83387a-fbaf-4ab5-b334-00fd8cfa85cd"],
+Cell[32226, 791, 2304, 54, 67, "Output",ExpressionUUID->"95a8b1ab-b73b-4868-92a2-b072a8ce51fc"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[34567, 850, 295, 6, 26, "Input",ExpressionUUID->"b4d511f1-d24a-4684-98b6-89c8a3ef411a"],
+Cell[34865, 858, 2246, 52, 67, "Output",ExpressionUUID->"1ac3a0d4-91af-4b0c-94bb-fa1cb1271cab"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37148, 915, 355, 8, 26, "Input",ExpressionUUID->"cba1afe9-7bf8-4375-941e-884ad5faf69c"],
+Cell[37506, 925, 2244, 52, 67, "Output",ExpressionUUID->"99adb111-3d4c-4300-b160-6dc35c29a606"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39787, 982, 441, 10, 26, "Input",ExpressionUUID->"9fe5c47f-f436-4040-bd7f-e4bdfbebda05"],
+Cell[40231, 994, 2277, 53, 67, "Output",ExpressionUUID->"ac64b981-192d-4480-a587-0289380a6a0f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[42545, 1052, 454, 10, 26, "Input",ExpressionUUID->"be50d2ac-1746-4991-ab91-274287491172"],
+Cell[43002, 1064, 616, 12, 51, "Message",ExpressionUUID->"16715ca9-ad67-4802-afc1-e34759f160e5"],
+Cell[43621, 1078, 256, 4, 30, "Output",ExpressionUUID->"863b1bac-2d5e-4c07-8851-8cc69cbcf01f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[43914, 1087, 448, 10, 26, "Input",ExpressionUUID->"c5df6e57-988f-45bc-bde6-fcd7682b058a"],
+Cell[44365, 1099, 2177, 50, 67, "Output",ExpressionUUID->"224467ce-881b-448f-85c7-d05649477c64"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[46579, 1154, 476, 10, 26, "Input",ExpressionUUID->"c04c660d-78a9-4beb-93b9-d6e52c1d0521"],
+Cell[47058, 1166, 2226, 52, 67, "Output",ExpressionUUID->"925a308e-e21c-46d0-8500-d39832984cc7"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[49333, 1224, 166, 3, 62, "Chapter",ExpressionUUID->"e2ad727c-92c4-4a1b-986b-40994ef6eefa"],
+Cell[CellGroupData[{
+Cell[49524, 1231, 356, 7, 26, "Input",ExpressionUUID->"814c883a-f168-442a-bc43-44c4383ddba9"],
+Cell[49883, 1240, 572, 12, 51, "Message",ExpressionUUID->"30f9939f-e437-4776-af34-d6afbae2d573"],
+Cell[50458, 1254, 208, 4, 30, "Output",ExpressionUUID->"c97e8301-999d-4ec0-b5be-bec59f2c1998"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[50703, 1263, 349, 7, 26, "Input",ExpressionUUID->"b1f725c5-ebc7-4e34-9f31-77a04b20760b"],
+Cell[51055, 1272, 4983, 107, 157, "Output",ExpressionUUID->"469a4ccd-9df0-44a7-8caf-dc117fe00223"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[56075, 1384, 428, 9, 26, "Input",ExpressionUUID->"47abf77d-1bd8-4869-92f3-3634ec11285a"],
+Cell[56506, 1395, 4825, 108, 139, "Output",ExpressionUUID->"5a86a87a-ee56-4ebf-b5db-77b623466ef4"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[61380, 1509, 164, 3, 62, "Chapter",ExpressionUUID->"63f534e7-7b03-44df-b09b-2b0f5d96898f"],
+Cell[CellGroupData[{
+Cell[61569, 1516, 297, 6, 26, "Input",ExpressionUUID->"edc2720b-0e5a-478d-b3f2-89a8559a5a0f"],
+Cell[61869, 1524, 623, 12, 66, "Message",ExpressionUUID->"9ac7f080-a405-42e4-941c-a3903ddda176"],
+Cell[62495, 1538, 187, 3, 30, "Output",ExpressionUUID->"fed2b3c9-6e43-4c08-8e93-88ab571f0932"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[62719, 1546, 309, 7, 26, "Input",ExpressionUUID->"9238bbad-0a22-4471-a8ec-57518e574bd6"],
+Cell[63031, 1555, 4305, 93, 139, "Output",ExpressionUUID->"2a54e58b-46db-4ac1-b479-aba014efe1f7"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[67373, 1653, 287, 7, 26, "Input",ExpressionUUID->"e94900aa-e6d2-43f2-9632-805c395831e2"],
+Cell[67663, 1662, 4303, 93, 139, "Output",ExpressionUUID->"18b3aede-28ab-42f9-955c-cc3eba1d59d6"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[72003, 1760, 387, 9, 26, "Input",ExpressionUUID->"4efa78ac-36b2-434f-b831-e579db81f603"],
+Cell[72393, 1771, 4329, 93, 139, "Output",ExpressionUUID->"e45a38e9-31df-4191-b11b-312349269dea"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[76771, 1870, 164, 3, 62, "Chapter",ExpressionUUID->"694a4466-3aa2-4138-9ed3-34eeba3b3c88"],
+Cell[CellGroupData[{
+Cell[76960, 1877, 477, 11, 26, "Input",ExpressionUUID->"cd4d0866-bb5c-48e7-a242-37e71905296a"],
+Cell[77440, 1890, 439, 10, 36, "Message",ExpressionUUID->"df20fbe4-329e-4050-b8d6-f52cfba4c20f"],
+Cell[77882, 1902, 240, 5, 30, "Output",ExpressionUUID->"c07ea11a-5d53-4055-9837-6aa966299175"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[78159, 1912, 503, 12, 26, "Input",ExpressionUUID->"6351a84a-5599-4e3f-b6ea-0076db2da0ba"],
+Cell[78665, 1926, 441, 10, 36, "Message",ExpressionUUID->"9e5c8f46-17fe-4126-8a62-27df3ca3cda9"],
+Cell[79109, 1938, 186, 3, 30, "Output",ExpressionUUID->"3a5aab75-ef2a-4c69-9d7c-8372c16ff83e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[79332, 1946, 463, 10, 26, "Input",ExpressionUUID->"60a1bf90-35d6-438a-8c50-71b0f107e433"],
+Cell[79798, 1958, 522, 11, 36, "Message",ExpressionUUID->"f3795df0-648b-4c42-9458-25167bc6658d"],
+Cell[80323, 1971, 163, 3, 30, "Output",ExpressionUUID->"0ea68f17-5698-45f0-8400-a8d20d4ee223"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[80523, 1979, 422, 10, 26, "Input",ExpressionUUID->"386e87ed-4285-4a87-bd2a-13d2fe6a4ff4"],
+Cell[80948, 1991, 7616, 204, 175, "Output",ExpressionUUID->"bdc58146-4a10-4066-a091-fbbd98f6d115"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[88613, 2201, 245, 4, 62, "Chapter",ExpressionUUID->"a915d30e-21f9-4fc0-a60b-b65519639e62"],
+Cell[CellGroupData[{
+Cell[88883, 2209, 2628, 51, 207, "Input",ExpressionUUID->"9afa795f-34cc-4a0c-89b9-1c4feb851f1b"],
+Cell[CellGroupData[{
+Cell[91536, 2264, 374, 6, 21, "Print",ExpressionUUID->"c332951f-d77f-4259-9dc1-fd15da0dfba5"],
+Cell[91913, 2272, 379, 6, 21, "Print",ExpressionUUID->"f6af2754-c502-4021-b431-be366611192b"],
+Cell[92295, 2280, 383, 6, 21, "Print",ExpressionUUID->"1b12c797-e6f7-462b-b866-7a84c589735f"],
+Cell[92681, 2288, 379, 6, 21, "Print",ExpressionUUID->"daafaf52-9d69-4742-b0d0-a06fcaa3439a"],
+Cell[93063, 2296, 374, 6, 21, "Print",ExpressionUUID->"d963fc44-d0e8-40a9-976a-6892cfa8e2bf"]
+}, Open  ]],
+Cell[93452, 2305, 9332, 172, 288, "Output",ExpressionUUID->"87d78b5c-a40b-4588-ac99-80d5be0e1f75"]
+}, Open  ]],
+Cell[102799, 2480, 161, 3, 26, "Input",ExpressionUUID->"6fe54974-d561-454c-b20f-4a49701881e1"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

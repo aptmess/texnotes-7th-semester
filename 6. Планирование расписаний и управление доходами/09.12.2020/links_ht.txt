@@ -1,0 +1,3 @@
+https://github.com/industrial-ucn/jupyter-examples/blob/master/optimization/cvrp-gurobi.ipynb
+https://github.com/tkukka/Traveling_Santa
+https://github.com/Natosaichek/travelling-santa/blob/master/plan.py
